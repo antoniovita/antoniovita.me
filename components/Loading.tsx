@@ -2,12 +2,13 @@
 import { BarLoader } from "react-spinners";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 type LoadingProps = {
   fullScreen?: boolean;
   active?: boolean;
   transitionMs?: number;
-  color?: string;
   width?: number;
   height?: number;
 };
@@ -16,15 +17,22 @@ export default function Loading({
   fullScreen = true,
   active = true,
   transitionMs = 200,
-  color = "#111827",
   width = 220,
   height = 6,
 }: LoadingProps) {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const isDark = mounted && resolvedTheme === "dark";
+  const bgColor = isDark ? "rgba(0,0,0,0.92)" : "rgba(255,255,255,0.90)";
+  const barColor = isDark ? "#9B9FA6" : "#111827";
+
   const content = (
     <div className="flex flex-col items-center gap-3">
-      <Image src="/signature.png" width={180} height={100} alt="Home" />
+      <Image src="/signature.png" width={180} height={100} alt="Home" className={isDark ? "invert" : ""} />
       <div aria-hidden="true">
-        <BarLoader color={color} loading={active} width={width} height={height} />
+        <BarLoader color={barColor} loading={active} width={width} height={height} />
       </div>
     </div>
   );
@@ -34,20 +42,24 @@ export default function Loading({
   return (
     <AnimatePresence>
       {active && (
-        <motion.div
+        <div
           className="fixed inset-0 z-[9999] grid place-items-center"
-          initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-          animate={{ opacity: 1, backdropFilter: "blur(6px)" }}
-          exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-          transition={{ duration: transitionMs / 1000, ease: [0.4, 0, 0.2, 1] }}
           style={{
-            backgroundColor: "rgba(255,255,255,0.90)",
+            backgroundColor: bgColor,
+            backdropFilter: "blur(6px)",
             WebkitBackdropFilter: "blur(6px)",
             pointerEvents: "auto",
           }}
         >
-          {content}
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.96 }}
+            transition={{ duration: transitionMs / 1000, ease: [0.4, 0, 0.2, 1] }}
+          >
+            {content}
+          </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );

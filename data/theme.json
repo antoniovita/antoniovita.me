@@ -1,0 +1,30 @@
+{
+  "dark": {
+    "bg":            { "value": "#141414", "description": "Page background — inverted from light #ffffff" },
+    "surface":       { "value": "#141414", "description": "Cards, pills, dropdowns — inverted from light #f9fafb" },
+    "elevated":      { "value": "#141414", "description": "Active states, hover overlays — inverted from light #f3f4f6" },
+    "border":        { "value": "#2e2e2e", "description": "Dividers, pill borders — inverted from light #e5e7eb" },
+    "border-subtle": { "value": "#1e1e1e", "description": "Subtle borders — inverted from light #f3f4f6" },
+    "muted":         { "value": "rgba(255,255,255,0.55)", "description": "Secondary text, icons" },
+    "fg":            { "value": "#ffffff", "description": "Primary text — inverted from light #000000" },
+    "fg-muted":      { "value": "#c4c4c4", "description": "Secondary text — inverted from light #374151" },
+    "fg-subtle":     { "value": "#8c8c8c", "description": "Tertiary text — inverted from light #6b7280" },
+    "accent":        { "value": "#ffffff", "description": "Accent buttons background" },
+    "accent-fg":     { "value": "#141414", "description": "Accent buttons text" },
+    "overlay":       { "value": "rgba(0,0,0,0.60)", "description": "Modal backdrop" }
+  },
+  "light": {
+    "bg":          { "value": "#ffffff", "description": "Page background" },
+    "surface":     { "value": "#f9fafb", "description": "Cards, pills, dropdowns" },
+    "elevated":    { "value": "#f3f4f6", "description": "Active states, hover overlays" },
+    "border":      { "value": "#e5e7eb", "description": "Dividers, pill borders" },
+    "border-subtle": { "value": "#f3f4f6", "description": "Subtle borders, dashed lines" },
+    "muted":       { "value": "#6b7280", "description": "Secondary text, icons" },
+    "fg":          { "value": "#000000", "description": "Primary text" },
+    "fg-muted":    { "value": "#374151", "description": "Secondary text" },
+    "fg-subtle":   { "value": "#6b7280", "description": "Tertiary text, placeholders" },
+    "accent":      { "value": "#000000", "description": "Accent buttons background" },
+    "accent-fg":   { "value": "#ffffff", "description": "Accent buttons text" },
+    "overlay":     { "value": "rgba(0,0,0,0.60)", "description": "Modal backdrop" }
+  }
+}

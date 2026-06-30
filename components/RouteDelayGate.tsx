@@ -18,11 +18,12 @@ export default function RouteDelayGate({
   transitionMs = 200,
 }: RouteDelayGateProps) {
   const pathname = usePathname();
-  const [shouldRender, setShouldRender] = useState(delayMs > 0);
-  const [active, setActive] = useState(delayMs > 0);
+  const [shouldRender, setShouldRender] = useState(false);
+  const [active, setActive] = useState(false);
   const delayTimeoutRef = useRef<number | null>(null);
   const exitTimeoutRef = useRef<number | null>(null);
   const hasShownRef = useRef(false);
+  const isFirstRunRef = useRef(true);
 
   const normalizedDelayMs = useMemo(() => {
     if (!Number.isFinite(delayMs)) return 0;
@@ -35,20 +36,18 @@ export default function RouteDelayGate({
   }, [transitionMs]);
 
   useEffect(() => {
+    const isFirst = isFirstRunRef.current;
+    isFirstRunRef.current = false;
+
     if (!showOnRouteChange && hasShownRef.current) return;
     if (!showOnRouteChange) hasShownRef.current = true;
 
     if (delayTimeoutRef.current !== null) window.clearTimeout(delayTimeoutRef.current);
     if (exitTimeoutRef.current !== null) window.clearTimeout(exitTimeoutRef.current);
 
-    if (normalizedDelayMs <= 0) {
-      queueMicrotask(() => setActive(false));
-      if (normalizedTransitionMs <= 0) queueMicrotask(() => setShouldRender(false));
-      else exitTimeoutRef.current = window.setTimeout(() => setShouldRender(false), normalizedTransitionMs);
-      return;
-    }
+    if (normalizedDelayMs <= 0 || (!isFirst && !showOnRouteChange)) return;
 
-    queueMicrotask(() => setShouldRender(true));
+    setShouldRender(true);
     window.requestAnimationFrame(() => setActive(true));
 
     delayTimeoutRef.current = window.setTimeout(() => {
