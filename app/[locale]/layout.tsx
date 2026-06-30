@@ -4,7 +4,6 @@ import "../globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import RouteDelayGate from "@/components/RouteDelayGate";
-import ThemeProvider from "@/components/ThemeProvider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -91,14 +90,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${poppins.variable} antialiased bg-white dark:bg-dark-bg text-black dark:text-white`}>
+      <body className={`${poppins.variable} antialiased bg-white text-black`}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
-            <NavBar />
-            <RouteDelayGate delayMs={delayMs} showOnRouteChange={false} />
-            {children}
-            <Footer />
-          </ThemeProvider>
+          <NavBar />
+          <RouteDelayGate delayMs={delayMs} showOnRouteChange={false} />
+          {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

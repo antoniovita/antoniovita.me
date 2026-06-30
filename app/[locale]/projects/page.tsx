@@ -76,7 +76,7 @@ const Projects = () => {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   selectedCategory === category
                     ? "bg-theme-accent text-theme-accent-fg"
-                    : "bg-theme-bg border border-theme-border text-theme-fg-muted hover:bg-theme-surface dark:hover:bg-dark-elevated"
+                    : "bg-theme-bg border border-theme-border text-theme-fg-muted hover:bg-theme-surface"
                 }`}
               >
                 {category}
@@ -97,7 +97,7 @@ const Projects = () => {
                 exit={{ opacity: 0, y: 8 }}
                 whileHover={{ opacity: 0.92, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}
                 transition={{ duration: 0.25, delay: index * 0.04, ease: "easeOut" }}
-                className="bg-theme-bg dark:bg-dark-surface border border-theme-border rounded-2xl overflow-hidden"
+                className="bg-theme-bg border border-theme-border rounded-2xl overflow-hidden"
               >
                 <div className="relative h-40 bg-linear-to-br from-theme-elevated to-theme-surface overflow-hidden">
                   <Image
@@ -150,7 +150,7 @@ const Projects = () => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 border border-theme-border rounded-lg hover:bg-theme-surface dark:hover:bg-dark-elevated transition-colors text-xs font-medium text-theme-fg-muted"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 border border-theme-border rounded-lg hover:bg-theme-surface transition-colors text-xs font-medium text-theme-fg-muted"
                       >
                         <PiGithubLogo size={16} />
                         {t("code")}
@@ -227,13 +227,13 @@ const Projects = () => {
                 </div>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="p-2 hover:bg-theme-surface dark:hover:bg-dark-elevated rounded-lg transition-colors text-theme-fg"
+                  className="p-2 hover:bg-theme-surface rounded-lg transition-colors text-theme-fg"
                 >
                   <PiXBold size={24} />
                 </button>
               </div>
 
-              <div className="overflow-y-auto p-6 bg-theme-bg dark:bg-dark-surface">
+              <div className="overflow-y-auto p-6 bg-theme-bg">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <div className="space-y-6">
                     <div className="relative h-64 bg-linear-to-br from-theme-elevated to-theme-surface rounded-xl overflow-hidden">

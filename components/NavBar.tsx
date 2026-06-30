@@ -1,13 +1,12 @@
 "use client"
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PiHouseSimpleBold, PiUserCircleBold, PiBasketBold, PiCertificateBold, PiBookOpenBold, PiSunBold, PiMoonBold, PiGlobeBold, PiXBold, PiListBold } from "react-icons/pi";
+import { PiHouseSimpleBold, PiUserCircleBold, PiBasketBold, PiCertificateBold, PiBookOpenBold, PiGlobeBold, PiXBold, PiListBold } from "react-icons/pi";
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from "next/image";
 import NavControls from "@/components/NavControls";
 import { useTranslations, useLocale } from "next-intl";
-import { useTheme } from "next-themes";
 
 const languages = [
     { code: "en", label: "English", flag: "🇬🇧" },
@@ -20,12 +19,8 @@ const NavBar = () => {
     const router = useRouter();
     const [scrolled, setScrolled] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [mounted, setMounted] = useState(false);
     const t = useTranslations("nav");
     const locale = useLocale();
-    const { resolvedTheme, setTheme } = useTheme();
-
-    useEffect(() => setMounted(true), []);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 10);
@@ -64,19 +59,17 @@ const NavBar = () => {
         setSidebarOpen(false);
     };
 
-    const isDark = mounted && resolvedTheme === "dark";
-
     return (
         <>
             {/* ── desktop nav ── */}
-            <nav className={`hidden md:block fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${scrolled ? "bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md border-theme-border/80 shadow-sm" : "bg-white dark:bg-dark-bg border-theme-border"}`}>
+            <nav className={`hidden md:block fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md border-theme-border/80 shadow-sm" : "bg-white border-theme-border"}`}>
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex items-center justify-between py-4">
                         <Link href={`/${locale}`}>
-                            <Image src="/signature.png" width={230} height={100} alt="Home" className="dark:invert" />
+                            <Image src="/signature.png" width={230} height={100} alt="Home" />
                         </Link>
                         <div className="flex items-center gap-2">
-                            <div className="flex items-center gap-1 h-11 border border-theme-border bg-white dark:bg-dark-surface px-1.5 rounded-full">
+                            <div className="flex items-center gap-1 h-11 border border-theme-border bg-white px-1.5 rounded-full">
                                 {menuItems.map((item) => {
                                     const Icon = item.icon;
                                     const isActive = isActiveRoute(item.href);
@@ -89,7 +82,7 @@ const NavBar = () => {
                                             {isActive && (
                                                 <motion.div
                                                     layoutId="activeTab"
-                                                    className="absolute inset-0 bg-gray-100 dark:bg-dark-elevated border border-theme-border rounded-full"
+                                                    className="absolute inset-0 bg-gray-100 border border-theme-border rounded-full"
                                                     transition={{ type: "spring", stiffness: 360, damping: 32 }}
                                                 />
                                             )}
@@ -99,13 +92,13 @@ const NavBar = () => {
                                                 transition={{ type: "spring", stiffness: 340, damping: 24 }}
                                                 className="relative z-10"
                                             >
-                                                <Icon size={18} className={isActive ? "text-black dark:text-white" : "text-gray-500 dark:text-dark-muted group-hover:text-black dark:group-hover:text-white"} />
+                                                <Icon size={18} className={isActive ? "text-black" : "text-gray-500 group-hover:text-black"} />
                                             </motion.div>
                                             <motion.span
                                                 initial={false}
                                                 animate={{ width: isActive ? "auto" : 0, opacity: isActive ? 1 : 0, marginLeft: isActive ? 2 : 0 }}
                                                 transition={{ duration: 0.22, ease: "easeOut" }}
-                                                className={`relative z-10 whitespace-nowrap ${isActive ? "text-black dark:text-white" : "text-gray-500 dark:text-dark-muted"}`}
+                                                className={`relative z-10 whitespace-nowrap ${isActive ? "text-black" : "text-gray-500"}`}
                                             >
                                                 {item.name}
                                             </motion.span>
@@ -120,9 +113,9 @@ const NavBar = () => {
             </nav>
 
             {/* ── mobile header — sem blur ── */}
-            <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-white dark:bg-dark-bg border-b border-theme-border flex items-end justify-between px-4 pb-3" style={{ paddingTop: "max(0.75rem, env(safe-area-inset-top))" }}>
+            <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-theme-border flex items-end justify-between px-4 pb-3" style={{ paddingTop: "max(0.75rem, env(safe-area-inset-top))" }}>
                 <Link href={`/${locale}`}>
-                    <Image src="/signature.png" width={150} height={60} alt="Home" className="dark:invert" />
+                    <Image src="/signature.png" width={150} height={60} alt="Home" />
                 </Link>
                 <button
                     onClick={() => setSidebarOpen(true)}
@@ -155,11 +148,11 @@ const NavBar = () => {
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
                             transition={{ type: "spring", stiffness: 320, damping: 34 }}
-                            className="md:hidden fixed top-0 right-0 bottom-0 z-50 w-72 bg-white dark:bg-dark-bg border-l border-theme-border flex flex-col" style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
+                            className="md:hidden fixed top-0 right-0 bottom-0 z-50 w-72 bg-white border-l border-theme-border flex flex-col" style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
                         >
                             {/* drawer header */}
                             <div className="flex items-center justify-between px-5 h-14 border-b border-theme-border shrink-0">
-                                <Image src="/signature.png" width={130} height={50} alt="Home" className="dark:invert" />
+                                <Image src="/signature.png" width={130} height={50} alt="Home" />
                                 <button
                                     onClick={() => setSidebarOpen(false)}
                                     className="p-2 rounded-lg hover:bg-theme-elevated transition-colors text-theme-muted"
@@ -233,39 +226,6 @@ const NavBar = () => {
                                         ))}
                                     </div>
                                 </div>
-
-                                {/* theme */}
-                                {mounted && (
-                                    <div>
-                                        <p className="text-xs font-semibold text-theme-muted uppercase tracking-wide mb-2">
-                                            Theme
-                                        </p>
-                                        <div className="flex gap-2">
-                                            <button
-                                                onClick={() => setTheme("light")}
-                                                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-medium transition-colors ${
-                                                    !isDark
-                                                        ? "bg-theme-accent text-theme-accent-fg"
-                                                        : "bg-theme-surface text-theme-muted hover:bg-theme-elevated hover:text-theme-fg"
-                                                }`}
-                                            >
-                                                <PiSunBold size={14} />
-                                                Light
-                                            </button>
-                                            <button
-                                                onClick={() => setTheme("dark")}
-                                                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-medium transition-colors ${
-                                                    isDark
-                                                        ? "bg-theme-accent text-theme-accent-fg"
-                                                        : "bg-theme-surface text-theme-muted hover:bg-theme-elevated hover:text-theme-fg"
-                                                }`}
-                                            >
-                                                <PiMoonBold size={14} />
-                                                Dark
-                                            </button>
-                                        </div>
-                                    </div>
-                                )}
                             </div>
                         </motion.aside>
                     </>

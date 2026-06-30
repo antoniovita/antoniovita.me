@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
-
 body {
   font-family: var(--font-poppins), sans-serif;
   padding-top: env(safe-area-inset-top);
@@ -18,34 +16,6 @@ body {
 
 /* theme-tokens-start */
 @theme {
-  /* dark */
-  --color-dark-bg: #141414;
-  --color-dark-surface: #1c1c1c;
-  --color-dark-elevated: #222222;
-  --color-dark-border: #2e2e2e;
-  --color-dark-border-subtle: #1e1e1e;
-  --color-dark-muted: rgba(255,255,255,0.55);
-  --color-dark-fg: #ffffff;
-  --color-dark-fg-muted: #c4c4c4;
-  --color-dark-fg-subtle: #8c8c8c;
-  --color-dark-accent: #ffffff;
-  --color-dark-accent-fg: #141414;
-  --color-dark-overlay: rgba(0,0,0,0.60);
-
-  /* light */
-  --color-light-bg: #ffffff;
-  --color-light-surface: #f9fafb;
-  --color-light-elevated: #f3f4f6;
-  --color-light-border: #e5e7eb;
-  --color-light-border-subtle: #f3f4f6;
-  --color-light-muted: #6b7280;
-  --color-light-fg: #000000;
-  --color-light-fg-muted: #374151;
-  --color-light-fg-subtle: #6b7280;
-  --color-light-accent: #000000;
-  --color-light-accent-fg: #ffffff;
-  --color-light-overlay: rgba(0,0,0,0.60);
-
   /* semantic aliases */
   --color-theme-bg: var(--theme-bg);
   --color-theme-surface: var(--theme-surface);
@@ -73,21 +43,6 @@ body {
   --theme-fg-subtle: #6b7280;
   --theme-accent: #000000;
   --theme-accent-fg: #ffffff;
-  --theme-overlay: rgba(0,0,0,0.60);
-}
-
-.dark {
-  --theme-bg: #141414;
-  --theme-surface: #1c1c1c;
-  --theme-elevated: #222222;
-  --theme-border: #2e2e2e;
-  --theme-border-subtle: #1e1e1e;
-  --theme-muted: rgba(255,255,255,0.55);
-  --theme-fg: #ffffff;
-  --theme-fg-muted: #c4c4c4;
-  --theme-fg-subtle: #8c8c8c;
-  --theme-accent: #ffffff;
-  --theme-accent-fg: #141414;
   --theme-overlay: rgba(0,0,0,0.60);
 }
 /* theme-tokens-end */

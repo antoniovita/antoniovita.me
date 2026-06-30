@@ -83,7 +83,7 @@ export default function Home() {
                 {t("view_projects")}
                 <PiArrowRightBold />
               </Link>
-              <a className="inline-flex text-sm hover:cursor-pointer items-center gap-2 px-6 py-3 border-2 border-theme-border rounded-xl hover:bg-gray-50 dark:hover:bg-dark-surface transition-colors font-medium"
+              <a className="inline-flex text-sm hover:cursor-pointer items-center gap-2 px-6 py-3 border-2 border-theme-border rounded-xl hover:bg-gray-50 transition-colors font-medium"
                 href="/cv.pdf"
                 download
               >
@@ -95,7 +95,7 @@ export default function Home() {
             {/* profile image — sits right below the action buttons on mobile */}
             <div className="flex justify-center lg:hidden">
               <div className="relative w-full max-w-md">
-                <div className="relative bg-linear-to-br from-gray-100 to-gray-200 dark:from-dark-elevated dark:to-dark-surface rounded-3xl overflow-hidden aspect-3/4 flex items-center justify-center">
+                <div className="relative bg-linear-to-br from-gray-100 to-gray-200 rounded-3xl overflow-hidden aspect-3/4 flex items-center justify-center">
                   <Image
                     src="/me.jpeg"
                     alt="Antonio Vita — Full Stack & Web3 Engineer"
@@ -112,9 +112,6 @@ export default function Home() {
             <div className="pt-4 space-y-3">
               <p className="text-sm text-theme-muted font-medium">{t("social_media")}</p>
               <div className="flex flex-wrap gap-3">
-                <a href="https://www.instagram.com/defi.institute/" className="inline-flex items-center gap-2 px-4 py-2 bg-theme-surface border border-theme-border rounded-lg hover:bg-theme-elevated transition-colors text-sm">
-                  <PiInstagramLogo size={20} />defi.institute
-                </a>
                 <a href="https://github.com/antoniovita" className="inline-flex items-center gap-2 px-4 py-2 bg-theme-surface border border-theme-border rounded-lg hover:bg-theme-elevated transition-colors text-sm">
                   <PiGithubLogo size={20} />antoniovita
                 </a>
@@ -174,7 +171,7 @@ export default function Home() {
             {/* profile image — desktop only, mobile copy lives right below Download CV */}
             <div className="hidden lg:flex lg:justify-end w-full">
               <div className="relative w-full max-w-md">
-                <div className="relative bg-linear-to-br from-gray-100 to-gray-200 dark:from-dark-elevated dark:to-dark-surface rounded-3xl overflow-hidden aspect-3/4 flex items-center justify-center">
+                <div className="relative bg-linear-to-br from-gray-100 to-gray-200 rounded-3xl overflow-hidden aspect-3/4 flex items-center justify-center">
                   <Image
                     src="/me.jpeg"
                     alt="Antonio Vita — Full Stack & Web3 Engineer"

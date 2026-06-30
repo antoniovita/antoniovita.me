@@ -2,8 +2,6 @@
 import { BarLoader } from "react-spinners";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 type LoadingProps = {
   fullScreen?: boolean;
@@ -20,17 +18,12 @@ export default function Loading({
   width = 220,
   height = 6,
 }: LoadingProps) {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  const isDark = mounted && resolvedTheme === "dark";
-  const bgColor = isDark ? "rgba(0,0,0,0.92)" : "rgba(255,255,255,0.90)";
-  const barColor = isDark ? "#9B9FA6" : "#111827";
+  const bgColor = "rgba(255,255,255,0.90)";
+  const barColor = "#111827";
 
   const content = (
     <div className="flex flex-col items-center gap-3">
-      <Image src="/signature.png" width={180} height={100} alt="Home" className={isDark ? "invert" : ""} />
+      <Image src="/signature.png" width={180} height={100} alt="Home" className="" />
       <div aria-hidden="true">
         <BarLoader color={barColor} loading={active} width={width} height={height} />
       </div>

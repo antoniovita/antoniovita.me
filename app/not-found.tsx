@@ -25,7 +25,7 @@ export default function NotFound() {
             </Link>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-theme-border rounded-xl hover:bg-gray-50 dark:hover:bg-dark-elevated transition-colors font-medium text-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-theme-border rounded-xl hover:bg-gray-50 transition-colors font-medium text-sm"
             >
               <PiArrowLeftBold size={18} />
               View projects
