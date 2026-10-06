@@ -5,7 +5,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import RouteDelayGate from "@/components/RouteDelayGate";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 
@@ -71,6 +71,10 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -84,6 +88,7 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  setRequestLocale(locale);
   const messages = await getMessages();
   const envDelay = process.env.NEXT_PUBLIC_GLOBAL_DELAY_MS;
   const delayMs = Number.isFinite(Number(envDelay)) ? Number(envDelay) : 3000;
