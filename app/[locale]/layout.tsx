@@ -5,9 +5,17 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import RouteDelayGate from "@/components/RouteDelayGate";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import enMessages from "@/messages/en.json";
+import ptMessages from "@/messages/pt.json";
+import itMessages from "@/messages/it.json";
+
+const messagesByLocale = {
+  en: enMessages,
+  pt: ptMessages,
+  it: itMessages,
+};
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -88,15 +96,20 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  setRequestLocale(locale);
-  const messages = await getMessages();
+  const messages = messagesByLocale[locale as keyof typeof messagesByLocale];
   const envDelay = process.env.NEXT_PUBLIC_GLOBAL_DELAY_MS;
   const delayMs = Number.isFinite(Number(envDelay)) ? Number(envDelay) : 3000;
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${poppins.variable} antialiased bg-white text-black`}>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider
+          formats={{}}
+          locale={locale}
+          messages={messages}
+          now={new Date()}
+          timeZone="UTC"
+        >
           <NavBar />
           <RouteDelayGate delayMs={delayMs} showOnRouteChange={false} />
           {children}
