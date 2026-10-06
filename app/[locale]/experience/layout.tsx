@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Experience | Antonio Vita",
     description:
       "Antonio Vita's professional journey: internships at Parfin and BTG Pactual, Computer Science at PUC-Rio, and DeFi specialization at Duke University.",
-    url: "https://antoniovita.dev/experience",
+    url: "https://antoniovita.me/experience",
   },
   twitter: {
     title: "Experience | Antonio Vita",

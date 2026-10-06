@@ -16,7 +16,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://antoniovita.dev"),
+  metadataBase: new URL("https://antoniovita.me"),
   title: {
     default: "Antonio Vita — Full Stack & Web3 Engineer",
     template: "%s | Antonio Vita",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://antoniovita.dev",
+    url: "https://antoniovita.me",
     siteName: "Antonio Vita",
     title: "Antonio Vita — Full Stack & Web3 Engineer",
     description:

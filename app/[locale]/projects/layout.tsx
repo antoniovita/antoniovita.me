@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Projects | Antonio Vita",
     description:
       "Explore Antonio Vita's portfolio: smart contracts, DeFi protocols, full-stack web apps, and mobile applications.",
-    url: "https://antoniovita.dev/projects",
+    url: "https://antoniovita.me/projects",
   },
   twitter: {
     title: "Projects | Antonio Vita",

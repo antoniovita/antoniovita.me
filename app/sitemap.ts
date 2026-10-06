@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://antoniovita.dev";
+  const baseUrl = "https://antoniovita.me";
   const locales = ["en", "pt", "it"];
   const pages = [
     { path: "", priority: 1 },

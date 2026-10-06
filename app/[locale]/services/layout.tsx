@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Services | Antonio Vita",
     description:
       "Hire Antonio Vita for Full Stack, Web3, and mobile development. Smart contracts, dApps, web apps, and landing pages with clear pricing.",
-    url: "https://antoniovita.dev/services",
+    url: "https://antoniovita.me/services",
   },
   twitter: {
     title: "Services | Antonio Vita",
