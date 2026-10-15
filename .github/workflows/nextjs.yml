@@ -90,7 +90,7 @@ jobs:
           test -f out/en/about/index.html
           test -f out/pt/work/fuoco/index.html
           test -f out/en/contact/index.html
-          test -f out/media/genesis-en.mp4
+          test -f out/media/genesis.mp4
           test -f out/og/en/home.png
           test -f out/pt/index.html
           test -f out/it/index.html
