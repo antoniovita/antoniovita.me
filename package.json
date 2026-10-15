@@ -7,27 +7,39 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sync-theme": "npx tsx scripts/sync-theme.ts",
-    "apply-theme": "npx tsx scripts/apply-theme.ts"
+    "sync-theme": "tsx scripts/sync-theme.ts",
+    "media": "tsx scripts/render-media.ts",
+    "studio": "remotion studio remotion/index.ts"
   },
   "dependencies": {
-    "framer-motion": "^12.27.1",
+    "@remotion/bundler": "4.0.535",
+    "@remotion/cli": "4.0.535",
+    "@remotion/google-fonts": "4.0.535",
+    "@remotion/player": "4.0.535",
+    "@remotion/renderer": "4.0.535",
+    "d3-geo": "^3.1.1",
+    "lenis": "^1.3.27",
+    "motion": "^14.3.0",
     "next": "^16.1.6",
     "next-intl": "^4.13.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-icons": "^5.5.0",
-    "react-spinners": "^0.17.0",
-    "swiper": "^12.0.3"
+    "remotion": "4.0.535"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/d3-geo": "^3.1.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/topojson-client": "^3.1.5",
     "eslint": "^9",
     "eslint-config-next": "16.1.3",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "topojson-client": "^3.1.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "world-atlas": "^2.0.2"
   }
 }

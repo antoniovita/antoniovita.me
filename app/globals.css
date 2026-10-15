@@ -1,48 +1,416 @@
 @import "tailwindcss";
 
-body {
-  font-family: var(--font-poppins), sans-serif;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-}
-
-* {
-  transition-property: color, background-color, border-color;
-  transition-duration: 150ms;
-  transition-timing-function: ease;
-}
-
+/* Colors come from data/theme.json. Edit the JSON and run `npm run sync-theme`. */
 /* theme-tokens-start */
-@theme {
-  /* semantic aliases */
-  --color-theme-bg: var(--theme-bg);
-  --color-theme-surface: var(--theme-surface);
-  --color-theme-elevated: var(--theme-elevated);
-  --color-theme-border: var(--theme-border);
-  --color-theme-border-subtle: var(--theme-border-subtle);
-  --color-theme-muted: var(--theme-muted);
-  --color-theme-fg: var(--theme-fg);
-  --color-theme-fg-muted: var(--theme-fg-muted);
-  --color-theme-fg-subtle: var(--theme-fg-subtle);
-  --color-theme-accent: var(--theme-accent);
-  --color-theme-accent-fg: var(--theme-accent-fg);
-  --color-theme-overlay: var(--theme-overlay);
+:root {
+  --bg: #EBEBEF;
+  --bg-2: #E4E4E9;
+  --surface: #FFFFFF;
+  --raised: #F4F4F6;
+  --line: #E8E8ED;
+  --line-2: #D6D6DE;
+  --fg: #0B0B0E;
+  --dim: #5E5E6B;
+  --faint: #9A9AA4;
+  --accent: #0B0B0E;
+  --on-accent: #FFFFFF;
+  --ok: #127A4F;
+  --warn: #9A5B06;
+  --crit: #C02A3D;
+  --h1: #0B0B0E;
+  --h2: #3A3A42;
+  --h3: #6E6E78;
+  --h4: #A1A1AA;
+  --h5: #2A2A30;
+  --s1: #C9C9CF;
+  --s2: #F4F4F6;
+  --s3: #9A9AA2;
+  --seal-ink: #111114;
+  --glass: rgba(255,255,255,.68);
+  --glass-line: rgba(10,10,20,.09);
+  --hl: rgba(255,255,255,.9);
+  --overlay: rgba(12,12,20,.35);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #050506;
+  --bg-2: #0A0A0C;
+  --surface: #111114;
+  --raised: #1A1A1F;
+  --line: #222228;
+  --line-2: #303038;
+  --fg: #F2F2F5;
+  --dim: #A1A1AF;
+  --faint: #6E6E7C;
+  --accent: #F2F2F5;
+  --on-accent: #0B0B0E;
+  --ok: #5FD49B;
+  --warn: #F5B35C;
+  --crit: #FF7A85;
+  --h1: #FFFFFF;
+  --h2: #D4D4D8;
+  --h3: #A1A1AA;
+  --h4: #71717A;
+  --h5: #E4E4E7;
+  --s1: #C9C9CF;
+  --s2: #F4F4F6;
+  --s3: #9A9AA2;
+  --seal-ink: #111114;
+  --glass: rgba(22,22,28,.62);
+  --glass-line: rgba(255,255,255,.09);
+  --hl: rgba(255,255,255,.07);
+  --overlay: rgba(0,0,0,.6);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-fg: var(--fg);
+  --color-dim: var(--dim);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-crit: var(--crit);
+  --color-h1: var(--h1);
+  --color-h2: var(--h2);
+  --color-h3: var(--h3);
+  --color-h4: var(--h4);
+  --color-h5: var(--h5);
+  --color-s1: var(--s1);
+  --color-s2: var(--s2);
+  --color-s3: var(--s3);
+  --color-seal-ink: var(--seal-ink);
+  --color-glass: var(--glass);
+  --color-glass-line: var(--glass-line);
+  --color-hl: var(--hl);
+  --color-overlay: var(--overlay);
+}
+/* theme-tokens-end */
+
+@theme inline {
+  --font-display: var(--font-funnel-display), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-funnel-sans), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-hand: var(--font-hand-signature), "Snell Roundhand", "Apple Chancery", cursive;
+  --radius-card: 28px;
+  --radius-tile: 20px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root {
-  --theme-bg: #ffffff;
-  --theme-surface: #f9fafb;
-  --theme-elevated: #f3f4f6;
-  --theme-border: #e5e7eb;
-  --theme-border-subtle: #f3f4f6;
-  --theme-muted: #6b7280;
-  --theme-fg: #000000;
-  --theme-fg-muted: #374151;
-  --theme-fg-subtle: #6b7280;
-  --theme-accent: #000000;
-  --theme-accent-fg: #ffffff;
-  --theme-overlay: rgba(0,0,0,0.60);
+  --sig-mask: url("/signature.svg");
+  --pad: 22px;
+  --shadow-card: 0 1px 2px rgba(16, 16, 24, 0.04), 0 8px 24px -12px rgba(16, 16, 24, 0.08);
+  --shadow-pop: 0 24px 60px -20px rgba(16, 16, 40, 0.28);
 }
-/* theme-tokens-end */
+:root[data-theme="dark"] {
+  --shadow-card: 0 0 0 1px var(--line);
+  --shadow-pop: 0 30px 80px -24px rgba(0, 0, 0, 0.8);
+}
+@media (min-width: 768px) {
+  :root {
+    --pad: 36px;
+  }
+}
+@media (min-width: 1100px) {
+  :root {
+    --pad: 48px;
+  }
+}
+
+@property --a {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+@keyframes spin-angle {
+  to {
+    --a: 360deg;
+  }
+}
+@keyframes ring-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sig-write {
+  from {
+    clip-path: inset(-30% 100% -30% 0);
+  }
+  to {
+    clip-path: inset(-30% 0 -30% 0);
+  }
+}
+@keyframes pen-run {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 50%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 7px transparent;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 110px;
+    -webkit-text-size-adjust: 100%;
+    background: var(--bg);
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Scrolls, but without a visible scrollbar. */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* The page is a stack of cards on the canvas, with a narrow frame around them. */
+  .frame {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-left: max(8px, env(safe-area-inset-left, 0px));
+    padding-right: max(8px, env(safe-area-inset-right, 0px));
+  }
+  @media (min-width: 768px) {
+    .frame {
+      padding-left: max(12px, env(safe-area-inset-left, 0px));
+      padding-right: max(12px, env(safe-area-inset-right, 0px));
+    }
+  }
+
+  .card {
+    position: relative;
+    min-width: 0;
+    background: var(--surface);
+    border-radius: 22px;
+    box-shadow: var(--shadow-card);
+  }
+  @media (min-width: 768px) {
+    .card {
+      border-radius: var(--radius-card);
+    }
+  }
+  .pad {
+    padding: var(--pad);
+  }
+  .pad-x {
+    padding-inline: var(--pad);
+  }
+  /* A row that runs edge to edge inside a padded card, so dividers span the full width. */
+  .bleed {
+    margin-inline: calc(var(--pad) * -1);
+    padding-inline: var(--pad);
+  }
+  .rule {
+    border-top: 1px solid var(--line);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 9999px;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1;
+    transition:
+      transform 0.35s var(--ease-out-expo),
+      background-color 0.2s,
+      color 0.2s;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+  .btn-primary {
+    background: var(--fg);
+    color: var(--surface);
+  }
+  .btn-soft {
+    background: var(--raised);
+    color: var(--fg);
+  }
+  .btn-soft:hover {
+    background: var(--line);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    background: var(--raised);
+    padding: 6px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* Signature: a mask over a color or the blue ink material. */
+  .sig-mask {
+    aspect-ratio: 689 / 205;
+    -webkit-mask: var(--sig-mask) center / contain no-repeat;
+    mask: var(--sig-mask) center / contain no-repeat;
+  }
+  .sig-ink {
+    background: currentColor;
+  }
+  .holo-fill {
+    background:
+      linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.55) 48%, transparent 64%) var(--sx, 50%) 0 / 260% 100% no-repeat,
+      conic-gradient(from var(--a) at 50% 50%, var(--h1), var(--h2), var(--h3), var(--h4), var(--h5), var(--h1));
+    animation: spin-angle 12s linear infinite;
+  }
+  .sig-shadow {
+    filter: drop-shadow(0 1px 1.5px rgba(4, 8, 30, 0.55)) drop-shadow(0 6px 18px rgba(4, 8, 30, 0.45));
+  }
+  /* Writes the signature left to right while a pen tip rides the edge. */
+  .sig-writing .sig-mask {
+    animation:
+      spin-angle 12s linear infinite,
+      sig-write 2.1s cubic-bezier(0.55, 0.05, 0.3, 1) both;
+  }
+  .sig-pen {
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 -5px;
+    border-radius: 9999px;
+    background: #fff;
+    box-shadow:
+      0 0 12px 4px color-mix(in srgb, var(--h3) 80%, transparent),
+      0 0 30px 10px color-mix(in srgb, var(--h1) 45%, transparent);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sig-writing .sig-pen {
+    animation: pen-run 2.1s cubic-bezier(0.55, 0.05, 0.3, 1) both;
+  }
+
+  .seal {
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex: none;
+    aspect-ratio: 1;
+    border-radius: 9999px;
+    background: conic-gradient(from var(--a), var(--s1), var(--s2), var(--s3), var(--s2), var(--s1));
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+      inset 0 0 22px rgba(255, 255, 255, 0.28);
+    animation: spin-angle 12s linear infinite;
+  }
+  .seal-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: ring-rotate 26s linear infinite;
+  }
+  .seal-ring text {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 8.6px;
+    letter-spacing: 0.06em;
+    fill: var(--seal-ink);
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: var(--ok);
+    animation: pulse-dot 2s ease-out infinite;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+  .marquee-mask {
+    -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .holo-fill,
+  .seal,
+  .seal-ring,
+  .status-dot,
+  .marquee-track,
+  .sig-writing .sig-mask,
+  .sig-writing .sig-pen {
+    animation: none !important;
+  }
+}

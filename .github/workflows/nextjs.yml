@@ -67,6 +67,20 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Restore generated media
+        id: media-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            public/media
+            public/og
+          key: media-${{ hashFiles('remotion/**', 'scripts/render-media.ts', 'data/**', 'messages/**', 'public/signature.svg', 'public/me.jpeg') }}
+      - name: Install Remotion browser
+        if: steps.media-cache.outputs.cache-hit != 'true'
+        run: npx remotion browser ensure
+      - name: Render media (Remotion)
+        if: steps.media-cache.outputs.cache-hit != 'true'
+        run: npm run media
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Verify static export
@@ -74,6 +88,10 @@ jobs:
           test -f out/index.html
           test -f out/en/index.html
           test -f out/en/about/index.html
+          test -f out/pt/work/fuoco/index.html
+          test -f out/en/contact/index.html
+          test -f out/media/genesis-en.mp4
+          test -f out/og/en/home.png
           test -f out/pt/index.html
           test -f out/it/index.html
       - name: Upload artifact

@@ -1,24 +1,28 @@
 import type { MetadataRoute } from "next";
+import { featuredSlugs } from "@/data/content";
+import { locales, site } from "@/data/site";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://antoniovita.me";
-  const locales = ["en", "pt", "it"];
   const pages = [
     { path: "", priority: 1 },
-    { path: "/projects", priority: 0.9 },
-    { path: "/experience", priority: 0.8 },
-    { path: "/services", priority: 0.8 },
-    { path: "/about", priority: 0.7 },
+    { path: "/work", priority: 0.9 },
+    ...featuredSlugs.map((slug) => ({ path: `/work/${slug}`, priority: 0.8 })),
+    { path: "/now", priority: 0.7 },
+    { path: "/about", priority: 0.8 },
+    { path: "/contact", priority: 0.7 },
   ];
 
-  return locales.flatMap((locale) =>
-    pages.map(({ path, priority }) => ({
-      url: `${baseUrl}/${locale}${path}/`,
+  return pages.flatMap(({ path, priority }) =>
+    locales.map((locale) => ({
+      url: `${site.url}/${locale}${path}/`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority,
+      alternates: {
+        languages: Object.fromEntries(locales.map((l) => [l, `${site.url}/${l}${path}/`])),
+      },
     })),
   );
 }

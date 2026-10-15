@@ -1,4 +1,5 @@
 export type Project = {
+  slug: string;
   title: string;
   category: string;
   description: string;
@@ -14,6 +15,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "dargent",
     title: "Dargent — On-Chain Fund Platform with Strategy Allocation",
     category: "Web3",
     description:
@@ -34,6 +36,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "legis",
     title: "Legis — Freelance Escrow Protocol",
     category: "Web3",
     description:
@@ -55,6 +58,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "irsa",
     title: "IRSA: Medical Imaging Radiology",
     category: "Full-Stack",
     description: "SPA built with Next.js and TailwindCSS for a radiology and medical imaging clinic.",
@@ -74,6 +78,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "myorder",
     title: "MyOrder – Digital Menu for Restaurants",
     category: "Frontend",
     description: "Interactive digital menu with a responsive interface for contactless ordering.",
@@ -93,6 +98,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "gymtracker",
     title: "Gymtracker - Workout Management App",
     category: "Mobile",
     description: "Mobile app to log, organize, and track gym workouts.",
@@ -112,6 +118,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "space-portfolio",
     title: "Space Portfolio",
     category: "Frontend",
     description: "Portfolio website built entirely with Next.js and TailwindCSS.",
@@ -131,6 +138,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "fuoco",
     title: "Fuoco - AI-powered routine management",
     category: "AI/ML",
     description: "Expo app using llama.rn with the TinyLLM (encoding) model for AI-assisted routines.",
@@ -150,6 +158,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "erc20-from-scratch",
     title: "ERC20 From Scratch",
     category: "Web3",
     description:
@@ -170,6 +179,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "velt",
     title: "Velt",
     category: "Web3",
     description:
@@ -190,6 +200,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "close-friends-token",
     title: "Close Friends Token",
     category: "Web3",
     description: "ERC-20 token with tiered staking and a staking-based access gate.",
@@ -209,6 +220,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "defi-vault",
     title: "Minimal DeFi Vault (ERC4626-inspired)",
     category: "Web3",
     description:
@@ -229,6 +241,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "fundme",
     title: "FundMe (Hardhat + Chainlink)",
     category: "Web3",
     description:
@@ -249,6 +262,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "sau-puc-rio",
     title: "SAU PUC-Rio 2.0",
     category: "Full-Stack",
     description: "Next.js project recreating the SAU academic system from PUC-Rio.",
@@ -268,6 +282,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "condominium-api",
     title: "CondominiumAPI",
     category: "Backend",
     description: "REST API for a condominium management system built with Java and Spring Boot.",

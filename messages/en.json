@@ -1,157 +1,262 @@
 {
+  "meta": {
+    "siteTitle": "Antonio Vita · Software engineer and entrepreneur",
+    "siteDescription": "Software engineer and entrepreneur based in Rio de Janeiro. I build products from scratch, from architecture to first customer.",
+    "home": {
+      "title": "Antonio Vita · Software engineer and entrepreneur",
+      "description": "From first commit to first customer. Software engineer and entrepreneur based in Rio de Janeiro."
+    },
+    "work": {
+      "title": "Work",
+      "description": "Three case studies from different fields and the full project archive of Antonio Vita."
+    },
+    "now": {
+      "title": "Now",
+      "description": "What Antonio Vita is building this month."
+    },
+    "about": {
+      "title": "About",
+      "description": "Background, education and experience of Antonio Vita, from Scratch in 2017 to today."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Talk to Antonio Vita about a software project or a business idea."
+    },
+    "jobTitle": "Software engineer and entrepreneur"
+  },
   "nav": {
     "home": "Home",
-    "projects": "Projects",
-    "services": "Services",
-    "experience": "Experience",
+    "work": "Work",
+    "now": "Now",
     "about": "About",
-    "language_theme": "Language & Theme"
-  },
-  "footer": {
-    "description": "Software Engineer and Computer Science student specialized in modern web development and blockchain technologies.",
-    "explore": "Explore",
     "contact": "Contact",
-    "rights": "All rights reserved.",
-    "available": "Available for freelance — let's talk"
+    "menu": "Menu",
+    "close": "Close",
+    "theme": "Toggle theme",
+    "language": "Language",
+    "command": "Open quick navigation",
+    "skip": "Skip to content",
+    "search": "Search"
+  },
+  "cmdk": {
+    "placeholder": "Go to…",
+    "empty": "Nothing found",
+    "hint": "↑ ↓ to move · Enter to open",
+    "pages": "Pages",
+    "cases": "Case studies",
+    "actions": "Actions",
+    "copyEmail": "Copy email",
+    "copied": "Email copied",
+    "downloadCv": "Download CV (PDF)",
+    "toggleTheme": "Toggle light or dark theme",
+    "switchTo": "View in {language}"
   },
   "home": {
-    "location_badge": "Rio de Janeiro, Brasil or Remote",
-    "role_badge": "Software Engineer",
-    "available_badge": "Available for freelance",
-    "subtitle": "SOFTWARE ENGINEER & COMPUTER SCIENCE STUDENT",
-    "bio": "I am a Software Engineer and Computer Science student specializing in modern web development and blockchain technologies. As a Full Stack Developer and Smart Contract Developer in the Web3 ecosystem, I build decentralized applications with a strong focus on performance, security, and scalability. I am passionate about software architecture, innovative solutions, and turning complex ideas into reliable, real-world products.",
-    "trait_web3": "Smart Contract & Web3 Developer",
-    "trait_fullstack": "Full Stack Engineer",
-    "trait_scholarship": "Merit Scholarship Recipient",
-    "trait_remote": "Open to Remote work Worldwide",
-    "view_projects": "View Projects",
-    "download_cv": "Download my CV",
-    "social_media": "Social Media",
-    "experience_label": "Experience",
-    "education_label": "Education",
-    "projects_label": "Projects",
-    "view_more": "View more",
-    "view": "View",
-    "currently_label": "Currently",
-    "currently_role": "Software Engineer Intern @ Parfin",
-    "currently_desc": "Blockchain & Smart Contracts — Remote",
-    "education_degree": "B.Sc. Computer Science — PUC-Rio",
-    "education_desc": "Merit Scholarship recipient · 8.2 GPA",
-    "specialization_label": "Specialization",
-    "specialization_title": "DeFi & Blockchain — Duke University",
-    "specialization_desc": "EVM · Smart Contracts · Protocol Design",
-    "btg_title": "Automation Intern — BTG Pactual",
-    "btg_period": "August 2025 – November 2025",
-    "btg_desc": "Built automation solutions with Python, Pandas, and AWS to optimize financial workflows and data processing. Automated reports and system integrations, reducing manual operations and improving efficiency in a high-performance investment banking environment.",
-    "cs_degree": "Computer Science Bachelor",
-    "puc_period": "PUC Rio - 2025 - Present",
-    "cambridge": "Advanced English - C1",
-    "cambridge_period": "Cambridge — 2023",
-    "view_details": "View details",
-    "code": "Code"
+    "status": "Open to conversations · Rio de Janeiro",
+    "h1a": "Software engineer.",
+    "h1b": "Entrepreneur.",
+    "tagline": "From first commit to first customer.",
+    "bio": "I build products from scratch, from architecture to first customer. Today I work as a harness engineer and build my own businesses. I've worked at BTG Pactual and Parfin, and I study Computer Science at PUC-Rio.",
+    "ctaWork": "See my work",
+    "ctaContact": "Get in touch",
+    "portraitAlt": "Black and white portrait of Antonio Vita with his signature in blue",
+    "nowLabel": "Now",
+    "nowTitle": "Harness engineer and entrepreneur",
+    "nowText": "What I'm building this month, updated every month.",
+    "nowLink": "See what I'm building",
+    "baseLabel": "Base",
+    "baseTitle": "Rio de Janeiro, Brazil",
+    "baseNote": "Working remotely with anyone, anywhere.",
+    "localTime": "local time",
+    "globeAlt": "Spinning 3D globe with Brazil in blue and a pulsing marker on Rio de Janeiro. Drag to rotate.",
+    "pathLabel": "Path",
+    "path": [
+      {
+        "year": "2017",
+        "text": "First code, in Scratch"
+      },
+      {
+        "year": "2020",
+        "text": "JavaScript and first websites"
+      },
+      {
+        "year": "2023",
+        "text": "React and web projects"
+      },
+      {
+        "year": "2025",
+        "text": "PUC-Rio and BTG Pactual"
+      },
+      {
+        "year": "2026",
+        "text": "Parfin"
+      },
+      {
+        "year": "now",
+        "text": "Harness engineer and entrepreneur"
+      }
+    ],
+    "stackLabel": "Stack",
+    "stackNote": "The tool follows the problem.",
+    "workLabel": "Selected work",
+    "workAll": "See all",
+    "contactLabel": "Contact",
+    "contactTitle": "Got a project or a business idea?",
+    "doorProject": "Project",
+    "doorBusiness": "Business",
+    "replay": "Play again",
+    "sealNote": "Signed"
   },
-  "projects": {
-    "label": "MY WORK",
-    "title": "Featured Projects",
-    "subtitle": "A collection of projects showcasing my skills in full-stack development, AI integration, and modern web technologies. Each project demonstrates problem-solving abilities and technical expertise.",
-    "stats_title": "Project Statistics",
-    "total_projects": "Total Projects",
-    "github_stars": "GitHub Stars",
-    "total_forks": "Total Forks",
-    "technologies_used": "Technologies Used",
-    "about": "About",
-    "technologies": "Technologies",
-    "key_achievements": "Key Achievements",
-    "view_github": "View on GitHub",
-    "private_repo": "Private Repository",
-    "view_details": "View Details",
-    "code": "Code",
-    "private": "Private",
-    "stars": "Stars",
-    "forks": "Forks",
-    "year": "Year"
+  "work": {
+    "label": "{count} projects",
+    "title": "Work",
+    "subtitle": "Three case studies from different fields, told in detail, and an archive with everything else.",
+    "casesLabel": "Case studies",
+    "archiveLabel": "Archive",
+    "colProject": "Project",
+    "colYear": "Year",
+    "colArea": "Field",
+    "colStack": "Stack",
+    "colLink": "Code",
+    "code": "GitHub",
+    "private": "private",
+    "viewCase": "View case"
   },
-  "services": {
-    "label": "SERVICE STORE",
-    "title": "Choose the ideal service for your project",
-    "subtitle": "A service catalog with clear scope and average delivery timelines. Perfect for turning an idea into a high-quality product.",
-    "estimated_price": "Estimated price",
-    "delivery_time": "Delivery time",
-    "rating": "Rating",
-    "request_service": "Request Service",
-    "custom_label": "NEED A CUSTOM PACK?",
-    "custom_title": "We can create a custom proposal for your context",
-    "custom_desc": "If your scope does not fit the packages above, we can define a personalized plan with timeline and milestones.",
-    "request_custom": "Request Custom Proposal",
-    "about_service": "About this service",
-    "technologies": "Technologies",
-    "continue_request": "Continue Request",
-    "close": "Close"
+  "case": {
+    "film": "How it works",
+    "filmNote": "Animated diagram of this project. Drag to scrub.",
+    "about": "The project",
+    "built": "What was built",
+    "stack": "Stack",
+    "repo": "View on GitHub",
+    "back": "All work",
+    "next": "Next case"
   },
-  "experience": {
-    "label": "MY PROFESSIONAL JOURNEY",
-    "title": "Experience & Education",
-    "subtitle": "A complete view of my professional trajectory and academic background, including projects, achievements and mastered technologies.",
-    "key_achievements": "Key Achievements",
-    "technologies": "Technologies",
-    "highlights": "Highlights",
-    "certifications": "Certifications",
-    "timeline_title": "Timeline",
-    "timeline_started": "Started education",
-    "timeline_freelance": "Started freelancing",
-    "timeline_puc_btg": "PUC-Rio & BTG Pactual",
-    "timeline_graduation": "Expected graduation",
-    "status_in_progress": "In Progress",
-    "status_completed": "Completed"
+  "now": {
+    "label": "Updated {date}",
+    "title": "Now",
+    "subtitle": "What I'm building and studying this month. A page I update by hand.",
+    "items": [
+      {
+        "title": "Harness engineering",
+        "text": "My current work as a software engineer."
+      },
+      {
+        "title": "My businesses",
+        "text": "I build my own products, from first commit to first customer."
+      },
+      {
+        "title": "PUC-Rio",
+        "text": "Computer Science, on a merit scholarship."
+      }
+    ]
   },
   "about": {
-    "label": "MY JOURNEY",
-    "title": "From technology enthusiast to developer",
-    "subtitle": "A software engineer driven by curiosity — from the first lines of Python at school to smart contracts in production at a blockchain company.",
-    "background_label": "Background",
-    "background_p1": "My journey in technology began at a very young age, when I received my first computer at the age of eight and spent countless hours exploring, experimenting, and trying to understand how things worked. What started as simple curiosity soon became a genuine passion for technology.",
-    "background_p2": "My first formal contact with programming happened at school, where I learned the basics through Scratch and later wrote my very first \"Hello World\" in Python in 2017. By my last year of high school, I had already decided that Computer Science would be my future, and from that moment on, I fully immersed myself in learning how to code.",
-    "background_p3": "Since then, I have explored areas such as web and mobile development, building applications and strengthening my foundations in software engineering. Eventually, I chose to specialize in Web3, as I believe in the future of a decentralized internet and the potential of blockchain technologies. Today, I combine academic knowledge with hands-on experience to turn ideas into impactful digital products.",
-    "expertise_label": "Areas of Expertise",
-    "tech_stack_label": "Tech Stack",
-    "languages_label": "Languages",
-    "timeline_label": "Timeline",
-    "expertise": {
-      "frontend_title": "Frontend Development",
-      "frontend_stack": "React, Next.js, Tailwind",
-      "backend_title": "Backend Development",
-      "backend_stack": "NestJS, Spring Boot, FastAPI",
-      "contracts_title": "Smart Contracts",
-      "contracts_stack": "Solidity, Hardhat, Foundry, Ethers",
-      "uiux_title": "UI/UX Design",
-      "uiux_stack": "Figma, Design Systems"
-    },
-    "languages": {
-      "portuguese": "Portuguese",
-      "english": "English",
-      "italian": "Italian",
-      "spanish": "Spanish",
-      "french": "French"
-    },
-    "timeline": {
-      "2017_title": "First Contact with Programming",
-      "2017_desc": "Had my first experience with programming using Scratch during school classes, discovering the basics of logic and creativity.",
-      "2019_title": "Starting with Python",
-      "2019_desc": "Began learning Python at school, exploring programming logic and building simple automation scripts.",
-      "2020_title": "JavaScript & First Personal Projects",
-      "2020_desc": "Started learning JavaScript independently, building Discord bots and creating my first personal websites.",
-      "2023_title": "Returning to Web Development",
-      "2023_desc": "Returned to active development, focusing on web projects and strengthening my skills with React.",
-      "2024_title": "Senior Year & Deepening Knowledge",
-      "2024_desc": "In my final year of high school, resumed intensive studies, advanced in web development, and started learning Java.",
-      "2025a_title": "Computer Science Undergraduate",
-      "2025a_desc": "Started my Computer Science degree with a strong foundation, focusing on full-stack development and beginning my journey in data and AI with PyTorch.",
-      "2025b_title": "Automation Intern — BTG Pactual",
-      "2025b_desc": "Worked on automating internal banking processes using Python, AWS, and React, improving efficiency and reliability across systems.",
-      "2025c_title": "Pivot to Web3 & Blockchain",
-      "2025c_desc": "By the end of 2025, I pivoted toward Web3 because I strongly believe in the long-term potential of blockchain technology, focusing mainly on EVM-based development.",
-      "2026_title": "Software Engineer Intern — Parfin",
-      "2026_desc": "Developing and maintaining smart contracts, primarily for EVM-compatible chains, and contributing to the Web3 product stack with a focus on security, reliability, and developer experience."
-    }
-  }
+    "label": "About",
+    "title": "Engineer and founder.",
+    "subtitle": "From a first line of Scratch in 2017 to products with real customers.",
+    "backgroundLabel": "Background",
+    "p1": "I got my first computer at eight and spent hours trying to understand how things worked. Curiosity turned into a passion for technology.",
+    "p2": "At school I learned logic with Scratch and wrote my first “Hello World” in Python in 2017. In my last year of high school I decided Computer Science would be my path.",
+    "p3": "Since then I've built for the web, mobile, backend, smart contracts and on-device AI, working at BTG Pactual and Parfin along the way. Today I work as a harness engineer and build my own businesses.",
+    "timelineLabel": "Timeline",
+    "timeline": [
+      {
+        "year": "2017",
+        "title": "First contact with programming",
+        "text": "Scratch in school classes: logic and creativity."
+      },
+      {
+        "year": "2019",
+        "title": "Python",
+        "text": "Programming logic and first automation scripts."
+      },
+      {
+        "year": "2020",
+        "title": "JavaScript",
+        "text": "Discord bots and my first personal websites."
+      },
+      {
+        "year": "2023",
+        "title": "Web development",
+        "text": "Back to active development, focused on React."
+      },
+      {
+        "year": "2025",
+        "title": "PUC-Rio and BTG Pactual",
+        "text": "Computer Science, and banking process automation with Python, AWS and React."
+      },
+      {
+        "year": "2026",
+        "title": "Parfin",
+        "text": "Software engineering internship, with contracts for EVM networks."
+      },
+      {
+        "year": "Now",
+        "title": "Harness engineer and entrepreneur",
+        "text": "Software engineering at work and businesses of my own."
+      }
+    ],
+    "experienceLabel": "Experience",
+    "educationLabel": "Education",
+    "certificationsLabel": "Certifications",
+    "languagesLabel": "Languages",
+    "languages": [
+      {
+        "name": "Portuguese",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "Italian",
+        "level": "C1"
+      },
+      {
+        "name": "Spanish",
+        "level": "B2"
+      },
+      {
+        "name": "French",
+        "level": "B1"
+      }
+    ],
+    "inProgress": "In progress",
+    "cv": "Download CV (PDF)"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's build?",
+    "subtitle": "Pick a door, write your message and sign it. Sending opens your email app with everything filled in.",
+    "doorProject": "Software project",
+    "doorProjectHint": "A product, an app or a system to build or improve.",
+    "doorBusiness": "Business conversation",
+    "doorBusinessHint": "Partnership, investment or a company idea.",
+    "name": "Your name",
+    "email": "Your email",
+    "message": "Message",
+    "messagePlaceholderProject": "What you want to build, by when, and what already exists.",
+    "messagePlaceholderBusiness": "The idea, its stage and where I would come in.",
+    "signature": "Signature",
+    "signatureHint": "Your name becomes the signature of the message.",
+    "send": "Sign and send",
+    "sendNote": "Opens your email app. If nothing happens, write to the address below.",
+    "subjectProject": "Project",
+    "subjectBusiness": "Business",
+    "direct": "Or directly",
+    "copy": "Copy",
+    "copied": "Copied",
+    "required": "Fill in your name and message to sign."
+  },
+  "footer": {
+    "signLine": "Antonio Vita · Rio de Janeiro or remote",
+    "rights": "All rights reserved."
+  },
+  "redirect": {
+    "moved": "This page has moved.",
+    "go": "Go to the new page"
+  },
+  "seal": "SIGNED · ANTONIO VITA · 2026 ·"
 }

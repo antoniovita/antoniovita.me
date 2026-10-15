@@ -1,120 +1,91 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { Funnel_Display, Funnel_Sans, Geist_Mono, Mrs_Saint_Delafield } from "next/font/google";
+import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
 import "../globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import RouteDelayGate from "@/components/RouteDelayGate";
-import { NextIntlClientProvider } from "next-intl";
-import { routing } from "@/i18n/routing";
-import { notFound } from "next/navigation";
-import enMessages from "@/messages/en.json";
-import ptMessages from "@/messages/pt.json";
-import itMessages from "@/messages/it.json";
+import CommandPalette from "@/components/CommandPalette";
+import MotionRoot from "@/components/motion/MotionRoot";
+import { getFeatured, splitTitle } from "@/data/content";
+import { isLocale, locales, site, type Locale } from "@/data/site";
+import { getT, messagesByLocale } from "@/lib/i18n";
+import { themeInitScript } from "@/lib/theme";
 
-const messagesByLocale = {
-  en: enMessages,
-  pt: ptMessages,
-  it: itMessages,
-};
+const display = Funnel_Display({ subsets: ["latin"], variable: "--font-funnel-display", display: "swap" });
+const sans = Funnel_Sans({ subsets: ["latin"], variable: "--font-funnel-sans", display: "swap" });
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
+const hand = Mrs_Saint_Delafield({ subsets: ["latin"], weight: "400", variable: "--font-hand-signature", display: "swap", preload: false });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://antoniovita.me"),
-  title: {
-    default: "Antonio Vita — Full Stack & Web3 Engineer",
-    template: "%s | Antonio Vita",
-  },
-  description:
-    "Full Stack and Web3 Engineer specializing in smart contracts, dApps, and modern web applications. Computer Science student at PUC-Rio with a merit scholarship.",
-  keywords: [
-    "Antonio Vita",
-    "Full Stack Engineer",
-    "Web3 Developer",
-    "Smart Contracts",
-    "Solidity",
-    "Next.js",
-    "React",
-    "TypeScript",
-    "DeFi",
-    "Blockchain",
-  ],
-  authors: [{ name: "Antonio Vita" }],
-  creator: "Antonio Vita",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://antoniovita.me",
-    siteName: "Antonio Vita",
-    title: "Antonio Vita — Full Stack & Web3 Engineer",
-    description:
-      "Full Stack and Web3 Engineer specializing in smart contracts, dApps, and modern web applications.",
-    images: [{ url: "/me.jpeg", width: 800, height: 600, alt: "Antonio Vita" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Antonio Vita — Full Stack & Web3 Engineer",
-    description:
-      "Full Stack and Web3 Engineer specializing in smart contracts, dApps, and modern web applications.",
-    images: ["/me.jpeg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const t = getT(locale);
+  return {
+    metadataBase: new URL(site.url),
+    title: { default: t("meta.siteTitle"), template: `%s | ${site.name}` },
+    description: t("meta.siteDescription"),
+    authors: [{ name: site.name, url: site.url }],
+    creator: site.name,
+    keywords: ["Antonio Vita", "software engineer", "entrepreneur", "harness engineer", "Rio de Janeiro", "Next.js", "TypeScript"],
+  };
+}
 
 export const viewport: Viewport = {
   viewportFit: "cover",
+  themeColor: "#EBEBEF",
+  colorScheme: "dark light",
 };
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+export default async function LocaleLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) notFound();
+  const locale: Locale = raw;
+  const t = getT(locale);
+  const cases = getFeatured(locale).map((p) => ({ slug: p.slug, name: splitTitle(p.title).name }));
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-
-  if (!routing.locales.includes(locale as "en" | "pt" | "it")) {
-    notFound();
-  }
-
-  const messages = messagesByLocale[locale as keyof typeof messagesByLocale];
-  const envDelay = process.env.NEXT_PUBLIC_GLOBAL_DELAY_MS;
-  const delayMs = Number.isFinite(Number(envDelay)) ? Number(envDelay) : 3000;
+  const person = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: site.name,
+    url: site.url,
+    image: `${site.url}/me.jpeg`,
+    jobTitle: t("meta.jobTitle"),
+    email: `mailto:${site.email}`,
+    address: { "@type": "PostalAddress", addressLocality: "Rio de Janeiro", addressCountry: "BR" },
+    alumniOf: { "@type": "CollegeOrUniversity", name: "PUC-Rio" },
+    knowsLanguage: ["pt", "en", "it", "es", "fr"],
+    sameAs: [site.github, site.linkedin],
+  };
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={`${poppins.variable} antialiased bg-white text-black`}>
-        <NextIntlClientProvider
-          formats={{}}
-          locale={locale}
-          messages={messages}
-          now={new Date()}
-          timeZone="UTC"
-        >
-          <NavBar />
-          <RouteDelayGate delayMs={delayMs} showOnRouteChange={false} />
-          {children}
-          <Footer />
+    <html lang={locale} suppressHydrationWarning className={`${display.variable} ${sans.variable} ${mono.variable} ${hand.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="min-h-dvh overflow-x-clip pb-28">
+        {/* Every prop is passed explicitly so the provider never needs next-intl's request config (static export). */}
+        <NextIntlClientProvider locale={locale} messages={messagesByLocale[locale]} timeZone={site.location.timeZone} now={new Date()} formats={{}}>
+          <a
+            href="#content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-fg focus:px-4 focus:py-2 focus:text-bg"
+          >
+            {t("nav.skip")}
+          </a>
+          <MotionRoot>
+            <NavBar />
+            <CommandPalette cases={cases} />
+            <main id="content" className="frame pt-2 md:pt-3">
+              {children}
+            </main>
+            <Footer locale={locale} />
+          </MotionRoot>
         </NextIntlClientProvider>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
       </body>
     </html>
   );

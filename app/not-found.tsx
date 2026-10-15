@@ -1,38 +1,41 @@
-import Link from "next/link";
-import { PiArrowLeftBold, PiHouseBold } from "react-icons/pi";
-
+// Rendered as out/404.html. It sits outside the [locale] layout, so it carries its own document and styles.
 export default function NotFound() {
   return (
-    <div className="flex justify-center items-center min-h-screen p-4">
-      <div className="w-[90%] max-w-7xl border-theme-border border-dashed px-6 border-l border-r">
-        <div className="flex flex-col items-center justify-center py-32 text-center space-y-6">
-          <p className="text-8xl font-bold text-black">404</p>
-          <div className="space-y-2">
-            <h1 className="text-2xl md:text-3xl font-bold text-black">
-              Page not found
-            </h1>
-            <p className="text-gray-600 max-w-md">
-              The page you are looking for does not exist or has been moved.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3 pt-4 justify-center">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-xl hover:bg-gray-800 transition-colors font-medium text-sm"
-            >
-              <PiHouseBold size={18} />
-              Go home
-            </Link>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-theme-border rounded-xl hover:bg-gray-50 transition-colors font-medium text-sm"
-            >
-              <PiArrowLeftBold size={18} />
-              View projects
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
+    <html lang="en">
+      <body
+        style={{
+          margin: 0,
+          minHeight: "100dvh",
+          display: "grid",
+          placeItems: "center",
+          background: "#09090B",
+          color: "#F2F2F5",
+          fontFamily: "ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif",
+          padding: "24px",
+          textAlign: "center",
+        }}
+      >
+        <main>
+          <p style={{ fontFamily: "ui-monospace, Menlo, monospace", fontSize: 12, letterSpacing: "0.1em", color: "#A1A1AF", margin: 0 }}>404</p>
+          <h1 style={{ fontSize: "clamp(40px, 8vw, 72px)", letterSpacing: "-0.05em", margin: "12px 0" }}>Page not found</h1>
+          <p style={{ color: "#A1A1AF", margin: "0 0 28px" }}>This page does not exist or has moved.</p>
+          <nav style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            {[
+              ["/en/", "English"],
+              ["/pt/", "Português"],
+              ["/it/", "Italiano"],
+            ].map(([href, label]) => (
+              <a
+                key={href}
+                href={href}
+                style={{ color: "#F2F2F5", border: "1px solid #34343F", borderRadius: 999, padding: "10px 18px", textDecoration: "none" }}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        </main>
+      </body>
+    </html>
   );
 }

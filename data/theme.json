@@ -1,16 +1,222 @@
 {
   "light": {
-    "bg":          { "value": "#ffffff", "description": "Page background" },
-    "surface":     { "value": "#f9fafb", "description": "Cards, pills, dropdowns" },
-    "elevated":    { "value": "#f3f4f6", "description": "Active states, hover overlays" },
-    "border":      { "value": "#e5e7eb", "description": "Dividers, pill borders" },
-    "border-subtle": { "value": "#f3f4f6", "description": "Subtle borders, dashed lines" },
-    "muted":       { "value": "#6b7280", "description": "Secondary text, icons" },
-    "fg":          { "value": "#000000", "description": "Primary text" },
-    "fg-muted":    { "value": "#374151", "description": "Secondary text" },
-    "fg-subtle":   { "value": "#6b7280", "description": "Tertiary text, placeholders" },
-    "accent":      { "value": "#000000", "description": "Accent buttons background" },
-    "accent-fg":   { "value": "#ffffff", "description": "Accent buttons text" },
-    "overlay":     { "value": "rgba(0,0,0,0.60)", "description": "Modal backdrop" }
+    "bg": {
+      "value": "#EBEBEF",
+      "description": "Page canvas (never carries text directly)"
+    },
+    "bg-2": {
+      "value": "#E4E4E9",
+      "description": "Canvas, deeper"
+    },
+    "surface": {
+      "value": "#FFFFFF",
+      "description": "Cards: every piece of content sits on one"
+    },
+    "raised": {
+      "value": "#F4F4F6",
+      "description": "Inputs, chips, hover"
+    },
+    "line": {
+      "value": "#E8E8ED",
+      "description": "Dividers inside cards"
+    },
+    "line-2": {
+      "value": "#D6D6DE",
+      "description": "Stronger borders"
+    },
+    "fg": {
+      "value": "#0B0B0E",
+      "description": "Primary text"
+    },
+    "dim": {
+      "value": "#5E5E6B",
+      "description": "Secondary text"
+    },
+    "faint": {
+      "value": "#9A9AA4",
+      "description": "Tertiary text"
+    },
+    "accent": {
+      "value": "#0B0B0E",
+      "description": "Links and focus"
+    },
+    "on-accent": {
+      "value": "#FFFFFF",
+      "description": "Text on accent"
+    },
+    "ok": {
+      "value": "#127A4F",
+      "description": "Status: available, success"
+    },
+    "warn": {
+      "value": "#9A5B06",
+      "description": "Status: warning"
+    },
+    "crit": {
+      "value": "#C02A3D",
+      "description": "Status: error"
+    },
+    "h1": {
+      "value": "#0B0B0E",
+      "description": "Monochrome sheen stop 1"
+    },
+    "h2": {
+      "value": "#3A3A42",
+      "description": "Monochrome sheen stop 2"
+    },
+    "h3": {
+      "value": "#6E6E78",
+      "description": "Monochrome sheen stop 3"
+    },
+    "h4": {
+      "value": "#A1A1AA",
+      "description": "Monochrome sheen stop 4"
+    },
+    "h5": {
+      "value": "#2A2A30",
+      "description": "Monochrome sheen stop 5"
+    },
+    "s1": {
+      "value": "#C9C9CF",
+      "description": "Seal stop 1"
+    },
+    "s2": {
+      "value": "#F4F4F6",
+      "description": "Seal stop 2"
+    },
+    "s3": {
+      "value": "#9A9AA2",
+      "description": "Seal stop 3"
+    },
+    "seal-ink": {
+      "value": "#111114",
+      "description": "Text on the seal"
+    },
+    "glass": {
+      "value": "rgba(255,255,255,.68)",
+      "description": "Glass panels"
+    },
+    "glass-line": {
+      "value": "rgba(10,10,20,.09)",
+      "description": "Glass border"
+    },
+    "hl": {
+      "value": "rgba(255,255,255,.9)",
+      "description": "Glass top highlight"
+    },
+    "overlay": {
+      "value": "rgba(12,12,20,.35)",
+      "description": "Modal backdrop"
+    }
+  },
+  "dark": {
+    "bg": {
+      "value": "#050506",
+      "description": "Page canvas (never carries text directly)"
+    },
+    "bg-2": {
+      "value": "#0A0A0C",
+      "description": "Canvas, deeper"
+    },
+    "surface": {
+      "value": "#111114",
+      "description": "Cards: every piece of content sits on one"
+    },
+    "raised": {
+      "value": "#1A1A1F",
+      "description": "Inputs, chips, hover"
+    },
+    "line": {
+      "value": "#222228",
+      "description": "Dividers inside cards"
+    },
+    "line-2": {
+      "value": "#303038",
+      "description": "Stronger borders"
+    },
+    "fg": {
+      "value": "#F2F2F5",
+      "description": "Primary text"
+    },
+    "dim": {
+      "value": "#A1A1AF",
+      "description": "Secondary text"
+    },
+    "faint": {
+      "value": "#6E6E7C",
+      "description": "Tertiary text"
+    },
+    "accent": {
+      "value": "#F2F2F5",
+      "description": "Links and focus"
+    },
+    "on-accent": {
+      "value": "#0B0B0E",
+      "description": "Text on accent"
+    },
+    "ok": {
+      "value": "#5FD49B",
+      "description": "Status: available, success"
+    },
+    "warn": {
+      "value": "#F5B35C",
+      "description": "Status: warning"
+    },
+    "crit": {
+      "value": "#FF7A85",
+      "description": "Status: error"
+    },
+    "h1": {
+      "value": "#FFFFFF",
+      "description": "Monochrome sheen stop 1"
+    },
+    "h2": {
+      "value": "#D4D4D8",
+      "description": "Monochrome sheen stop 2"
+    },
+    "h3": {
+      "value": "#A1A1AA",
+      "description": "Monochrome sheen stop 3"
+    },
+    "h4": {
+      "value": "#71717A",
+      "description": "Monochrome sheen stop 4"
+    },
+    "h5": {
+      "value": "#E4E4E7",
+      "description": "Monochrome sheen stop 5"
+    },
+    "s1": {
+      "value": "#C9C9CF",
+      "description": "Seal stop 1"
+    },
+    "s2": {
+      "value": "#F4F4F6",
+      "description": "Seal stop 2"
+    },
+    "s3": {
+      "value": "#9A9AA2",
+      "description": "Seal stop 3"
+    },
+    "seal-ink": {
+      "value": "#111114",
+      "description": "Text on the seal"
+    },
+    "glass": {
+      "value": "rgba(22,22,28,.62)",
+      "description": "Glass panels"
+    },
+    "glass-line": {
+      "value": "rgba(255,255,255,.09)",
+      "description": "Glass border"
+    },
+    "hl": {
+      "value": "rgba(255,255,255,.07)",
+      "description": "Glass top highlight"
+    },
+    "overlay": {
+      "value": "rgba(0,0,0,.6)",
+      "description": "Modal backdrop"
+    }
   }
 }
