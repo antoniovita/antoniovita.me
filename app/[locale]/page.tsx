@@ -51,7 +51,7 @@ export default async function Home({ params }: Params) {
           <Reveal delay={0.35}>
             <p className="mt-6 font-display text-[clamp(20px,2.1vw,27px)] tracking-[-0.02em]">{t("home.tagline")}</p>
             <p className="mt-4 max-w-[54ch] text-dim">{t("home.bio")}</p>
-            <div className="mt-8 flex flex-wrap gap-2.5">
+            <div className="mt-8 hidden flex-wrap gap-2.5 md:flex">
               <Link href={`/${locale}/work/`} className="btn btn-primary">
                 {t("home.ctaWork")}
                 <PiArrowRightBold size={15} />
