@@ -7,7 +7,8 @@ export const site = {
   email: "antoniovitafonseca@gmail.com",
   github: "https://github.com/antoniovita",
   linkedin: "https://www.linkedin.com/in/antonio-vita-6177922b7/",
-  instagram: "https://www.instagram.com/defi.institute/",
+  instagram: "https://www.instagram.com/antn.vita/",
+  instagramHandle: "@antn.vita",
   cv: "/cv.pdf",
   location: {
     city: "Rio de Janeiro",

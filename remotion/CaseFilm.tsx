@@ -4,7 +4,7 @@ import { AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoCon
 import { cases, localize, type CaseStudy, type FlowEdge, type FlowNode } from "../data/cases";
 import { getProject, splitTitle, type FeaturedSlug } from "../data/content";
 import type { Locale } from "../data/site";
-import { Signature, colors, dotGrid } from "./brand";
+import { Grifo, Signature, colors, dotGrid } from "./brand";
 import { DISPLAY_TRACKING, fonts } from "./fonts";
 
 export type CaseFilmProps = { slug: FeaturedSlug; locale: Locale; theme?: "light" | "dark" };
@@ -43,43 +43,43 @@ const DARK: FilmPalette = {
   dim: colors.dim,
   line: colors.line,
   accent: "#FFFFFF",
-  blocked: "#8E8E9A",
-  grid: { rgb: "142,142,156", opacity: 0.14 },
+  blocked: "#8A8A8A",
+  grid: { rgb: "163,163,163", opacity: 0.14 },
   boxFill: "rgba(255,255,255,0.025)",
-  boxStroke: "rgba(142,142,156,0.5)",
-  edge: "rgba(142,142,156,0.6)",
-  arrow: "rgba(142,142,156,0.8)",
-  blockedBorder: "rgba(142,142,154,.45)",
-  actorBorder: "rgba(142,142,156,.75)",
-  blockedNodeBorder: "rgba(142,142,156,.45)",
+  boxStroke: "rgba(163,163,163,0.5)",
+  edge: "rgba(163,163,163,0.6)",
+  arrow: "rgba(163,163,163,0.8)",
+  blockedBorder: "rgba(138,138,138,.45)",
+  actorBorder: "rgba(163,163,163,.75)",
+  blockedNodeBorder: "rgba(163,163,163,.45)",
   coreGlow: "0 0 40px rgba(255,255,255,.08)",
   highlightBorder: "#FFFFFF",
   highlightShadow: "0 0 32px rgba(255,255,255,.28), inset 0 0 16px rgba(255,255,255,.08)",
-  dotTrail: "#B8B8C2",
+  dotTrail: "#B5B5B5",
   dotShadow: "0 0 14px 4px rgba(255,255,255,.7), 0 0 40px 12px rgba(255,255,255,.18)",
 };
 
 const LIGHT: FilmPalette = {
   bg: "#FFFFFF",
-  card: "#F4F4F6",
-  ink: "#0B0B0E",
-  dim: "#5E5E6B",
-  line: "#E1E1E6",
-  accent: "#0B0B0E",
-  blocked: "#8E8E9A",
-  grid: { rgb: "11,11,14", opacity: 0.04 },
-  boxFill: "rgba(11,11,14,0.02)",
-  boxStroke: "rgba(94,94,107,0.45)",
-  edge: "rgba(94,94,107,0.55)",
-  arrow: "rgba(94,94,107,0.8)",
-  blockedBorder: "rgba(142,142,154,.5)",
-  actorBorder: "rgba(94,94,107,.7)",
-  blockedNodeBorder: "rgba(94,94,107,.4)",
-  coreGlow: "0 8px 24px rgba(11,11,14,.08)",
-  highlightBorder: "#0B0B0E",
-  highlightShadow: "0 6px 22px rgba(11,11,14,.16)",
-  dotTrail: "#8E8E9A",
-  dotShadow: "0 2px 10px 2px rgba(11,11,14,.22), 0 0 26px 8px rgba(11,11,14,.08)",
+  card: "#F4F4F4",
+  ink: "#0A0A0A",
+  dim: "#5E5E5E",
+  line: "#E3E3E3",
+  accent: "#0A0A0A",
+  blocked: "#8A8A8A",
+  grid: { rgb: "10,10,10", opacity: 0.04 },
+  boxFill: "rgba(10,10,10,0.02)",
+  boxStroke: "rgba(94,94,94,0.45)",
+  edge: "rgba(94,94,94,0.55)",
+  arrow: "rgba(94,94,94,0.8)",
+  blockedBorder: "rgba(138,138,138,.5)",
+  actorBorder: "rgba(94,94,94,.7)",
+  blockedNodeBorder: "rgba(94,94,94,.4)",
+  coreGlow: "0 8px 24px rgba(10,10,10,.08)",
+  highlightBorder: "#0A0A0A",
+  highlightShadow: "0 6px 22px rgba(10,10,10,.16)",
+  dotTrail: "#8A8A8A",
+  dotShadow: "0 2px 10px 2px rgba(10,10,10,.22), 0 0 26px 8px rgba(10,10,10,.08)",
 };
 
 const PaletteContext = createContext<FilmPalette>(DARK);
@@ -182,7 +182,7 @@ const TitleBlock: React.FC<CaseFilmProps> = ({ slug, locale }) => {
           translate: `0px ${(1 - enter) * 90}px`,
         }}
       >
-        {name}
+        <Grifo>{name}</Grifo>
       </div>
       <div
         style={{

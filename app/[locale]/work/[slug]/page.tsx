@@ -62,8 +62,8 @@ export default async function CasePage({ params }: Params) {
                 {c.area[locale]} · {project.date}
               </p>
             </Reveal>
-            <h1 className="mt-4 font-display text-[clamp(52px,8vw,120px)] font-semibold leading-[0.9] tracking-[-0.055em]">
-              <SplitWords lines={[{ text: name }]} />
+            <h1 className="mt-4 font-display text-[clamp(46px,7vw,104px)] font-bold leading-[0.9] tracking-[-0.024em]">
+              <SplitWords lines={[{ text: name, mark: "all" }]} />
             </h1>
           </div>
           <Reveal delay={0.3}>
@@ -80,7 +80,7 @@ export default async function CasePage({ params }: Params) {
 
       <section aria-labelledby="film-title" className="card pad">
         <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
-          <h2 id="film-title" className="font-display text-[32px] font-semibold tracking-[-0.035em]">
+          <h2 id="film-title" className="font-display text-[32px] font-bold tracking-[-0.028em]">
             {t("case.film")}
           </h2>
           <p className="max-w-[56ch] text-[15px] text-dim">{t("case.filmNote")}</p>
@@ -90,9 +90,9 @@ export default async function CasePage({ params }: Params) {
 
       <div className="grid gap-2 md:gap-3 lg:grid-cols-[1.5fr_1fr]">
         <Reveal className="card pad">
-          <h2 className="font-display text-[24px] font-semibold tracking-[-0.025em]">{t("case.about")}</h2>
+          <h2 className="font-display text-[24px] font-bold tracking-[-0.025em]">{t("case.about")}</h2>
           <p className="mt-5 max-w-[62ch] text-[19px] leading-[1.65]">{project.longDescription}</p>
-          <h2 className="mt-12 font-display text-[24px] font-semibold tracking-[-0.025em]">{t("case.built")}</h2>
+          <h2 className="mt-12 font-display text-[24px] font-bold tracking-[-0.025em]">{t("case.built")}</h2>
           <Stagger as="ol" className="mt-4">
             {project.achievements.map((item, i) => (
               <StaggerItem as="li" key={item} className="bleed rule grid grid-cols-[40px_1fr] py-4 text-[16px]">
@@ -104,7 +104,7 @@ export default async function CasePage({ params }: Params) {
         </Reveal>
         <Reveal delay={0.08} className="card pad flex flex-col gap-8">
           <div>
-            <h2 className="font-display text-[24px] font-semibold tracking-[-0.025em]">{t("case.stack")}</h2>
+            <h2 className="font-display text-[24px] font-bold tracking-[-0.025em]">{t("case.stack")}</h2>
             <ul className="mt-4 flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <li key={tech} className="chip">
@@ -127,7 +127,7 @@ export default async function CasePage({ params }: Params) {
           <Link href={`/${locale}/work/${nextSlug}/`} className="card pad group flex items-end justify-between gap-6 overflow-hidden">
             <span>
               <span className="text-[15px] text-dim">{t("case.next")}</span>
-              <span className="mt-3 block font-display text-[clamp(36px,5.6vw,80px)] font-semibold leading-[0.95] tracking-[-0.055em] transition-transform duration-700 ease-out-expo group-hover:translate-x-3">
+              <span className="mt-3 block font-display text-[clamp(36px,5.6vw,80px)] font-bold leading-[0.95] tracking-[-0.024em] transition-transform duration-700 ease-out-expo group-hover:translate-x-3">
                 {splitTitle(next.title).name}
               </span>
             </span>

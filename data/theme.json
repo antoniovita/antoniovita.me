@@ -1,11 +1,11 @@
 {
   "light": {
     "bg": {
-      "value": "#EBEBEF",
+      "value": "#EDEDED",
       "description": "Page canvas (never carries text directly)"
     },
     "bg-2": {
-      "value": "#E4E4E9",
+      "value": "#E6E6E6",
       "description": "Canvas, deeper"
     },
     "surface": {
@@ -13,31 +13,31 @@
       "description": "Cards: every piece of content sits on one"
     },
     "raised": {
-      "value": "#F4F4F6",
+      "value": "#F4F4F4",
       "description": "Inputs, chips, hover"
     },
     "line": {
-      "value": "#E8E8ED",
+      "value": "#E8E8E8",
       "description": "Dividers inside cards"
     },
     "line-2": {
-      "value": "#D6D6DE",
+      "value": "#D6D6D6",
       "description": "Stronger borders"
     },
     "fg": {
-      "value": "#0B0B0E",
+      "value": "#0A0A0A",
       "description": "Primary text"
     },
     "dim": {
-      "value": "#5E5E6B",
+      "value": "#5E5E5E",
       "description": "Secondary text"
     },
     "faint": {
-      "value": "#9A9AA4",
+      "value": "#8C8C8C",
       "description": "Tertiary text"
     },
     "accent": {
-      "value": "#0B0B0E",
+      "value": "#0A0A0A",
       "description": "Links and focus"
     },
     "on-accent": {
@@ -89,7 +89,7 @@
       "description": "Seal stop 3"
     },
     "seal-ink": {
-      "value": "#111114",
+      "value": "#0A0A0A",
       "description": "Text on the seal"
     },
     "glass": {
@@ -107,51 +107,59 @@
     "overlay": {
       "value": "rgba(12,12,20,.35)",
       "description": "Modal backdrop"
+    },
+    "grifo": {
+      "value": "#FFE14D",
+      "description": "Highlighter yellow: the only colour, one highlighted expression per page"
+    },
+    "grifo-ink": {
+      "value": "#0A0A0A",
+      "description": "Text on the highlighter"
     }
   },
   "dark": {
     "bg": {
-      "value": "#050506",
+      "value": "#050505",
       "description": "Page canvas (never carries text directly)"
     },
     "bg-2": {
-      "value": "#0A0A0C",
+      "value": "#0A0A0A",
       "description": "Canvas, deeper"
     },
     "surface": {
-      "value": "#111114",
+      "value": "#101010",
       "description": "Cards: every piece of content sits on one"
     },
     "raised": {
-      "value": "#1A1A1F",
+      "value": "#1A1A1A",
       "description": "Inputs, chips, hover"
     },
     "line": {
-      "value": "#222228",
+      "value": "#222222",
       "description": "Dividers inside cards"
     },
     "line-2": {
-      "value": "#303038",
+      "value": "#333333",
       "description": "Stronger borders"
     },
     "fg": {
-      "value": "#F2F2F5",
+      "value": "#F5F5F5",
       "description": "Primary text"
     },
     "dim": {
-      "value": "#A1A1AF",
+      "value": "#A3A3A3",
       "description": "Secondary text"
     },
     "faint": {
-      "value": "#6E6E7C",
+      "value": "#737373",
       "description": "Tertiary text"
     },
     "accent": {
-      "value": "#F2F2F5",
+      "value": "#F5F5F5",
       "description": "Links and focus"
     },
     "on-accent": {
-      "value": "#0B0B0E",
+      "value": "#0A0A0A",
       "description": "Text on accent"
     },
     "ok": {
@@ -199,7 +207,7 @@
       "description": "Seal stop 3"
     },
     "seal-ink": {
-      "value": "#111114",
+      "value": "#0A0A0A",
       "description": "Text on the seal"
     },
     "glass": {
@@ -217,6 +225,14 @@
     "overlay": {
       "value": "rgba(0,0,0,.6)",
       "description": "Modal backdrop"
+    },
+    "grifo": {
+      "value": "#FFE14D",
+      "description": "Highlighter yellow: the only colour, one highlighted expression per page"
+    },
+    "grifo-ink": {
+      "value": "#0A0A0A",
+      "description": "Text on the highlighter"
     }
   }
 }

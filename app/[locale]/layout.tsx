@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Funnel_Display, Funnel_Sans, Geist_Mono, Mrs_Saint_Delafield } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Mrs_Saint_Delafield, Space_Grotesk } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import "../globals.css";
@@ -12,9 +12,9 @@ import { isLocale, locales, site, type Locale } from "@/data/site";
 import { getT, messagesByLocale } from "@/lib/i18n";
 import { themeInitScript } from "@/lib/theme";
 
-const display = Funnel_Display({ subsets: ["latin"], variable: "--font-funnel-display", display: "swap" });
-const sans = Funnel_Sans({ subsets: ["latin"], variable: "--font-funnel-sans", display: "swap" });
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
+const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
+const sans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-plex-sans", display: "swap" });
+const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-plex-mono", display: "swap" });
 const hand = Mrs_Saint_Delafield({ subsets: ["latin"], weight: "400", variable: "--font-hand-signature", display: "swap", preload: false });
 
 export function generateStaticParams() {
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export const viewport: Viewport = {
   viewportFit: "cover",
-  themeColor: "#EBEBEF",
+  themeColor: "#EDEDED",
   colorScheme: "dark light",
 };
 
@@ -59,7 +59,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     address: { "@type": "PostalAddress", addressLocality: "Rio de Janeiro", addressCountry: "BR" },
     alumniOf: { "@type": "CollegeOrUniversity", name: "PUC-Rio" },
     knowsLanguage: ["pt", "en", "it", "es", "fr"],
-    sameAs: [site.github, site.linkedin],
+    sameAs: [site.github, site.linkedin, site.instagram],
   };
 
   return (

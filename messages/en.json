@@ -8,7 +8,7 @@
     },
     "work": {
       "title": "Work",
-      "description": "Three case studies from different fields and the full project archive of Antonio Vita."
+      "description": "Professional experience, case studies and project archive of Antonio Vita."
     },
     "now": {
       "title": "Now",
@@ -22,7 +22,11 @@
       "title": "Contact",
       "description": "Talk to Antonio Vita about a software project or a business idea."
     },
-    "jobTitle": "Software engineer and entrepreneur"
+    "jobTitle": "Software engineer and entrepreneur",
+    "articles": {
+      "title": "Articles",
+      "description": "Articles by Antonio Vita on software engineering and entrepreneurship."
+    }
   },
   "nav": {
     "home": "Home",
@@ -36,7 +40,8 @@
     "language": "Language",
     "command": "Open quick navigation",
     "skip": "Skip to content",
-    "search": "Search"
+    "search": "Search",
+    "articles": "Articles"
   },
   "cmdk": {
     "placeholder": "Go to…",
@@ -110,7 +115,7 @@
   "work": {
     "label": "{count} projects",
     "title": "Work",
-    "subtitle": "Three case studies from different fields, told in detail, and an archive with everything else.",
+    "subtitle": "Professional experience, three case studies from different fields and the archive with everything else.",
     "casesLabel": "Case studies",
     "archiveLabel": "Archive",
     "colProject": "Project",
@@ -120,7 +125,8 @@
     "colLink": "Code",
     "code": "GitHub",
     "private": "private",
-    "viewCase": "View case"
+    "viewCase": "View case",
+    "experienceLabel": "Experience"
   },
   "case": {
     "film": "How it works",
@@ -258,5 +264,16 @@
     "moved": "This page has moved.",
     "go": "Go to the new page"
   },
-  "seal": "SIGNED · ANTONIO VITA · 2026 ·"
+  "seal": "SIGNED · ANTONIO VITA · 2026 ·",
+  "articles": {
+    "title": "Articles",
+    "subtitle": "Writing on software engineering and on building companies.",
+    "emptyTitle": "The first articles are on their way.",
+    "emptyText": "In the meantime, see what I'm building now or get in touch.",
+    "emptyLink": "See what I'm building",
+    "minRead": "{minutes} min read",
+    "back": "All articles",
+    "published": "Published on {date}",
+    "next": "Next article"
+  }
 }

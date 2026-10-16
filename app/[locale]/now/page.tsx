@@ -38,7 +38,7 @@ export default async function NowPage({ params }: Params) {
               className={`bleed grid gap-x-10 gap-y-2 py-8 md:grid-cols-[80px_minmax(0,1fr)_minmax(0,1.2fr)] md:items-baseline ${i > 0 ? "rule" : ""}`}
             >
               <span className="font-mono text-[14px] text-faint">{String(i + 1).padStart(2, "0")}</span>
-              <h2 className="font-display text-[clamp(28px,3.4vw,44px)] font-semibold leading-none tracking-[-0.04em]">{item.title}</h2>
+              <h2 className="font-display text-[clamp(28px,3.4vw,44px)] font-bold leading-none tracking-[-0.024em]">{item.title}</h2>
               <p className="text-[18px] text-dim">{item.text}</p>
             </StaggerItem>
           ))}

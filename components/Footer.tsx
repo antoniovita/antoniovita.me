@@ -10,6 +10,7 @@ export default function Footer({ locale }: { locale: Locale }) {
   const year = new Date().getFullYear();
   const links = [
     { href: "/work", label: t("nav.work") },
+    { href: "/articles", label: t("nav.articles") },
     { href: "/now", label: t("nav.now") },
     { href: "/about", label: t("nav.about") },
     { href: "/contact", label: t("nav.contact") },
@@ -27,7 +28,7 @@ export default function Footer({ locale }: { locale: Locale }) {
           <div>
             <Link
               href={`/${locale}/contact/`}
-              className="group block whitespace-nowrap font-display text-[clamp(30px,6.4vw,92px)] font-semibold leading-[0.88] tracking-[-0.055em]"
+              className="group block whitespace-nowrap font-display text-[clamp(26px,5.2vw,76px)] font-bold leading-[0.88] tracking-[-0.024em]"
             >
               <span className="transition-colors duration-300 group-hover:text-dim">{t("contact.title")}</span>
               <span className="ml-[0.2em] inline-grid h-[0.6em] w-[0.6em] translate-y-[-0.05em] place-items-center align-middle rounded-full bg-fg text-surface transition-transform duration-500 ease-out-expo group-hover:rotate-45">

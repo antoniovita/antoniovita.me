@@ -29,7 +29,7 @@ export const Genesis: React.FC<GenesisProps> = () => {
   const reveal = interpolate(frame, [WRITE_START, WRITE_END], [0, 1], { ...clamp, easing: writeEase });
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "#0B0B0E", overflow: "hidden" }}>
+    <AbsoluteFill style={{ backgroundColor: "#050505", overflow: "hidden" }}>
       <Portrait />
       <div
         style={{
@@ -45,9 +45,9 @@ export const Genesis: React.FC<GenesisProps> = () => {
           width={SIG_W}
           color="#FFFFFF"
           sheen={sheenSweep(frame, SHEEN_START, SHEEN_DURATION)}
-          sheenColor="rgba(170,170,180,.35)"
+          sheenColor="rgba(170,170,170,.35)"
           reveal={reveal}
-          filter="drop-shadow(0 1px 1.5px rgba(4,8,30,.55)) drop-shadow(0 6px 18px rgba(4,8,30,.5))"
+          filter="drop-shadow(0 1px 1.5px rgba(0,0,0,.55)) drop-shadow(0 6px 18px rgba(0,0,0,.5))"
         />
         <PenTip reveal={reveal} />
       </div>
@@ -77,7 +77,7 @@ const PenTip: React.FC<{ reveal: number }> = ({ reveal }) => {
         borderRadius: size / 2,
         backgroundColor: "#FFFFFF",
         opacity,
-        boxShadow: "0 0 12px 4px rgba(255,255,255,.9), 0 0 34px 12px rgba(255,255,255,.45), 0 0 70px 24px rgba(200,200,208,.25)",
+        boxShadow: "0 0 12px 4px rgba(255,255,255,.9), 0 0 34px 12px rgba(255,255,255,.45), 0 0 70px 24px rgba(200,200,200,.25)",
       }}
     />
   );
@@ -92,7 +92,7 @@ const Portrait: React.FC = () => (
     {/* shade under the signature so the white ink reads on the light pavement */}
     <AbsoluteFill
       style={{
-        background: "linear-gradient(to top, rgba(11,11,14,.66) 0%, rgba(11,11,14,.3) 24%, rgba(11,11,14,0) 46%)",
+        background: "linear-gradient(to top, rgba(5,5,5,.66) 0%, rgba(5,5,5,.3) 24%, rgba(5,5,5,0) 46%)",
       }}
     />
   </AbsoluteFill>

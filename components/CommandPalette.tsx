@@ -50,6 +50,7 @@ export default function CommandPalette({ cases }: { cases: { slug: string; name:
     return [
       { id: "home", group: t("pages"), title: nav("home"), icon: page, run: go("") },
       { id: "work", group: t("pages"), title: nav("work"), icon: page, run: go("/work") },
+      { id: "articles", group: t("pages"), title: nav("articles"), icon: page, run: go("/articles") },
       { id: "now", group: t("pages"), title: nav("now"), icon: page, run: go("/now") },
       { id: "about", group: t("pages"), title: nav("about"), icon: page, run: go("/about") },
       { id: "contact", group: t("pages"), title: nav("contact"), icon: page, run: go("/contact") },

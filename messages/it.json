@@ -8,7 +8,7 @@
     },
     "work": {
       "title": "Lavori",
-      "description": "Tre casi studio di ambiti diversi e l'archivio completo dei progetti di Antonio Vita."
+      "description": "Esperienza professionale, casi studio e archivio progetti di Antonio Vita."
     },
     "now": {
       "title": "Adesso",
@@ -22,7 +22,11 @@
       "title": "Contatti",
       "description": "Parla con Antonio Vita di un progetto software o di un'idea di business."
     },
-    "jobTitle": "Ingegnere del software e imprenditore"
+    "jobTitle": "Ingegnere del software e imprenditore",
+    "articles": {
+      "title": "Articoli",
+      "description": "Articoli di Antonio Vita su ingegneria del software e imprenditoria."
+    }
   },
   "nav": {
     "home": "Home",
@@ -36,7 +40,8 @@
     "language": "Lingua",
     "command": "Apri la navigazione rapida",
     "skip": "Vai al contenuto",
-    "search": "Cerca"
+    "search": "Cerca",
+    "articles": "Articoli"
   },
   "cmdk": {
     "placeholder": "Vai a…",
@@ -110,7 +115,7 @@
   "work": {
     "label": "{count} progetti",
     "title": "Lavori",
-    "subtitle": "Tre casi studio di ambiti diversi, raccontati nel dettaglio, e un archivio con tutto il resto.",
+    "subtitle": "Esperienza professionale, tre casi studio di ambiti diversi e l'archivio con tutto il resto.",
     "casesLabel": "Casi studio",
     "archiveLabel": "Archivio",
     "colProject": "Progetto",
@@ -120,7 +125,8 @@
     "colLink": "Codice",
     "code": "GitHub",
     "private": "privato",
-    "viewCase": "Vedi il caso"
+    "viewCase": "Vedi il caso",
+    "experienceLabel": "Esperienza"
   },
   "case": {
     "film": "Come funziona",
@@ -258,5 +264,16 @@
     "moved": "Questa pagina è stata spostata.",
     "go": "Vai alla nuova pagina"
   },
-  "seal": "FIRMATO · ANTONIO VITA · 2026 ·"
+  "seal": "FIRMATO · ANTONIO VITA · 2026 ·",
+  "articles": {
+    "title": "Articoli",
+    "subtitle": "Testi su ingegneria del software e su come costruire aziende.",
+    "emptyTitle": "I primi articoli stanno arrivando.",
+    "emptyText": "Nel frattempo, guarda cosa sto costruendo adesso o scrivimi.",
+    "emptyLink": "Vedi cosa sto costruendo",
+    "minRead": "{minutes} min di lettura",
+    "back": "Tutti gli articoli",
+    "published": "Pubblicato il {date}",
+    "next": "Articolo successivo"
+  }
 }

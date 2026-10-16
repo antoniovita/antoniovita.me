@@ -11,6 +11,7 @@ import { useUi } from "./motion/MotionRoot";
 
 const items = [
   { key: "work", href: "/work" },
+  { key: "articles", href: "/articles" },
   { key: "now", href: "/now" },
   { key: "about", href: "/about" },
   { key: "contact", href: "/contact" },
@@ -74,7 +75,7 @@ export default function NavBar() {
                   href={`/${locale}${item.href}/`}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "relative block rounded-full px-3 py-2.5 text-[14px] font-medium transition-colors sm:px-4",
+                    "relative block rounded-full px-2.5 py-2.5 text-[13px] font-medium transition-colors sm:px-4 sm:text-[14px]",
                     active ? "text-fg" : "text-surface/75 hover:text-surface",
                   )}
                 >

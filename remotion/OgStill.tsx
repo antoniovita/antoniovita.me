@@ -6,14 +6,14 @@ import type { Locale } from "../data/site";
 import en from "../messages/en.json";
 import it from "../messages/it.json";
 import pt from "../messages/pt.json";
-import { Signature } from "./brand";
+import { Grifo, Signature } from "./brand";
 import { DISPLAY_TRACKING, fonts } from "./fonts";
 
 export type OgStillProps = { page: string; locale: Locale };
 
 export const OG_STILL = { width: 1200, height: 630 } as const;
 
-export const ogPages = ["home", "work", "now", "about", "contact"] as const;
+export const ogPages = ["home", "work", "articles", "now", "about", "contact"] as const;
 type OgPage = (typeof ogPages)[number];
 
 type Messages = {
@@ -46,15 +46,27 @@ const PAD = 64;
 /** Monochrome: white page, black ink. */
 const og = {
   bg: "#FFFFFF",
-  ink: "#0B0B0E",
-  dim: "#5E5E6B",
-  line: "#E1E1E6",
+  ink: "#0A0A0A",
+  dim: "#5E5E5E",
+  line: "#E3E3E3",
 } as const;
+
+/** Grifo on the last word of the title; for a single word that is the whole title. */
+const HighlightLastWord: React.FC<{ text: string }> = ({ text }) => {
+  const i = text.lastIndexOf(" ");
+  if (i < 0) return <Grifo>{text}</Grifo>;
+  return (
+    <>
+      {text.slice(0, i + 1)}
+      <Grifo>{text.slice(i + 1)}</Grifo>
+    </>
+  );
+};
 
 export const OgStill: React.FC<OgStillProps> = ({ page, locale }) => {
   const { title, subtitle, path } = describe(page, locale);
   // Shrink very long titles so they always fit on one line.
-  const titleSize = Math.min(128, Math.floor(1040 / Math.max(1, title.length * 0.56)));
+  const titleSize = Math.min(128, Math.floor(1040 / Math.max(1, title.length * 0.58 + 0.3)));
 
   return (
     <AbsoluteFill style={{ backgroundColor: og.bg, color: og.ink, overflow: "hidden" }}>
@@ -83,7 +95,7 @@ export const OgStill: React.FC<OgStillProps> = ({ page, locale }) => {
             whiteSpace: "nowrap",
           }}
         >
-          {title}
+          <HighlightLastWord text={title} />
         </div>
         {subtitle ? (
           <div

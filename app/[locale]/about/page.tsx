@@ -52,7 +52,7 @@ export default async function AboutPage({ params }: Params) {
       </div>
 
       <Reveal className="card pad pb-0">
-        <h2 className="font-display text-[clamp(32px,4vw,52px)] font-semibold tracking-[-0.04em]">{t("about.timelineLabel")}</h2>
+        <h2 className="font-display text-[clamp(32px,4vw,52px)] font-bold tracking-[-0.024em]">{t("about.timelineLabel")}</h2>
         <Stagger as="ol" className="mt-8">
           {timeline.map((step, i) => {
             const last = i === timeline.length - 1;
@@ -62,8 +62,8 @@ export default async function AboutPage({ params }: Params) {
                 key={`${step.year}-${step.title}`}
                 className="bleed rule group grid gap-x-8 gap-y-1 py-6 transition-colors hover:bg-raised/60 md:grid-cols-[140px_minmax(0,1fr)_minmax(0,1.2fr)] md:items-baseline"
               >
-                <span className={`font-display text-[28px] font-semibold tracking-[-0.03em] ${last ? "text-fg" : "text-faint group-hover:text-fg"} transition-colors`}>{step.year}</span>
-                <h3 className="font-display text-[22px] font-semibold tracking-[-0.02em]">{step.title}</h3>
+                <span className={`font-display text-[28px] font-bold tracking-[-0.024em] ${last ? "text-fg" : "text-faint group-hover:text-fg"} transition-colors`}>{step.year}</span>
+                <h3 className="font-display text-[22px] font-bold tracking-[-0.02em]">{step.title}</h3>
                 <p className="text-dim">{step.text}</p>
               </StaggerItem>
             );
@@ -73,12 +73,12 @@ export default async function AboutPage({ params }: Params) {
 
       <div className="grid gap-2 md:gap-3 lg:grid-cols-2">
         <Reveal className="card pad pb-0">
-          <h2 className="font-display text-[32px] font-semibold tracking-[-0.035em]">{t("about.experienceLabel")}</h2>
+          <h2 className="font-display text-[32px] font-bold tracking-[-0.028em]">{t("about.experienceLabel")}</h2>
           <ul className="mt-6">
             {experiences.map((job) => (
               <li key={`${job.company}-${job.period}`} className="bleed rule py-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-display text-[24px] font-semibold tracking-[-0.025em]">{job.company}</h3>
+                  <h3 className="font-display text-[24px] font-bold tracking-[-0.025em]">{job.company}</h3>
                   <span className="text-[14px] text-dim">{job.period}</span>
                 </div>
                 <p className="mt-0.5 font-medium">{job.position}</p>
@@ -95,12 +95,12 @@ export default async function AboutPage({ params }: Params) {
           </ul>
         </Reveal>
         <Reveal delay={0.08} className="card pad pb-0">
-          <h2 className="font-display text-[32px] font-semibold tracking-[-0.035em]">{t("about.educationLabel")}</h2>
+          <h2 className="font-display text-[32px] font-bold tracking-[-0.028em]">{t("about.educationLabel")}</h2>
           <ul className="mt-6">
             {education.map((item) => (
               <li key={`${item.name}-${item.degree}`} className="bleed rule py-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-display text-[24px] font-semibold tracking-[-0.025em]">{item.name}</h3>
+                  <h3 className="font-display text-[24px] font-bold tracking-[-0.025em]">{item.name}</h3>
                   <span className="text-[14px] text-dim">
                     {item.inProgress && <span className="mr-2 text-ok">● {t("about.inProgress")}</span>}
                     {item.period}
@@ -115,7 +115,7 @@ export default async function AboutPage({ params }: Params) {
 
       <div className="grid gap-2 md:gap-3 lg:grid-cols-2">
         <Reveal className="card pad pb-0">
-          <h2 className="font-display text-[32px] font-semibold tracking-[-0.035em]">{t("about.certificationsLabel")}</h2>
+          <h2 className="font-display text-[32px] font-bold tracking-[-0.028em]">{t("about.certificationsLabel")}</h2>
           <ul className="mt-6">
             {certifications.map((cert) => (
               <li key={cert.name} className="bleed rule flex flex-wrap items-baseline justify-between gap-2 py-4">
@@ -129,7 +129,7 @@ export default async function AboutPage({ params }: Params) {
           </ul>
         </Reveal>
         <Reveal delay={0.08} className="card pad pb-0">
-          <h2 className="font-display text-[32px] font-semibold tracking-[-0.035em]">{t("about.languagesLabel")}</h2>
+          <h2 className="font-display text-[32px] font-bold tracking-[-0.028em]">{t("about.languagesLabel")}</h2>
           <ul className="mt-6">
             {languages.map((lang) => (
               <li key={lang.name} className="bleed rule flex items-baseline justify-between gap-2 py-4">

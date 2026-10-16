@@ -45,8 +45,8 @@ export default async function Home({ params }: Params) {
             <span className="status-dot" aria-hidden="true" />
             {t("home.status")}
           </Reveal>
-          <h1 className="mt-10 font-display text-[clamp(48px,7.2vw,112px)] font-semibold leading-[0.9] tracking-[-0.055em] lg:mt-auto lg:pt-10">
-            <SplitWords lines={[{ text: t("home.h1a") }, { text: t("home.h1b"), className: "text-faint" }]} />
+          <h1 className="mt-10 font-display text-[clamp(44px,6.2vw,96px)] font-bold leading-[0.9] tracking-[-0.024em] lg:mt-auto lg:pt-10">
+            <SplitWords lines={[{ text: t("home.h1a") }, { text: t("home.h1b"), mark: "all" }]} />
           </h1>
           <Reveal delay={0.35}>
             <p className="mt-6 font-display text-[clamp(20px,2.1vw,27px)] tracking-[-0.02em]">{t("home.tagline")}</p>
@@ -71,7 +71,7 @@ export default async function Home({ params }: Params) {
       <div className="grid gap-2 md:grid-cols-2 md:gap-3 lg:grid-cols-12">
         {/* Now */}
         <Reveal className="card pad flex flex-col md:col-span-2 lg:col-span-7">
-          <h2 className="font-display text-[clamp(30px,3.6vw,48px)] font-semibold leading-[1.02] tracking-[-0.04em]">{t("home.nowTitle")}</h2>
+          <h2 className="font-display text-[clamp(30px,3.6vw,48px)] font-bold leading-[1.02] tracking-[-0.024em]">{t("home.nowTitle")}</h2>
           <p className="mt-3 max-w-[46ch] text-dim">{t("home.nowText")}</p>
           <ul className="mt-6">
             {now.map((item) => (
@@ -91,18 +91,20 @@ export default async function Home({ params }: Params) {
         <Reveal delay={0.08} className="card pad flex flex-col overflow-hidden md:col-span-2 lg:col-span-5 lg:row-span-2">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h2 className="font-display text-[28px] font-semibold tracking-[-0.03em]">{t("home.baseTitle")}</h2>
+              <h2 className="font-display text-[28px] font-bold tracking-[-0.024em]">{t("home.baseTitle")}</h2>
               <p className="font-mono text-[12.5px] text-dim">
                 {lat}°S · {lng}°W
               </p>
             </div>
             <div className="text-right">
-              <LocalClock timeZone={site.location.timeZone} locale={locale} className="font-display text-[40px] font-semibold leading-none tracking-[-0.04em] tabular-nums" />
+              <LocalClock timeZone={site.location.timeZone} locale={locale} className="font-display text-[40px] font-bold leading-none tracking-[-0.024em] tabular-nums" />
               <p className="mt-1 text-[13px] text-dim">{t("home.localTime")}</p>
             </div>
           </div>
-          <div className="mx-auto my-2 w-full max-w-[560px] flex-1">
+          <div className="my-2 flex flex-1 items-center justify-center">
+            <div className="w-full max-w-[560px]">
             <GlobeLazy label={t("home.globeAlt")} marker={{ lat: site.location.lat, lng: site.location.lng, name: site.location.city }} />
+            </div>
           </div>
           <p className="bleed rule -mb-[var(--pad)] py-5 text-[15px] text-dim">{t("home.baseNote")}</p>
         </Reveal>
@@ -143,7 +145,7 @@ export default async function Home({ params }: Params) {
         {/* Selected work */}
         <Reveal className="card pad pb-0 md:col-span-2 lg:col-span-8">
           <div className="flex items-baseline justify-between gap-4 pb-5">
-            <h2 className="font-display text-[24px] font-semibold tracking-[-0.025em]">{t("home.workLabel")}</h2>
+            <h2 className="font-display text-[24px] font-bold tracking-[-0.025em]">{t("home.workLabel")}</h2>
             <Link href={`/${locale}/work/`} className="text-[14px] font-medium text-dim transition-colors hover:text-fg">
               {t("home.workAll")} ({total}) →
             </Link>
@@ -161,7 +163,7 @@ export default async function Home({ params }: Params) {
 
         {/* Contact: the one dark card, for contrast. */}
         <Reveal delay={0.08} className="card pad flex flex-col !bg-fg text-surface md:col-span-2 lg:col-span-4">
-          <h2 className="font-display text-[clamp(28px,3vw,38px)] font-semibold leading-[1.05] tracking-[-0.035em]">{t("home.contactTitle")}</h2>
+          <h2 className="font-display text-[clamp(28px,3vw,38px)] font-bold leading-[1.05] tracking-[-0.028em]">{t("home.contactTitle")}</h2>
           <div className="mt-auto flex flex-wrap gap-2 pt-10">
             <Link href={`/${locale}/contact/?door=project`} className="btn bg-surface text-fg">
               {t("home.doorProject")}

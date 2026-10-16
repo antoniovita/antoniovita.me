@@ -59,7 +59,7 @@ export default function ContactForm() {
               <span className="absolute inset-0 rounded-2xl bg-raised" />
             )}
             <input type="radio" name="door" value={d.id} checked={door === d.id} onChange={() => setDoor(d.id)} className="sr-only" />
-            <span className={cn("relative block font-display text-[21px] font-semibold tracking-[-0.02em] transition-colors", door === d.id ? "text-surface" : "text-fg")}>
+            <span className={cn("relative block font-display text-[21px] font-bold tracking-[-0.02em] transition-colors", door === d.id ? "text-surface" : "text-fg")}>
               {d.title}
             </span>
             <span className={cn("relative mt-1 block text-[14.5px] transition-colors", door === d.id ? "text-surface/70" : "text-dim")}>{d.hint}</span>

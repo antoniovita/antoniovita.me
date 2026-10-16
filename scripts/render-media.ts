@@ -29,7 +29,7 @@ const publicDir = path.join(root, "public");
 const mediaDir = path.join(publicDir, "media");
 const ogDir = path.join(publicDir, "og");
 
-const OG_PAGES = ["home", "work", "now", "about", "contact", ...featuredSlugs];
+const OG_PAGES = ["home", "work", "articles", "now", "about", "contact", ...featuredSlugs];
 
 // Genesis is 1080×1350; the site only needs 720×900.
 const GENESIS_SCALE = 720 / 1080;

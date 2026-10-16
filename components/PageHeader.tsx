@@ -7,8 +7,8 @@ export function PageHeader({ title, subtitle, note }: { title: string; subtitle?
   return (
     <header className="card pad grid gap-x-14 gap-y-5 md:grid-cols-[1.2fr_1fr] md:items-end">
       <TopBar className="mb-6 md:col-span-2 md:mb-8" />
-      <h1 className="font-display text-[clamp(40px,5.6vw,80px)] font-semibold leading-[0.95] tracking-[-0.05em]">
-        <SplitWords lines={[{ text: title }]} />
+      <h1 className="font-display text-[clamp(40px,5.6vw,80px)] font-bold leading-[0.95] tracking-[-0.038em]">
+        <SplitWords lines={[{ text: title, mark: "last" }]} />
       </h1>
       {(subtitle || note) && (
         <Reveal delay={0.25} className="grid gap-2 md:pb-1.5">

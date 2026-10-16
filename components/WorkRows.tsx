@@ -35,7 +35,7 @@ export default function WorkRows({ rows, big }: { rows: WorkRow[]; big?: boolean
               className="group grid grid-cols-[1fr_auto] items-baseline gap-x-6 gap-y-1 py-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_auto]"
             >
               <span
-                className={`font-display font-semibold tracking-[-0.03em] transition-transform duration-500 ease-out-expo group-hover:translate-x-2 ${big ? "text-[clamp(28px,4vw,44px)] leading-none" : "text-[24px]"}`}
+                className={`font-display font-bold tracking-[-0.024em] transition-transform duration-500 ease-out-expo group-hover:translate-x-2 ${big ? "text-[clamp(28px,4vw,44px)] leading-none" : "text-[24px]"}`}
               >
                 {row.name}
               </span>

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { articles } from "@/data/articles";
 import { featuredSlugs } from "@/data/content";
 import { locales, site } from "@/data/site";
 
@@ -9,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "", priority: 1 },
     { path: "/work", priority: 0.9 },
     ...featuredSlugs.map((slug) => ({ path: `/work/${slug}`, priority: 0.8 })),
+    { path: "/articles", priority: 0.8 },
+    ...articles.map((a) => ({ path: `/articles/${a.slug}`, priority: 0.7 })),
     { path: "/now", priority: 0.7 },
     { path: "/about", priority: 0.8 },
     { path: "/contact", priority: 0.7 },

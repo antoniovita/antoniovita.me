@@ -8,7 +8,7 @@
     },
     "work": {
       "title": "Trabalho",
-      "description": "Três cases de áreas diferentes e o arquivo completo de projetos de Antonio Vita."
+      "description": "Experiência profissional, cases e arquivo de projetos de Antonio Vita."
     },
     "now": {
       "title": "Agora",
@@ -22,7 +22,11 @@
       "title": "Contato",
       "description": "Fale com Antonio Vita sobre um projeto de software ou uma ideia de negócio."
     },
-    "jobTitle": "Engenheiro de software e empreendedor"
+    "jobTitle": "Engenheiro de software e empreendedor",
+    "articles": {
+      "title": "Artigos",
+      "description": "Artigos de Antonio Vita sobre engenharia de software e empreendedorismo."
+    }
   },
   "nav": {
     "home": "Início",
@@ -36,7 +40,8 @@
     "language": "Idioma",
     "command": "Abrir navegação rápida",
     "skip": "Pular para o conteúdo",
-    "search": "Buscar"
+    "search": "Buscar",
+    "articles": "Artigos"
   },
   "cmdk": {
     "placeholder": "Ir para…",
@@ -110,7 +115,7 @@
   "work": {
     "label": "{count} projetos",
     "title": "Trabalho",
-    "subtitle": "Três cases de áreas diferentes, contados em detalhe, e o arquivo com todo o resto.",
+    "subtitle": "Experiência profissional, três cases de áreas diferentes e o arquivo com todo o resto.",
     "casesLabel": "Cases",
     "archiveLabel": "Arquivo",
     "colProject": "Projeto",
@@ -120,7 +125,8 @@
     "colLink": "Código",
     "code": "GitHub",
     "private": "privado",
-    "viewCase": "Ver case"
+    "viewCase": "Ver case",
+    "experienceLabel": "Experiência"
   },
   "case": {
     "film": "Como funciona",
@@ -258,5 +264,16 @@
     "moved": "Esta página mudou de endereço.",
     "go": "Ir para a nova página"
   },
-  "seal": "ASSINADO · ANTONIO VITA · 2026 ·"
+  "seal": "ASSINADO · ANTONIO VITA · 2026 ·",
+  "articles": {
+    "title": "Artigos",
+    "subtitle": "Textos sobre engenharia de software e sobre construir empresas.",
+    "emptyTitle": "Os primeiros artigos estão a caminho.",
+    "emptyText": "Enquanto isso, veja o que estou construindo agora ou fale comigo.",
+    "emptyLink": "Ver o que estou construindo",
+    "minRead": "{minutes} min de leitura",
+    "back": "Todos os artigos",
+    "published": "Publicado em {date}",
+    "next": "Próximo artigo"
+  }
 }

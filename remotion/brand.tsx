@@ -2,16 +2,17 @@ import type React from "react";
 import { useLayoutEffect, useState } from "react";
 import { Easing, interpolate, staticFile, useDelayRender } from "remotion";
 
-/** Film palette (dark). The identity is strictly black and white; red only marks a blocked flow. */
+/** Dark film palette. Neutral greys only: no tint. */
 export const colors = {
-  bg: "#0B0B0E",
-  card: "#15151B",
-  ink: "#F2F2F5",
-  dim: "#8E8E9C",
-  line: "#2C2C36",
-  success: "#5FD49B",
-  blocked: "#FF7A85",
+  bg: "#050505",
+  card: "#101010",
+  ink: "#F5F5F5",
+  dim: "#A3A3A3",
+  line: "#262626",
 } as const;
+
+/** "Grifo": the highlighter. The only colour in the identity, at most once per piece. */
+export const GRIFO = { bg: "#FFE14D", ink: "#0A0A0A" } as const;
 
 /** public/signature.svg viewBox is 0 0 689 205. */
 export const SIGNATURE_RATIO = 205 / 689;
@@ -228,3 +229,21 @@ export const useInkProfile = (): ((x: number) => number) | null => {
     return profile[i];
   };
 };
+
+type GrifoProps = { children: React.ReactNode; style?: React.CSSProperties };
+
+/** Solid yellow rectangle behind a word, black text on top. Sizes are in em so it scales with the text. */
+export const Grifo: React.FC<GrifoProps> = ({ children, style }) => (
+  <span
+    style={{
+      display: "inline-block",
+      backgroundColor: GRIFO.bg,
+      color: GRIFO.ink,
+      padding: "0.04em 0.14em",
+      borderRadius: "0.06em",
+      ...style,
+    }}
+  >
+    {children}
+  </span>
+);
