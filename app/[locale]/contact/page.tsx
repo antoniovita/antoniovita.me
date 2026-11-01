@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Params) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const t = getT(locale);
-  return pageMetadata({ locale, path: "/contact", title: t("meta.contact.title"), description: t("meta.contact.description"), og: "contact" });
+  return pageMetadata({ locale, path: "/contact", title: t("meta.contact.title"), description: t("meta.contact.description") });
 }
 
 export default async function ContactPage({ params }: Params) {

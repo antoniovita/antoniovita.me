@@ -1,15 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PiArrowRightBold } from "react-icons/pi";
-import GenesisPortrait from "@/components/GenesisPortrait";
+import Portrait from "@/components/Portrait";
 import TopBar from "@/components/TopBar";
 import GlobeLazy from "@/components/GlobeLazy";
 import LocalClock from "@/components/LocalClock";
-import WorkRows from "@/components/WorkRows";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitWords } from "@/components/motion/SplitWords";
-import { cases } from "@/data/cases";
-import { getFeatured, getProjects, splitTitle, stack } from "@/data/content";
+import { getExperience, stack } from "@/data/content";
 import { isLocale, site } from "@/data/site";
 import { getT } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
@@ -20,15 +18,14 @@ export async function generateMetadata({ params }: Params) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const t = getT(locale);
-  return pageMetadata({ locale, path: "", title: t("meta.home.title"), description: t("meta.home.description"), og: "home", absoluteTitle: true });
+  return pageMetadata({ locale, path: "", title: t("meta.home.title"), description: t("meta.home.description"), absoluteTitle: true });
 }
 
 export default async function Home({ params }: Params) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const t = getT(locale);
-  const featured = getFeatured(locale);
-  const total = getProjects(locale).length;
+  const { experiences } = getExperience(locale);
   const path = t.raw("home.path") as { year: string; text: string }[];
   const now = t.raw("now.items") as { title: string; text: string }[];
   const lat = Math.abs(site.location.lat).toFixed(2);
@@ -63,7 +60,7 @@ export default async function Home({ params }: Params) {
           </Reveal>
         </div>
         <Reveal delay={0.15} y={40} className="min-h-0">
-          <GenesisPortrait alt={t("home.portraitAlt")} replayLabel={t("home.replay")} className="aspect-4/5 w-full lg:aspect-auto lg:h-full lg:min-h-[600px]" />
+          <Portrait alt={t("home.portraitAlt")} className="aspect-4/5 w-full lg:aspect-auto lg:h-full lg:min-h-[600px]" />
         </Reveal>
         </div>
       </section>
@@ -147,18 +144,25 @@ export default async function Home({ params }: Params) {
           <div className="flex items-baseline justify-between gap-4 pb-5">
             <h2 className="font-display text-[24px] font-bold tracking-[-0.025em]">{t("home.workLabel")}</h2>
             <Link href={`/${locale}/work/`} className="text-[14px] font-medium text-dim transition-colors hover:text-fg">
-              {t("home.workAll")} ({total}) →
+              {t("home.workAll")} →
             </Link>
           </div>
-          <WorkRows
-            rows={featured.map((p) => ({
-              href: `/${locale}/work/${p.slug}/`,
-              name: splitTitle(p.title).name,
-              meta: cases[p.slug as keyof typeof cases].tagline[locale],
-              year: p.date,
-              image: p.image,
-            }))}
-          />
+          <ul>
+            {experiences.map((job) => (
+              <li key={job.company} className="bleed rule py-5">
+                <Link href={`/${locale}/work/`} className="group flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="font-display text-[24px] font-bold tracking-[-0.024em]">{job.company}</span>
+                  <span className="text-[15px] text-dim">{job.position}</span>
+                </Link>
+              </li>
+            ))}
+            <li className="bleed rule py-5">
+              <Link href={`/${locale}/work/#bobbio`} className="flex flex-wrap items-baseline justify-between gap-2">
+                <span className="font-display text-[24px] font-bold tracking-[-0.024em]">Bobbio</span>
+                <span className="text-[15px] text-dim">{t("work.bobbioStatus")}</span>
+              </Link>
+            </li>
+          </ul>
         </Reveal>
 
         {/* Contact: the one dark card, for contrast. */}

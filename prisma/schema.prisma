@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ArticleView {
+  slug      String
+  sessionId String
+  createdAt DateTime @default(now())
+
+  @@id([slug, sessionId])
+}
+
+model ArticleLike {
+  slug      String
+  visitorId String
+  createdAt DateTime @default(now())
+
+  @@id([slug, visitorId])
+}
+
+model EngagementRateLimit {
+  key       String   @id
+  requests  Int      @default(1)
+  expiresAt DateTime
+
+  @@index([expiresAt])
+}

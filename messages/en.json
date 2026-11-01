@@ -8,7 +8,7 @@
     },
     "work": {
       "title": "Work",
-      "description": "Professional experience, case studies and project archive of Antonio Vita."
+      "description": "Antonio Vita’s experience at Parfin and BTG Pactual, and the development of Bobbio, a legal AI."
     },
     "now": {
       "title": "Now",
@@ -48,7 +48,6 @@
     "empty": "Nothing found",
     "hint": "↑ ↓ to move · Enter to open",
     "pages": "Pages",
-    "cases": "Case studies",
     "actions": "Actions",
     "copyEmail": "Copy email",
     "copied": "Email copied",
@@ -103,40 +102,21 @@
     ],
     "stackLabel": "Stack",
     "stackNote": "The tool follows the problem.",
-    "workLabel": "Selected work",
+    "workLabel": "Experience and Bobbio",
     "workAll": "See all",
     "contactLabel": "Contact",
     "contactTitle": "Got a project or a business idea?",
     "doorProject": "Project",
     "doorBusiness": "Business",
-    "replay": "Play again",
     "sealNote": "Signed"
   },
   "work": {
-    "label": "{count} projects",
     "title": "Work",
-    "subtitle": "Professional experience, three case studies from different fields and the archive with everything else.",
-    "casesLabel": "Case studies",
-    "archiveLabel": "Archive",
-    "colProject": "Project",
-    "colYear": "Year",
-    "colArea": "Field",
-    "colStack": "Stack",
-    "colLink": "Code",
-    "code": "GitHub",
-    "private": "private",
-    "viewCase": "View case",
-    "experienceLabel": "Experience"
-  },
-  "case": {
-    "film": "How it works",
-    "filmNote": "Animated diagram of this project. Drag to scrub.",
-    "about": "The project",
-    "built": "What was built",
-    "stack": "Stack",
-    "repo": "View on GitHub",
-    "back": "All work",
-    "next": "Next case"
+    "subtitle": "Software engineering experience at Parfin and automation at BTG Pactual. Alongside this work, building Bobbio, a legal AI.",
+    "experienceLabel": "Experience",
+    "bobbioStatus": "In development · Legal AI",
+    "bobbioDescription": "I’m building Bobbio, an artificial intelligence for legal work. It is the focus of my product development alongside my professional experience.",
+    "expertiseLabel": "Areas of expertise"
   },
   "now": {
     "label": "Updated {date}",
@@ -274,6 +254,20 @@
     "minRead": "{minutes} min read",
     "back": "All articles",
     "published": "Published on {date}",
-    "next": "Next article"
+    "next": "Next article",
+    "engagement": {
+      "views": "{count, plural, one {# view} other {# views}}",
+      "likes": "{count, plural, one {# like} other {# likes}}",
+      "viewsLabel": "views",
+      "likesLabel": "likes",
+      "like": "Like article",
+      "unlike": "Unlike article",
+      "viewsHint": "One view per article per browser session",
+      "unavailable": "Stats unavailable",
+      "retry": "Try again"
+    },
+    "categoriesLabel": "Categories",
+    "allCategories": "All",
+    "filterCategories": "Filter by category"
   }
 }

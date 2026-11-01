@@ -3,12 +3,10 @@ import { locales, ogLocale, site, type Locale } from "@/data/site";
 
 type PageMeta = {
   locale: Locale;
-  /** Path after the locale, without trailing slash: "" for home, "/work", "/work/fuoco". */
+  /** Path after the locale, without trailing slash: "" for home, "/work", "/articles/my-article". */
   path: string;
   title: string;
   description: string;
-  /** Name of the generated share image in public/og/<locale>/<og>.png. */
-  og: string;
   /** Use the title as is, without the "| Antonio Vita" suffix. */
   absoluteTitle?: boolean;
   noindex?: boolean;
@@ -16,8 +14,8 @@ type PageMeta = {
 
 const url = (locale: Locale, path: string) => `${site.url}/${locale}${path}/`;
 
-export function pageMetadata({ locale, path, title, description, og, absoluteTitle, noindex }: PageMeta): Metadata {
-  const image = { url: `/og/${locale}/${og}.png`, width: 1200, height: 630, alt: title };
+export function pageMetadata({ locale, path, title, description, absoluteTitle, noindex }: PageMeta): Metadata {
+  const image = { url: "/me.jpeg", alt: title };
   const languages = Object.fromEntries(locales.map((l) => [l, url(l, path)]));
 
   return {

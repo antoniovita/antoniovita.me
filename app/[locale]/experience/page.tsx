@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Params) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const t = getT(locale);
-  return pageMetadata({ locale, path: "/about", title: t("meta.about.title"), description: t("meta.about.description"), og: "about", noindex: true });
+  return pageMetadata({ locale, path: "/about", title: t("meta.about.title"), description: t("meta.about.description"), noindex: true });
 }
 
 export default async function MovedPage({ params }: Params) {

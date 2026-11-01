@@ -17,7 +17,7 @@ const items = [
   { key: "contact", href: "/contact" },
 ] as const;
 
-/** "/pt/work/fuoco/" → "/en/work/fuoco/" */
+/** "/pt/work/" → "/en/work/" */
 export function swapLocale(pathname: string, next: Locale) {
   const parts = pathname.split("/");
   parts[1] = next;

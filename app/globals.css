@@ -155,22 +155,6 @@
     clip-path: inset(-30% 0 -30% 0);
   }
 }
-@keyframes pen-run {
-  0% {
-    left: 0%;
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-  }
-  92% {
-    opacity: 1;
-  }
-  100% {
-    left: 100%;
-    opacity: 0;
-  }
-}
 @keyframes pulse-dot {
   0% {
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 50%, transparent);
@@ -349,30 +333,10 @@
   .sig-shadow {
     filter: drop-shadow(0 1px 1.5px rgba(4, 8, 30, 0.55)) drop-shadow(0 6px 18px rgba(4, 8, 30, 0.45));
   }
-  /* Writes the signature left to right while a pen tip rides the edge. */
+  /* Reveals the signature without loading a video. */
   .sig-writing .sig-mask {
-    animation:
-      spin-angle 12s linear infinite,
-      sig-write 2.1s cubic-bezier(0.55, 0.05, 0.3, 1) both;
+    animation: sig-write 2.1s cubic-bezier(0.55, 0.05, 0.3, 1) both;
   }
-  .sig-pen {
-    position: absolute;
-    top: 50%;
-    width: 10px;
-    height: 10px;
-    margin: -5px 0 0 -5px;
-    border-radius: 9999px;
-    background: #fff;
-    box-shadow:
-      0 0 12px 4px color-mix(in srgb, var(--h3) 80%, transparent),
-      0 0 30px 10px color-mix(in srgb, var(--h1) 45%, transparent);
-    opacity: 0;
-    pointer-events: none;
-  }
-  .sig-writing .sig-pen {
-    animation: pen-run 2.1s cubic-bezier(0.55, 0.05, 0.3, 1) both;
-  }
-
   .seal {
     position: relative;
     display: grid;
@@ -426,8 +390,7 @@
   .seal-ring,
   .status-dot,
   .marquee-track,
-  .sig-writing .sig-mask,
-  .sig-writing .sig-pen {
+  .sig-writing .sig-mask {
     animation: none !important;
   }
 }

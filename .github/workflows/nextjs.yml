@@ -51,7 +51,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -67,31 +67,19 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Restore generated media
-        id: media-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            public/media
-            public/og
-          key: media-${{ hashFiles('remotion/**', 'scripts/render-media.ts', 'data/**', 'messages/**', 'public/signature.svg', 'public/me.jpeg') }}
-      - name: Install Remotion browser
-        if: steps.media-cache.outputs.cache-hit != 'true'
-        run: npx remotion browser ensure
-      - name: Render media (Remotion)
-        if: steps.media-cache.outputs.cache-hit != 'true'
-        run: npm run media
       - name: Build with Next.js
+        env:
+          NEXT_PUBLIC_ARTICLE_API_URL: ${{ vars.NEXT_PUBLIC_ARTICLE_API_URL }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Verify static export
         run: |
           test -f out/index.html
           test -f out/en/index.html
           test -f out/en/about/index.html
-          test -f out/pt/work/fuoco/index.html
+          test -f out/pt/work/index.html
           test -f out/en/contact/index.html
-          test -f out/media/genesis.mp4
-          test -f out/og/en/home.png
+          test -f out/me.jpeg
+          test -f out/signature.svg
           test -f out/pt/index.html
           test -f out/it/index.html
       - name: Upload artifact

@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PiArrowRightBold, PiArrowUpRightBold } from "react-icons/pi";
+import { PiArrowRightBold } from "react-icons/pi";
+import ArticleList from "@/components/ArticleList";
 import { PageHeader } from "@/components/PageHeader";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { Reveal } from "@/components/motion/Reveal";
 import { articleText, getArticles } from "@/data/articles";
 import { isLocale } from "@/data/site";
 import { getT } from "@/lib/i18n";
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: Params) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const t = getT(locale);
-  return pageMetadata({ locale, path: "/articles", title: t("meta.articles.title"), description: t("meta.articles.description"), og: "articles" });
+  return pageMetadata({ locale, path: "/articles", title: t("meta.articles.title"), description: t("meta.articles.description") });
 }
 
 export default async function ArticlesPage({ params }: Params) {
@@ -41,29 +42,14 @@ export default async function ArticlesPage({ params }: Params) {
         </Reveal>
       ) : (
         <Reveal className="card pad pb-0">
-          <Stagger as="ul">
-            {list.map((article, i) => {
-              const text = articleText(article, locale);
-              return (
-                <StaggerItem as="li" key={article.slug} className={`bleed ${i > 0 ? "rule" : ""}`}>
-                  <Link
-                    href={`/${locale}/articles/${article.slug}/`}
-                    className="group grid gap-x-10 gap-y-2 py-8 transition-colors hover:bg-raised/60 md:grid-cols-[180px_minmax(0,1.3fr)_minmax(0,1fr)_auto] md:items-baseline"
-                  >
-                    <span className="text-[14px] text-dim">{format.format(new Date(`${article.date}T12:00:00-03:00`))}</span>
-                    <h2 className="font-display text-[clamp(24px,2.6vw,34px)] font-bold leading-[1.05] tracking-[-0.028em]">{text.title}</h2>
-                    <p className="text-[15.5px] text-dim">{text.summary}</p>
-                    <span className="inline-flex items-center gap-3 text-[13px] text-dim md:justify-end">
-                      {t("articles.minRead", { minutes: article.readingMinutes })}
-                      <span className="grid h-9 w-9 place-items-center rounded-full bg-raised text-fg transition-all duration-300 group-hover:rotate-45 group-hover:bg-fg group-hover:text-surface">
-                        <PiArrowUpRightBold size={14} />
-                      </span>
-                    </span>
-                  </Link>
-                </StaggerItem>
-              );
-            })}
-          </Stagger>
+          <ArticleList locale={locale} items={list.map((article) => ({
+            slug: article.slug,
+            title: articleText(article, locale).title,
+            summary: articleText(article, locale).summary,
+            date: format.format(new Date(`${article.date}T12:00:00-03:00`)),
+            readingMinutes: article.readingMinutes,
+            categories: article.categories,
+          }))} />
         </Reveal>
       )}
     </div>

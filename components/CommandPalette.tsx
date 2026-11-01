@@ -11,7 +11,6 @@ import {
   PiGlobeSimpleBold,
   PiMagnifyingGlassBold,
   PiMoonBold,
-  PiSquaresFourBold,
 } from "react-icons/pi";
 import { locales, site, type Locale } from "@/data/site";
 import { toggleTheme } from "@/lib/theme";
@@ -32,7 +31,7 @@ function isTyping(target: EventTarget | null) {
   return !!el && (el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName));
 }
 
-export default function CommandPalette({ cases }: { cases: { slug: string; name: string }[] }) {
+export default function CommandPalette() {
   const t = useTranslations("cmdk");
   const nav = useTranslations("nav");
   const locale = useLocale() as Locale;
@@ -54,7 +53,6 @@ export default function CommandPalette({ cases }: { cases: { slug: string; name:
       { id: "now", group: t("pages"), title: nav("now"), icon: page, run: go("/now") },
       { id: "about", group: t("pages"), title: nav("about"), icon: page, run: go("/about") },
       { id: "contact", group: t("pages"), title: nav("contact"), icon: page, run: go("/contact") },
-      ...cases.map((c) => ({ id: `case-${c.slug}`, group: t("cases"), title: c.name, icon: <PiSquaresFourBold size={15} />, run: go(`/work/${c.slug}`) })),
       {
         id: "email",
         group: t("actions"),
@@ -92,7 +90,7 @@ export default function CommandPalette({ cases }: { cases: { slug: string; name:
           run: () => router.push(swapLocale(pathname, l)),
         })),
     ];
-  }, [cases, locale, nav, pathname, router, t]);
+  }, [locale, nav, pathname, router, t]);
 
   const filtered = useMemo(() => {
     const q = normalize(query.trim());

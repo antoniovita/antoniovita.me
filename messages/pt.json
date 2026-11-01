@@ -8,7 +8,7 @@
     },
     "work": {
       "title": "Trabalho",
-      "description": "Experiência profissional, cases e arquivo de projetos de Antonio Vita."
+      "description": "Experiência de Antonio Vita na Parfin e no BTG Pactual, e o desenvolvimento do Bobbio, uma IA jurídica."
     },
     "now": {
       "title": "Agora",
@@ -48,7 +48,6 @@
     "empty": "Nada encontrado",
     "hint": "↑ ↓ para navegar · Enter para abrir",
     "pages": "Páginas",
-    "cases": "Cases",
     "actions": "Ações",
     "copyEmail": "Copiar e-mail",
     "copied": "E-mail copiado",
@@ -103,40 +102,21 @@
     ],
     "stackLabel": "Stack",
     "stackNote": "A ferramenta segue o problema.",
-    "workLabel": "Trabalho selecionado",
+    "workLabel": "Experiência e Bobbio",
     "workAll": "Ver tudo",
     "contactLabel": "Contato",
     "contactTitle": "Tem um projeto ou uma ideia de negócio?",
     "doorProject": "Projeto",
     "doorBusiness": "Negócio",
-    "replay": "Ver de novo",
     "sealNote": "Assinado"
   },
   "work": {
-    "label": "{count} projetos",
     "title": "Trabalho",
-    "subtitle": "Experiência profissional, três cases de áreas diferentes e o arquivo com todo o resto.",
-    "casesLabel": "Cases",
-    "archiveLabel": "Arquivo",
-    "colProject": "Projeto",
-    "colYear": "Ano",
-    "colArea": "Área",
-    "colStack": "Stack",
-    "colLink": "Código",
-    "code": "GitHub",
-    "private": "privado",
-    "viewCase": "Ver case",
-    "experienceLabel": "Experiência"
-  },
-  "case": {
-    "film": "Como funciona",
-    "filmNote": "Diagrama animado deste projeto. Arraste para avançar ou voltar.",
-    "about": "O projeto",
-    "built": "O que foi construído",
-    "stack": "Stack",
-    "repo": "Ver no GitHub",
-    "back": "Todo o trabalho",
-    "next": "Próximo case"
+    "subtitle": "Experiência em engenharia de software na Parfin e automação no BTG Pactual. Em paralelo, construindo o Bobbio, uma IA jurídica.",
+    "experienceLabel": "Experiência",
+    "bobbioStatus": "Em desenvolvimento · IA jurídica",
+    "bobbioDescription": "Estou construindo o Bobbio, uma inteligência artificial voltada ao trabalho jurídico. É o projeto em que concentro meu desenvolvimento de produto em paralelo à experiência profissional.",
+    "expertiseLabel": "Áreas de atuação"
   },
   "now": {
     "label": "Atualizado em {date}",
@@ -274,6 +254,20 @@
     "minRead": "{minutes} min de leitura",
     "back": "Todos os artigos",
     "published": "Publicado em {date}",
-    "next": "Próximo artigo"
+    "next": "Próximo artigo",
+    "engagement": {
+      "views": "{count, plural, one {# visualização} other {# visualizações}}",
+      "likes": "{count, plural, one {# curtida} other {# curtidas}}",
+      "viewsLabel": "visualizações",
+      "likesLabel": "curtidas",
+      "like": "Curtir artigo",
+      "unlike": "Remover curtida",
+      "viewsHint": "Uma visualização por artigo por sessão do navegador",
+      "unavailable": "Contadores indisponíveis",
+      "retry": "Tentar novamente"
+    },
+    "categoriesLabel": "Categorias",
+    "allCategories": "Todos",
+    "filterCategories": "Filtrar por categoria"
   }
 }

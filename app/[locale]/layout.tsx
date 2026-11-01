@@ -7,7 +7,6 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CommandPalette from "@/components/CommandPalette";
 import MotionRoot from "@/components/motion/MotionRoot";
-import { getFeatured, splitTitle } from "@/data/content";
 import { isLocale, locales, site, type Locale } from "@/data/site";
 import { getT, messagesByLocale } from "@/lib/i18n";
 import { themeInitScript } from "@/lib/theme";
@@ -46,7 +45,6 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   if (!isLocale(raw)) notFound();
   const locale: Locale = raw;
   const t = getT(locale);
-  const cases = getFeatured(locale).map((p) => ({ slug: p.slug, name: splitTitle(p.title).name }));
 
   const person = {
     "@context": "https://schema.org",
@@ -78,7 +76,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
           </a>
           <MotionRoot>
             <NavBar />
-            <CommandPalette cases={cases} />
+            <CommandPalette />
             <main id="content" className="frame pt-2 md:pt-3">
               {children}
             </main>

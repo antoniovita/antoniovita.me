@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Params) {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const t = getT(locale);
-  return pageMetadata({ locale, path: "/now", title: t("meta.now.title"), description: t("meta.now.description"), og: "now" });
+  return pageMetadata({ locale, path: "/now", title: t("meta.now.title"), description: t("meta.now.description") });
 }
 
 export default async function NowPage({ params }: Params) {

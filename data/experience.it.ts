@@ -31,21 +31,6 @@ export const experiences: Experience[] = [
     ],
     technologies: ["Python", "AWS", "React", "Integrazione API", "Lambda", "CronJob", "UiPath"],
   },
-  {
-    position: "Sviluppatore Full-Stack",
-    company: "Freelancer / Progetti Personali",
-    location: "Remoto",
-    period: "2023 – 2024",
-    type: "Freelance",
-    description:
-      "Sviluppo di applicazioni full-stack con Next.js, Node.js e database relazionali e NoSQL. Focus su architettura web moderna ed esperienza utente.",
-    achievements: [
-      "Creato oltre 10 applicazioni web pronte per la produzione",
-      "Implementato sistemi di autenticazione con JWT e OAuth",
-      "Creato API RESTful con Node.js ed Express",
-    ],
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "MongoDB", "Tailwind CSS"],
-  },
 ];
 
 export const education: Education[] = [

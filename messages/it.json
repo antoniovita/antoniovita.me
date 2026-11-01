@@ -8,7 +8,7 @@
     },
     "work": {
       "title": "Lavori",
-      "description": "Esperienza professionale, casi studio e archivio progetti di Antonio Vita."
+      "description": "L’esperienza di Antonio Vita presso Parfin e BTG Pactual e lo sviluppo di Bobbio, un’IA giuridica."
     },
     "now": {
       "title": "Adesso",
@@ -48,7 +48,6 @@
     "empty": "Nessun risultato",
     "hint": "↑ ↓ per muoverti · Invio per aprire",
     "pages": "Pagine",
-    "cases": "Casi studio",
     "actions": "Azioni",
     "copyEmail": "Copia l'email",
     "copied": "Email copiata",
@@ -103,40 +102,21 @@
     ],
     "stackLabel": "Stack",
     "stackNote": "Lo strumento segue il problema.",
-    "workLabel": "Lavori scelti",
+    "workLabel": "Esperienza e Bobbio",
     "workAll": "Vedi tutto",
     "contactLabel": "Contatti",
     "contactTitle": "Hai un progetto o un'idea di business?",
     "doorProject": "Progetto",
     "doorBusiness": "Business",
-    "replay": "Rivedi",
     "sealNote": "Firmato"
   },
   "work": {
-    "label": "{count} progetti",
     "title": "Lavori",
-    "subtitle": "Esperienza professionale, tre casi studio di ambiti diversi e l'archivio con tutto il resto.",
-    "casesLabel": "Casi studio",
-    "archiveLabel": "Archivio",
-    "colProject": "Progetto",
-    "colYear": "Anno",
-    "colArea": "Ambito",
-    "colStack": "Stack",
-    "colLink": "Codice",
-    "code": "GitHub",
-    "private": "privato",
-    "viewCase": "Vedi il caso",
-    "experienceLabel": "Esperienza"
-  },
-  "case": {
-    "film": "Come funziona",
-    "filmNote": "Diagramma animato di questo progetto. Trascina per avanzare o tornare indietro.",
-    "about": "Il progetto",
-    "built": "Cosa è stato costruito",
-    "stack": "Stack",
-    "repo": "Vedi su GitHub",
-    "back": "Tutti i lavori",
-    "next": "Caso successivo"
+    "subtitle": "Esperienza in ingegneria del software presso Parfin e automazione presso BTG Pactual. In parallelo, sto costruendo Bobbio, un’IA giuridica.",
+    "experienceLabel": "Esperienza",
+    "bobbioStatus": "In sviluppo · IA giuridica",
+    "bobbioDescription": "Sto costruendo Bobbio, un’intelligenza artificiale per il lavoro giuridico. È il progetto su cui concentro lo sviluppo di prodotto in parallelo alla mia esperienza professionale.",
+    "expertiseLabel": "Aree di competenza"
   },
   "now": {
     "label": "Aggiornato il {date}",
@@ -274,6 +254,20 @@
     "minRead": "{minutes} min di lettura",
     "back": "Tutti gli articoli",
     "published": "Pubblicato il {date}",
-    "next": "Articolo successivo"
+    "next": "Articolo successivo",
+    "engagement": {
+      "views": "{count, plural, one {# visualizzazione} other {# visualizzazioni}}",
+      "likes": "{count, plural, one {# mi piace} other {# mi piace}}",
+      "viewsLabel": "visualizzazioni",
+      "likesLabel": "mi piace",
+      "like": "Metti mi piace",
+      "unlike": "Rimuovi mi piace",
+      "viewsHint": "Una visualizzazione per articolo per sessione del browser",
+      "unavailable": "Contatori non disponibili",
+      "retry": "Riprova"
+    },
+    "categoriesLabel": "Categorie",
+    "allCategories": "Tutti",
+    "filterCategories": "Filtra per categoria"
   }
 }
