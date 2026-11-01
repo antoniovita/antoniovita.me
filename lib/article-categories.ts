@@ -1,4 +1,4 @@
-import type { Locale } from "../data/site";
+import type { Locale } from "../data/site.ts";
 
 /** Stable keys let accents/casing and translations share the same filter. */
 export function categoryId(category: string): string {

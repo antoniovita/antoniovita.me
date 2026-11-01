@@ -1,5 +1,5 @@
 import { createHash, createHmac } from "node:crypto";
-import { getDb } from "./db";
+import { getDb } from "./db.ts";
 
 export type EngagementInput = {
   slug: string;

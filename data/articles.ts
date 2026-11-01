@@ -1,8 +1,8 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { articleCategories, categoryId } from "../lib/article-categories";
-import { isLocale, type Locale } from "./site";
+import { articleCategories, categoryId } from "../lib/article-categories.ts";
+import { isLocale, type Locale } from "./site.ts";
 
 export type ArticleText = {
   title: string;

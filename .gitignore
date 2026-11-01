@@ -44,3 +44,6 @@ next-env.d.ts
 # Prisma client is regenerated during install/build
 /generated/prisma/
 !.env.example
+
+# Native Node API runtime check
+/.api-build/

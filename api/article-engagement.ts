@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { getArticle } from "../data/articles";
-import { engagement, parseEngagement, rateLimit, RequestError } from "../server/engagement";
+import { getArticle } from "../data/articles.ts";
+import { engagement, parseEngagement, rateLimit, RequestError } from "../server/engagement.ts";
 
 async function readBody(req: IncomingMessage & { body?: unknown }) {
   if (req.body !== undefined) {

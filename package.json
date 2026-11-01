@@ -13,8 +13,9 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy",
     "postinstall": "prisma generate",
-    "prebuild": "prisma generate",
-    "test:engagement": "tsx --test tests/engagement.test.ts"
+    "prebuild": "prisma generate && npm run test:api-runtime",
+    "test:engagement": "tsx --test tests/engagement.test.ts",
+    "test:api-runtime": "tsc -p tsconfig.api.json && node scripts/check-api-runtime.mjs"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.1",
@@ -49,5 +50,6 @@
     "tsx": "^4.23.15",
     "typescript": "^5",
     "world-atlas": "^2.0.2"
-  }
+  },
+  "type": "module"
 }

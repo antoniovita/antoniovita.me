@@ -53,3 +53,7 @@ npm run test:engagement
 Os testes de validação rodam sem banco. Para a integração real, forneça `TEST_DATABASE_URL` apontando para um PostgreSQL local isolado, já migrado (não use o banco de produção). Os testes recusam hosts remotos, criam interações para o primeiro artigo publicado e verificam deduplicação concorrente, curtir/descurtir, CORS, entrada inválida e rate limiting. Descarte o banco de teste após a execução.
 
 Referências: [Prisma 7](https://www.prisma.io/docs/orm/v7), [Supabase com Prisma](https://supabase.com/docs/guides/database/prisma) e [funções Node na Vercel](https://vercel.com/docs/functions/runtimes/node-js).
+
+## Runtime de produção
+
+O projeto usa `type: module` para as funções Node na Vercel. A cadeia de imports da API e o client Prisma usam imports `.ts`, reescritos pelo TypeScript para `.js` na compilação. `npm run test:api-runtime` compila essa cadeia e carrega o JavaScript com Node nativo, sem `tsx` nem acesso ao banco. Esse teste roda antes de cada `npm run build`, evitando que uma incompatibilidade entre ESM e CommonJS passe apenas nos testes locais.
