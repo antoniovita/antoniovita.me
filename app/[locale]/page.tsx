@@ -10,7 +10,7 @@ import LocalClock from "@/components/LocalClock";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitWords } from "@/components/motion/SplitWords";
 import { getExperience, stack } from "@/data/content";
-import { books } from "@/data/books";
+import { bookTitle, books } from "@/data/books";
 import { articleText, getArticles } from "@/data/articles";
 import { isLocale, site } from "@/data/site";
 import { getT } from "@/lib/i18n";
@@ -165,10 +165,10 @@ export default async function Home({ params }: Params) {
             <ul className="mt-6 grid grid-cols-3 gap-3">
               {books.slice(0, 3).map((book, index) => (
                 <li key={`${book.title}-${book.author}`} className="min-w-0">
-                  <BookCard cover={book.cover} alt={t("books.coverAlt", { title: book.title })} index={index}>
+                  <BookCard cover={book.cover} alt={t("books.coverAlt", { title: bookTitle(book, locale) })} index={index}>
                     <div className="px-[14%] pb-6">
                       <h3 className="min-h-[2.6em] font-display text-[clamp(14px,1.2vw,17px)] font-bold leading-[1.3] tracking-[-0.02em]">
-                        <span className="grifo">{book.title}</span>
+                        <span className="grifo">{bookTitle(book, locale)}</span>
                       </h3>
                       <p className="mt-1 truncate text-[12px] text-dim">{book.author}</p>
                     </div>

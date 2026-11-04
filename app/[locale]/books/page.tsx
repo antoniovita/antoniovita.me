@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import BookList from "@/components/BookList";
 import { PageHeader } from "@/components/PageHeader";
-import { bookRecommendation, books } from "@/data/books";
+import { bookRecommendation, bookTitle, books } from "@/data/books";
 import { isLocale } from "@/data/site";
 import { getT } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
@@ -35,10 +35,10 @@ export default async function BooksPage({ params }: Params) {
             allLabel={t("books.allCategories")}
             groupLabel={t("books.filterCategories")}
             items={books.map((book) => ({
-              title: book.title,
+              title: bookTitle(book, locale),
               author: book.author,
               cover: book.cover,
-              alt: t("books.coverAlt", { title: book.title }),
+              alt: t("books.coverAlt", { title: bookTitle(book, locale) }),
               recommendation: bookRecommendation(book, locale),
               categories: book.categories,
             }))}

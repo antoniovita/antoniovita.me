@@ -1,7 +1,10 @@
 import type { Locale } from "./site";
 
 export type Book = {
+  /** Original title; shown as is in any language without an entry in `titles`. */
   title: string;
+  /** Published or natural title per language, when it differs from the original. */
+  titles?: Partial<Record<Locale, string>>;
   author: string;
   cover: string;
   /** Same category names as articles (lib/article-categories.ts), so labels are translated. */
@@ -13,6 +16,7 @@ export type Book = {
 export const books: Book[] = [
   {
     title: "Economics in One Lesson",
+    titles: { pt: "Economia em Uma Lição", it: "L'economia in una lezione" },
     author: "Henry Hazlitt",
     cover: "/books/economics-one-lesson.png",
     categories: ["Economia"],
@@ -24,6 +28,7 @@ export const books: Book[] = [
   },
   {
     title: "Bitcoin: A Moeda na Era Digital",
+    titles: { en: "Bitcoin: The Currency of the Digital Age", it: "Bitcoin: la moneta nell'era digitale" },
     author: "Fernando Ulrich",
     cover: "/books/bitcoin-ulrich.png",
     categories: ["Cripto", "Economia"],
@@ -35,6 +40,7 @@ export const books: Book[] = [
   },
   {
     title: "As Seis Lições",
+    titles: { en: "The Six Lessons", it: "Le sei lezioni" },
     author: "Ludwig von Mises",
     cover: "/books/six-lessons.png",
     categories: ["Economia"],
@@ -57,6 +63,7 @@ export const books: Book[] = [
   },
   {
     title: "Anatomia do Estado",
+    titles: { en: "Anatomy of the State", it: "Anatomia dello Stato" },
     author: "Murray N. Rothbard",
     cover: "/books/anatomia-do-estado.png",
     categories: ["Política"],
@@ -67,6 +74,10 @@ export const books: Book[] = [
     },
   },
 ];
+
+export function bookTitle(book: Book, locale: Locale): string {
+  return book.titles?.[locale] ?? book.title;
+}
 
 export function bookRecommendation(book: Book, locale: Locale): string {
   return book.recommendation[locale] ?? book.recommendation.pt ?? book.recommendation.en ?? book.recommendation.it ?? "";
