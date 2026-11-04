@@ -10,7 +10,8 @@ import CommandPalette from "@/components/CommandPalette";
 import MotionRoot from "@/components/motion/MotionRoot";
 import { isLocale, locales, site, type Locale } from "@/data/site";
 import { getT, messagesByLocale } from "@/lib/i18n";
-import { bootInitScript, themeInitScript } from "@/lib/theme";
+import { bootCss, bootInitScript } from "@/lib/boot";
+import { themeInitScript } from "@/lib/theme";
 
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
 const sans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-plex-sans", display: "swap" });
@@ -66,6 +67,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script dangerouslySetInnerHTML={{ __html: bootInitScript }} />
+        <style dangerouslySetInnerHTML={{ __html: bootCss }} />
         <noscript>
           <style>{".boot{display:none!important}"}</style>
         </noscript>

@@ -105,33 +105,40 @@ export default function BootScreen() {
 
   return (
     <div ref={root} className="boot" role="status" aria-label="Loading antoniovita.me">
-      <div className="boot-term" aria-hidden="true">
-        {lines.map((line) => (
-          <p
-            key={line.text}
-            className={`boot-t ${line.tone === "dim" ? "boot-dim" : ""}`}
-            style={{ "--at": line.at, "--len": line.len } as CSSProperties}
-          >
-            {line.prompt && <i>$ </i>}
-            {line.text}
-          </p>
-        ))}
-        <div className="boot-bar">
-          <span>
-            <i />
-          </span>
-          <b>
-            <span data-boot-pct>0</span>%
-          </b>
-        </div>
-        <p className="boot-t boot-ok" style={{ "--at": 0.82, "--len": 34 } as CSSProperties}>
-          ✓ ready for the first customer
+      <BootTerminal />
+    </div>
+  );
+}
+
+/** The terminal itself, without behavior: the root page renders it as the loader's first frame. */
+export function BootTerminal() {
+  return (
+    <div className="boot-term" aria-hidden="true">
+      {lines.map((line) => (
+        <p
+          key={line.text}
+          className={`boot-t ${line.tone === "dim" ? "boot-dim" : ""}`}
+          style={{ "--at": line.at, "--len": line.len } as CSSProperties}
+        >
+          {line.prompt && <i>$ </i>}
+          {line.text}
         </p>
-        <p>
-          <i>$ </i>
-          <span className="boot-cursor" />
-        </p>
+      ))}
+      <div className="boot-bar">
+        <span>
+          <i />
+        </span>
+        <b>
+          <span data-boot-pct>0</span>%
+        </b>
       </div>
+      <p className="boot-t boot-ok" style={{ "--at": 0.82, "--len": 34 } as CSSProperties}>
+        ✓ ready for the first customer
+      </p>
+      <p>
+        <i>$ </i>
+        <span className="boot-cursor" />
+      </p>
     </div>
   );
 }

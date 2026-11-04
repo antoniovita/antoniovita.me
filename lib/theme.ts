@@ -3,12 +3,6 @@ export type Theme = "dark" | "light";
 /** Runs in <head> before paint so the stored theme never flashes. Light is the default. */
 export const themeInitScript = `try{var t=localStorage.getItem("theme");if(t==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
 
-/**
- * Runs in <head> before paint: visitors who already saw the loader this session (or ask for reduced motion)
- * get `data-booted` straight away, so the loader never flashes for them.
- */
-export const bootInitScript = `try{if(sessionStorage.getItem("boot")||matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.dataset.booted=""}catch(e){document.documentElement.dataset.booted=""}`;
-
 export function currentTheme(): Theme {
   return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 }

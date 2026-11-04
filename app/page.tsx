@@ -1,26 +1,28 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect } from "react";
+import { IBM_Plex_Mono } from "next/font/google";
+import { BootTerminal } from "@/components/BootScreen";
+import { bootCss, rootRedirectScript } from "@/lib/boot";
 
-// The root has no content of its own: send visitors to their language, English by default.
+const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-plex-mono", display: "swap" });
+
+// The root has no content of its own: the head script sends visitors to their language before the first paint.
+// If a frame does paint, it is the loader's first frame, so the hand-off to the language page looks continuous.
 export default function RootRedirect() {
-  useEffect(() => {
-    const lang = (navigator.languages?.[0] ?? navigator.language ?? "en").toLowerCase();
-    const locale = lang.startsWith("pt") ? "pt" : lang.startsWith("it") ? "it" : "en";
-    window.location.replace(`/${locale}/`);
-  }, []);
-
   return (
-    <html lang="en">
-      <body style={{ margin: 0, background: "#09090B", color: "#A1A1AF", fontFamily: "ui-sans-serif, system-ui, sans-serif" }}>
-        <main style={{ minHeight: "100dvh", display: "grid", placeItems: "center" }}>
-          <p>
-            <Link href="/en/" style={{ color: "#F2F2F5" }}>
+    <html lang="en" className={mono.variable}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: rootRedirectScript }} />
+        <style dangerouslySetInnerHTML={{ __html: bootCss }} />
+      </head>
+      <body style={{ margin: 0, background: "#0b0b0b" }}>
+        <div className="boot">
+          <BootTerminal />
+          <noscript>
+            <Link href="/en/" style={{ color: "#f5f5f5", fontFamily: "ui-monospace, Menlo, monospace" }}>
               antoniovita.me
             </Link>
-          </p>
-        </main>
+          </noscript>
+        </div>
       </body>
     </html>
   );
