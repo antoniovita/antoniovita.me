@@ -9,6 +9,7 @@ const labels: Record<string, Record<Locale, string>> = {
   economia: { pt: "Economia", en: "Economics", it: "Economia" },
   cripto: { pt: "Cripto", en: "Crypto", it: "Cripto" },
   engenharia: { pt: "Engenharia", en: "Engineering", it: "Ingegneria" },
+  ia: { pt: "IA", en: "AI", it: "IA" },
   politica: { pt: "Política", en: "Politics", it: "Politica" },
 };
 

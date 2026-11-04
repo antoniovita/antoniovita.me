@@ -41,7 +41,7 @@ categories: [economia, cripto]
 
 As categorias aparecem no artigo e na listagem, que permite filtrar por tema. Apenas categorias com artigos publicados aparecem nos filtros. Um artigo pode pertencer a várias categorias. O campo é opcional: artigos antigos sem categorias continuam aparecendo em “Todos”.
 
-`economia`, `cripto` e `engenharia` já têm rótulos traduzidos nos três idiomas. Você também pode usar novos nomes, como `Inteligência Artificial`, sem editar código. Nas traduções do mesmo artigo, mantenha os mesmos identificadores; as categorias são compartilhadas entre os idiomas.
+`economia`, `cripto`, `engenharia`, `ia` e `politica` já têm rótulos traduzidos nos três idiomas. Você também pode usar novos nomes, como `Inteligência Artificial`, sem editar código. Nas traduções do mesmo artigo, mantenha os mesmos identificadores; as categorias são compartilhadas entre os idiomas.
 
 ## Imagens
 

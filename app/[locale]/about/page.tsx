@@ -37,7 +37,14 @@ export default async function AboutPage({ params }: Params) {
             <p>{t("about.p2")}</p>
             <p>{t("about.p3")}</p>
           </div>
-          <a href={site.cv} download className="btn btn-primary mt-10 self-start">
+          <div className="mt-8 grid gap-1.5 rounded-2xl bg-raised p-5 md:p-6">
+            <p className="font-mono text-[12px] uppercase tracking-[0.12em] text-dim">{t("about.citizenship.label")}</p>
+            <p className="font-display text-[clamp(22px,2.4vw,28px)] font-bold leading-[1.15] tracking-[-0.024em]">
+              {t("about.citizenship.value")} · {t("about.citizenship.eu")}
+            </p>
+            <p className="text-[15.5px] text-dim">{t("about.citizenship.note")}</p>
+          </div>
+          <a href={site.cv} download className="btn btn-primary mt-8 self-start">
             <PiFileArrowDownBold size={16} />
             {t("about.cv")}
           </a>

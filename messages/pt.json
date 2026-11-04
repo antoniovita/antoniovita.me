@@ -16,7 +16,7 @@
     },
     "about": {
       "title": "Sobre",
-      "description": "Trajetória, formação e experiência de Antonio Vita, de Scratch em 2017 até hoje."
+      "description": "Trajetória, formação e experiência de Antonio Vita, engenheiro de software ítalo-brasileiro e cidadão da União Europeia."
     },
     "contact": {
       "title": "Contato",
@@ -137,6 +137,12 @@
     "p1": "Ganhei meu primeiro computador aos oito anos e passei horas tentando entender como as coisas funcionavam. A curiosidade virou paixão por tecnologia.",
     "p2": "Na escola aprendi lógica com Scratch e escrevi meu primeiro “Hello World” em Python em 2017. No último ano do ensino médio decidi que Ciência da Computação seria o meu caminho.",
     "p3": "Desde então construí para web, mobile, backend, contratos inteligentes e IA no dispositivo, passando por BTG Pactual e Parfin. Hoje trabalho como harness engineer e construo meus próprios negócios.",
+    "citizenship": {
+      "label": "Cidadania",
+      "value": "Ítalo-brasileiro",
+      "eu": "Cidadão da União Europeia",
+      "note": "Posso trabalhar em qualquer país da UE sem visto nem patrocínio, além do Brasil."
+    },
     "timelineLabel": "Linha do tempo",
     "timeline": [
       {

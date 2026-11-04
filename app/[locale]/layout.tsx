@@ -59,6 +59,10 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     address: { "@type": "PostalAddress", addressLocality: "Rio de Janeiro", addressCountry: "BR" },
     alumniOf: { "@type": "CollegeOrUniversity", name: "PUC-Rio" },
     knowsLanguage: ["pt", "en", "it", "es", "fr"],
+    nationality: [
+      { "@type": "Country", name: "Italy" },
+      { "@type": "Country", name: "Brazil" },
+    ],
     sameAs: [site.github, site.linkedin, site.instagram],
   };
 

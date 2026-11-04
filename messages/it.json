@@ -16,7 +16,7 @@
     },
     "about": {
       "title": "Chi sono",
-      "description": "Percorso, formazione ed esperienza di Antonio Vita, da Scratch nel 2017 a oggi."
+      "description": "Percorso, formazione ed esperienza di Antonio Vita, ingegnere del software italo-brasiliano e cittadino dell'UE."
     },
     "contact": {
       "title": "Contatti",
@@ -137,6 +137,12 @@
     "p1": "Ho avuto il mio primo computer a otto anni e ho passato ore a cercare di capire come funzionavano le cose. La curiosità è diventata passione per la tecnologia.",
     "p2": "A scuola ho imparato la logica con Scratch e ho scritto il mio primo “Hello World” in Python nel 2017. All'ultimo anno delle superiori ho deciso che l'Informatica sarebbe stata la mia strada.",
     "p3": "Da allora ho costruito per il web, il mobile, il backend, gli smart contract e l'IA sul dispositivo, lavorando in BTG Pactual e Parfin. Oggi lavoro come harness engineer e costruisco le mie aziende.",
+    "citizenship": {
+      "label": "Cittadinanza",
+      "value": "Italo-brasiliano",
+      "eu": "Cittadino dell'Unione Europea",
+      "note": "Posso lavorare in qualsiasi paese dell'UE senza visto né sponsorizzazione, oltre che in Brasile."
+    },
     "timelineLabel": "Linea del tempo",
     "timeline": [
       {
