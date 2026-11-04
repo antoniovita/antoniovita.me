@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { PiFileArrowDownBold } from "react-icons/pi";
+import { PiArrowUpRightBold, PiFileArrowDownBold, PiLinkedinLogoBold } from "react-icons/pi";
 import { PageHeader } from "@/components/PageHeader";
 import { Signature } from "@/components/Signature";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
@@ -44,10 +44,17 @@ export default async function AboutPage({ params }: Params) {
             </p>
             <p className="text-[15.5px] text-dim">{t("about.citizenship.note")}</p>
           </div>
-          <a href={site.cv} download className="btn btn-primary mt-8 self-start">
-            <PiFileArrowDownBold size={16} />
-            {t("about.cv")}
-          </a>
+          <div className="mt-8 flex flex-wrap gap-2.5">
+            <a href={site.cv} download className="btn btn-primary">
+              <PiFileArrowDownBold size={16} />
+              {t("about.cv")}
+            </a>
+            <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-soft">
+              <PiLinkedinLogoBold size={16} />
+              {t("about.linkedin")}
+              <PiArrowUpRightBold size={14} />
+            </a>
+          </div>
         </Reveal>
         <Reveal delay={0.1} className="card overflow-hidden p-2">
           <div className="relative h-full min-h-[460px] overflow-hidden rounded-2xl md:rounded-[22px]">

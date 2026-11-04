@@ -208,7 +208,8 @@
       }
     ],
     "inProgress": "In corso",
-    "cv": "Scarica il CV (PDF)"
+    "cv": "Scarica il CV (PDF)",
+    "linkedin": "Apri LinkedIn"
   },
   "contact": {
     "label": "Contatti",

@@ -208,7 +208,8 @@
       }
     ],
     "inProgress": "In progress",
-    "cv": "Download CV (PDF)"
+    "cv": "Download CV (PDF)",
+    "linkedin": "Open LinkedIn"
   },
   "contact": {
     "label": "Contact",

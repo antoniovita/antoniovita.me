@@ -208,7 +208,8 @@
       }
     ],
     "inProgress": "Em andamento",
-    "cv": "Baixar CV (PDF)"
+    "cv": "Baixar CV (PDF)",
+    "linkedin": "Abrir LinkedIn"
   },
   "contact": {
     "label": "Contato",
