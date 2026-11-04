@@ -10,9 +10,9 @@
       "title": "Trabalho",
       "description": "Experiência de Antonio Vita na Parfin e no BTG Pactual, e o desenvolvimento do Bobbio, uma IA jurídica."
     },
-    "now": {
-      "title": "Agora",
-      "description": "O que Antonio Vita está construindo este mês."
+    "books": {
+      "title": "Livros",
+      "description": "Livros recomendados por Antonio Vita, com comentários sobre cada leitura."
     },
     "about": {
       "title": "Sobre",
@@ -31,7 +31,7 @@
   "nav": {
     "home": "Início",
     "work": "Trabalho",
-    "now": "Agora",
+    "books": "Livros",
     "about": "Sobre",
     "contact": "Contato",
     "menu": "Menu",
@@ -56,18 +56,20 @@
     "switchTo": "Ver em {language}"
   },
   "home": {
-    "status": "Disponível para conversas · Rio de Janeiro",
+    "articlesTitle": "Artigos recentes",
+    "articlesAll": "Todos os artigos",
+    "status": "Disponível para conversas · Rio de Janeiro ou Remoto",
     "h1a": "Engenheiro de software.",
     "h1b": "Empreendedor.",
     "tagline": "Do primeiro commit ao primeiro cliente.",
     "bio": "Construo produtos do zero, da arquitetura ao primeiro cliente. Hoje trabalho como harness engineer e construo meus próprios negócios. Passei por BTG Pactual e Parfin, e estudo Ciência da Computação na PUC-Rio.",
     "ctaWork": "Ver trabalho",
     "ctaContact": "Falar comigo",
-    "portraitAlt": "Retrato de Antonio Vita em preto e branco com a assinatura em azul",
-    "nowLabel": "Agora",
-    "nowTitle": "Harness engineer e empreendedor",
-    "nowText": "O que estou construindo este mês, atualizado todo mês.",
-    "nowLink": "Ver o que estou construindo",
+    "portraitAlt": "Retrato de Antonio Vita com sua assinatura",
+    "booksTitle": "Livros que recomendo",
+    "booksText": "Leituras que marcaram a forma como penso e construo.",
+    "booksEmpty": "Estou preparando minhas recomendações de leitura.",
+    "booksLink": "Ver livros",
     "baseLabel": "Base",
     "baseTitle": "Rio de Janeiro, Brasil",
     "baseNote": "Trabalho remoto para qualquer lugar.",
@@ -105,9 +107,8 @@
     "workLabel": "Experiência e Bobbio",
     "workAll": "Ver tudo",
     "contactLabel": "Contato",
-    "contactTitle": "Tem um projeto ou uma ideia de negócio?",
-    "doorProject": "Projeto",
-    "doorBusiness": "Negócio",
+    "socialTitle": "Me acompanhe",
+    "socialText": "Código, carreira e o dia a dia de quem constrói.",
     "sealNote": "Assinado"
   },
   "work": {
@@ -118,26 +119,17 @@
     "bobbioDescription": "Estou construindo o Bobbio, uma inteligência artificial voltada ao trabalho jurídico. É o projeto em que concentro meu desenvolvimento de produto em paralelo à experiência profissional.",
     "expertiseLabel": "Áreas de atuação"
   },
-  "now": {
-    "label": "Atualizado em {date}",
-    "title": "Agora",
-    "subtitle": "O que estou construindo e estudando este mês. Uma página que eu atualizo à mão.",
-    "items": [
-      {
-        "title": "Harness engineering",
-        "text": "Meu trabalho atual como engenheiro de software."
-      },
-      {
-        "title": "Meus negócios",
-        "text": "Construo meus próprios produtos, do primeiro commit ao primeiro cliente."
-      },
-      {
-        "title": "PUC-Rio",
-        "text": "Ciência da Computação, com bolsa por mérito."
-      }
-    ]
+  "books": {
+    "title": "Livros",
+    "subtitle": "Uma seleção pessoal de livros que vale a pena ler e revisitar.",
+    "emptyTitle": "As recomendações estão chegando.",
+    "emptyText": "Em breve, compartilho aqui os livros e por que cada um merece espaço na estante.",
+    "coverAlt": "Capa do livro {title}",
+    "allCategories": "Todos",
+    "filterCategories": "Filtrar por categoria"
   },
   "about": {
+    "photoAlt": "Antonio Vita diante da Fonte dos Quatro Rios, em Roma",
     "label": "Sobre",
     "title": "Engenheiro e fundador.",
     "subtitle": "Da primeira linha de Scratch em 2017 a produtos com clientes de verdade.",
@@ -249,8 +241,8 @@
     "title": "Artigos",
     "subtitle": "Textos sobre engenharia de software e sobre construir empresas.",
     "emptyTitle": "Os primeiros artigos estão a caminho.",
-    "emptyText": "Enquanto isso, veja o que estou construindo agora ou fale comigo.",
-    "emptyLink": "Ver o que estou construindo",
+    "emptyText": "Enquanto isso, explore meus livros recomendados ou fale comigo.",
+    "emptyLink": "Ver livros",
     "minRead": "{minutes} min de leitura",
     "back": "Todos os artigos",
     "published": "Publicado em {date}",

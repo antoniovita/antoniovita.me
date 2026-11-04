@@ -384,7 +384,199 @@
   }
 }
 
+/* Book covers: a thin physical volume, lifted off a soft display surface. */
+@keyframes book-hover {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Books page: a 3D book on a shelf that follows the pointer and opens its cover. */
+.bk-card {
+  -webkit-tap-highlight-color: transparent;
+}
+.bk-stage {
+  --d: 12px;
+  isolation: isolate;
+  overflow: hidden;
+  perspective: 1200px;
+}
+.bk-shadow {
+  position: absolute;
+  right: 24%;
+  bottom: calc(9% + 4px);
+  left: 24%;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  filter: blur(10px);
+}
+.bk-float {
+  position: absolute;
+  inset: 12% 21% 15%;
+  transform-style: preserve-3d;
+  animation: book-hover 5.5s ease-in-out infinite;
+}
+.bk-volume,
+.bk-cover {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.bk-back,
+.bk-page,
+.bk-cover-front,
+.bk-cover-inside {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px 6px 6px 2px;
+}
+.bk-back {
+  background: #161616;
+  transform: translateZ(calc(var(--d) * -1));
+  box-shadow: 18px 24px 40px -16px rgba(0, 0, 0, 0.55);
+}
+.bk-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--d);
+  background: linear-gradient(90deg, #111, #4a4a4a 45%, #111);
+  transform: rotateY(90deg);
+  transform-origin: left center;
+}
+.bk-edge {
+  position: absolute;
+  top: 3px;
+  right: 2px;
+  bottom: 3px;
+  width: calc(var(--d) - 2px);
+  background: repeating-linear-gradient(90deg, #f3f0e8 0 1px, #d9d4c7 1px 2px);
+  transform: rotateY(-90deg);
+  transform-origin: right center;
+}
+.bk-page {
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(90deg, #d8d3c6, #faf8f2 14%, #f4f1e9);
+  transform: translateZ(-3px);
+}
+.bk-cover {
+  z-index: 1;
+  transform-origin: left center;
+}
+.bk-cover-front {
+  overflow: hidden;
+  backface-visibility: hidden;
+  box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.bk-cover-front::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 6%, rgba(255, 255, 255, 0.14) 7.5%, transparent 10%);
+  pointer-events: none;
+}
+.bk-cover-inside {
+  background: linear-gradient(270deg, #cfc9ba, #ece8de 30%);
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+/* Boot screen: a terminal that types while the page loads. Progress comes from --p (0 to 1), set by BootScreen. */
+.boot {
+  --p: 0;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #0b0b0b;
+  color: #f5f5f5;
+  transition: opacity 500ms var(--ease-out-expo);
+}
+.boot[data-leaving] {
+  opacity: 0;
+  pointer-events: none;
+}
+html[data-booted] .boot {
+  display: none;
+}
+html:not([data-booted]) body {
+  overflow: hidden;
+}
+.boot-term {
+  display: grid;
+  width: min(520px, 100%);
+  gap: 6px;
+  font: 400 clamp(12px, 3.2vw, 14px) / 1.5 var(--font-mono);
+}
+.boot-term p {
+  margin: 0;
+}
+.boot-term i {
+  font-style: normal;
+  color: var(--grifo);
+}
+.boot-t {
+  overflow: hidden;
+  white-space: nowrap;
+  width: calc(var(--len) * 1ch * clamp(0, calc((var(--p) - var(--at)) / 0.14), 1));
+}
+.boot-dim {
+  color: #8e8e8e;
+}
+.boot-ok {
+  color: var(--grifo);
+}
+.boot-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: clamp(0, calc((var(--p) - 0.56) * 20), 1);
+}
+.boot-bar span {
+  flex: 1;
+  height: 5px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+.boot-bar span i {
+  display: block;
+  height: 100%;
+  background: var(--grifo);
+  transform-origin: left;
+  transform: scaleX(var(--p));
+}
+.boot-bar b {
+  min-width: 4ch;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.boot-bar b span {
+  all: unset;
+}
+.boot-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  background: #f5f5f5;
+  vertical-align: -0.2em;
+  animation: boot-blink 1s steps(1) infinite;
+}
+@keyframes boot-blink {
+  50% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .bk-float,
+  .boot-cursor {
+    animation: none;
+  }
   .holo-fill,
   .seal,
   .seal-ring,

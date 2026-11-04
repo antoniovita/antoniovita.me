@@ -8,6 +8,7 @@ export type ArticleText = {
   title: string;
   summary: string;
   body: string;
+  cover?: { src: string; alt: string };
 };
 
 export type Article = {
@@ -45,6 +46,17 @@ export function getArticles(): Article[] {
       throw new Error(`${file}: readingMinutes must be a positive integer`);
     }
     const categories = articleCategories(data.categories, file);
+    let cover: ArticleText["cover"];
+    if (data.cover !== undefined) {
+      if (typeof data.cover !== "string" || !/^(\/[^/]|https:\/\/)/.test(data.cover) ||
+          typeof data.coverAlt !== "string" || !data.coverAlt.trim()) {
+        throw new Error(`${file}: cover must be a public path or HTTPS URL and coverAlt must describe the image`);
+      }
+      if (data.cover.startsWith("/") && !existsSync(path.join(process.cwd(), "public", data.cover))) {
+        throw new Error(`${file}: cover image does not exist in public: ${data.cover}`);
+      }
+      cover = { src: data.cover, alt: data.coverAlt.trim() };
+    }
     const article: Article = grouped.get(slug) ?? {
       slug, date,
       readingMinutes: data.readingMinutes ?? Math.max(1, Math.ceil(content.trim().split(/\s+/).length / 200)),
@@ -53,7 +65,7 @@ export function getArticles(): Article[] {
     };
     if (article.date !== date) throw new Error(`${file}: translations must share the same date`);
     article.categories = [...new Map([...article.categories, ...categories].map((category) => [categoryId(category), category])).values()];
-    article.text[locale] = { title: data.title, summary: data.summary, body: content };
+    article.text[locale] = { title: data.title, summary: data.summary, body: content, cover };
     grouped.set(slug, article);
   }
   return [...grouped.values()].sort((a, b) => b.date.localeCompare(a.date));

@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/work", priority: 0.9 },
     { path: "/articles", priority: 0.8 },
     ...getArticles().map((a) => ({ path: `/articles/${a.slug}`, priority: 0.7 })),
-    { path: "/now", priority: 0.7 },
+    { path: "/books", priority: 0.7 },
     { path: "/about", priority: 0.8 },
     { path: "/contact", priority: 0.7 },
   ];

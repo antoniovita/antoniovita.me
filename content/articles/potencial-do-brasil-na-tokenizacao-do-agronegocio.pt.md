@@ -1,8 +1,10 @@
 ---
 title: "O Potencial do Brasil na Tokenização do Agronegócio"
 summary: "Como a tokenização de ativos do mundo real pode abrir novas formas de financiamento para o agronegócio brasileiro, com foco na pecuária, seus benefícios e desafios."
-date: "2026-11-01"
+date: "2026-03-05"
 categories: [economia, cripto]
+cover: "/articles/gado-tokenizacao-agronegocio.png"
+coverAlt: "Rebanho de gado em uma pastagem verde"
 draft: false
 ---
 

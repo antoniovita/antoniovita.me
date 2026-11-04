@@ -10,9 +10,9 @@
       "title": "Work",
       "description": "Antonio Vita’s experience at Parfin and BTG Pactual, and the development of Bobbio, a legal AI."
     },
-    "now": {
-      "title": "Now",
-      "description": "What Antonio Vita is building this month."
+    "books": {
+      "title": "Books",
+      "description": "Books recommended by Antonio Vita, with notes on each read."
     },
     "about": {
       "title": "About",
@@ -31,7 +31,7 @@
   "nav": {
     "home": "Home",
     "work": "Work",
-    "now": "Now",
+    "books": "Books",
     "about": "About",
     "contact": "Contact",
     "menu": "Menu",
@@ -56,18 +56,20 @@
     "switchTo": "View in {language}"
   },
   "home": {
-    "status": "Open to conversations · Rio de Janeiro",
+    "articlesTitle": "Latest articles",
+    "articlesAll": "All articles",
+    "status": "Open to conversations · Rio de Janeiro or remote",
     "h1a": "Software engineer.",
     "h1b": "Entrepreneur.",
     "tagline": "From first commit to first customer.",
     "bio": "I build products from scratch, from architecture to first customer. Today I work as a harness engineer and build my own businesses. I've worked at BTG Pactual and Parfin, and I study Computer Science at PUC-Rio.",
     "ctaWork": "See my work",
     "ctaContact": "Get in touch",
-    "portraitAlt": "Black and white portrait of Antonio Vita with his signature in blue",
-    "nowLabel": "Now",
-    "nowTitle": "Harness engineer and entrepreneur",
-    "nowText": "What I'm building this month, updated every month.",
-    "nowLink": "See what I'm building",
+    "portraitAlt": "Portrait of Antonio Vita with his signature",
+    "booksTitle": "Books I recommend",
+    "booksText": "Reading that shaped how I think and build.",
+    "booksEmpty": "I am putting together my reading recommendations.",
+    "booksLink": "Explore books",
     "baseLabel": "Base",
     "baseTitle": "Rio de Janeiro, Brazil",
     "baseNote": "Working remotely with anyone, anywhere.",
@@ -105,9 +107,8 @@
     "workLabel": "Experience and Bobbio",
     "workAll": "See all",
     "contactLabel": "Contact",
-    "contactTitle": "Got a project or a business idea?",
-    "doorProject": "Project",
-    "doorBusiness": "Business",
+    "socialTitle": "Follow along",
+    "socialText": "Code, career and the day to day of building.",
     "sealNote": "Signed"
   },
   "work": {
@@ -118,26 +119,17 @@
     "bobbioDescription": "I’m building Bobbio, an artificial intelligence for legal work. It is the focus of my product development alongside my professional experience.",
     "expertiseLabel": "Areas of expertise"
   },
-  "now": {
-    "label": "Updated {date}",
-    "title": "Now",
-    "subtitle": "What I'm building and studying this month. A page I update by hand.",
-    "items": [
-      {
-        "title": "Harness engineering",
-        "text": "My current work as a software engineer."
-      },
-      {
-        "title": "My businesses",
-        "text": "I build my own products, from first commit to first customer."
-      },
-      {
-        "title": "PUC-Rio",
-        "text": "Computer Science, on a merit scholarship."
-      }
-    ]
+  "books": {
+    "title": "Books",
+    "subtitle": "A personal selection of books worth reading and returning to.",
+    "emptyTitle": "Recommendations are coming.",
+    "emptyText": "Soon I will share the books here and why each one deserves a place on the shelf.",
+    "coverAlt": "Cover of {title}",
+    "allCategories": "All",
+    "filterCategories": "Filter by category"
   },
   "about": {
+    "photoAlt": "Antonio Vita in front of the Fountain of the Four Rivers in Rome",
     "label": "About",
     "title": "Engineer and founder.",
     "subtitle": "From a first line of Scratch in 2017 to products with real customers.",
@@ -249,8 +241,8 @@
     "title": "Articles",
     "subtitle": "Writing on software engineering and on building companies.",
     "emptyTitle": "The first articles are on their way.",
-    "emptyText": "In the meantime, see what I'm building now or get in touch.",
-    "emptyLink": "See what I'm building",
+    "emptyText": "In the meantime, explore my book recommendations or get in touch.",
+    "emptyLink": "Explore books",
     "minRead": "{minutes} min read",
     "back": "All articles",
     "published": "Published on {date}",

@@ -5,11 +5,12 @@ import { NextIntlClientProvider } from "next-intl";
 import "../globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import BootScreen from "@/components/BootScreen";
 import CommandPalette from "@/components/CommandPalette";
 import MotionRoot from "@/components/motion/MotionRoot";
 import { isLocale, locales, site, type Locale } from "@/data/site";
 import { getT, messagesByLocale } from "@/lib/i18n";
-import { themeInitScript } from "@/lib/theme";
+import { bootInitScript, themeInitScript } from "@/lib/theme";
 
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
 const sans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-plex-sans", display: "swap" });
@@ -51,7 +52,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     "@type": "Person",
     name: site.name,
     url: site.url,
-    image: `${site.url}/me.jpeg`,
+    image: `${site.url}/me.png`,
     jobTitle: t("meta.jobTitle"),
     email: `mailto:${site.email}`,
     address: { "@type": "PostalAddress", addressLocality: "Rio de Janeiro", addressCountry: "BR" },
@@ -64,8 +65,13 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     <html lang={locale} suppressHydrationWarning className={`${display.variable} ${sans.variable} ${mono.variable} ${hand.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: bootInitScript }} />
+        <noscript>
+          <style>{".boot{display:none!important}"}</style>
+        </noscript>
       </head>
       <body className="min-h-dvh overflow-x-clip pb-28">
+        <BootScreen />
         {/* Every prop is passed explicitly so the provider never needs next-intl's request config (static export). */}
         <NextIntlClientProvider locale={locale} messages={messagesByLocale[locale]} timeZone={site.location.timeZone} now={new Date()} formats={{}}>
           <a

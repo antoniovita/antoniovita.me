@@ -10,12 +10,12 @@ type PageMeta = {
   /** Use the title as is, without the "| Antonio Vita" suffix. */
   absoluteTitle?: boolean;
   noindex?: boolean;
+  image?: { url: string; alt: string };
 };
 
 const url = (locale: Locale, path: string) => `${site.url}/${locale}${path}/`;
 
-export function pageMetadata({ locale, path, title, description, absoluteTitle, noindex }: PageMeta): Metadata {
-  const image = { url: "/me.jpeg", alt: title };
+export function pageMetadata({ locale, path, title, description, absoluteTitle, noindex, image = { url: "/me.png", alt: title } }: PageMeta): Metadata {
   const languages = Object.fromEntries(locales.map((l) => [l, url(l, path)]));
 
   return {

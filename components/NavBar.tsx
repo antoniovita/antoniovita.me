@@ -12,7 +12,7 @@ import { useUi } from "./motion/MotionRoot";
 const items = [
   { key: "work", href: "/work" },
   { key: "articles", href: "/articles" },
-  { key: "now", href: "/now" },
+  { key: "books", href: "/books" },
   { key: "about", href: "/about" },
   { key: "contact", href: "/contact" },
 ] as const;

@@ -11,7 +11,7 @@ export default function Footer({ locale }: { locale: Locale }) {
   const links = [
     { href: "/work", label: t("nav.work") },
     { href: "/articles", label: t("nav.articles") },
-    { href: "/now", label: t("nav.now") },
+    { href: "/books", label: t("nav.books") },
     { href: "/about", label: t("nav.about") },
     { href: "/contact", label: t("nav.contact") },
   ];

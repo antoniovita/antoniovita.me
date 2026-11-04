@@ -34,7 +34,7 @@ O build gera o site estático em `out/`. O workflow em `.github/workflows/nextjs
 - `public/`: imagens, assinatura, currículo e mapas.
 - `data/theme.json`: tokens de cores; `npm run sync-theme` atualiza o CSS.
 
-As páginas principais são `/<idioma>/`, `/work/`, `/articles/`, `/now/`, `/about/` e `/contact/`. As rotas antigas `/projects/`, `/experience/` e `/services/` encaminham para as páginas atuais.
+As páginas principais são `/<idioma>/`, `/work/`, `/articles/`, `/books/`, `/about/` e `/contact/`. As rotas antigas `/now/`, `/projects/`, `/experience/` e `/services/` encaminham para as páginas atuais.
 
 ## Artigos
 

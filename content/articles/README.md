@@ -42,3 +42,22 @@ categories: [economia, cripto]
 As categorias aparecem no artigo e na listagem, que permite filtrar por tema. Apenas categorias com artigos publicados aparecem nos filtros. Um artigo pode pertencer a várias categorias. O campo é opcional: artigos antigos sem categorias continuam aparecendo em “Todos”.
 
 `economia`, `cripto` e `engenharia` já têm rótulos traduzidos nos três idiomas. Você também pode usar novos nomes, como `Inteligência Artificial`, sem editar código. Nas traduções do mesmo artigo, mantenha os mesmos identificadores; as categorias são compartilhadas entre os idiomas.
+
+## Imagens
+
+Coloque os arquivos em `public/articles/`. Para uma capa, adicione ao cabeçalho:
+
+```yaml
+cover: "/articles/minha-capa.jpg"
+coverAlt: "Descrição do que aparece na imagem"
+```
+
+A capa é opcional e aparece no topo do artigo, nas prévias da home e da listagem e no compartilhamento em redes sociais. Use preferencialmente uma imagem horizontal em proporção 16:9; as prévias recortam a imagem para preencher esse formato. `coverAlt` é obrigatório quando há capa. Caminhos locais devem apontar para arquivos existentes em `public/`; URLs HTTPS também são aceitas. Cada tradução pode ter sua própria capa e descrição.
+
+No corpo, use Markdown, deixando uma linha em branco antes e depois:
+
+```md
+![Gado em uma fazenda brasileira](/articles/rebanho.jpg)
+```
+
+Imagens no corpo mantêm suas proporções, se ajustam à largura do texto e carregam sob demanda. Descreva a imagem entre os colchetes para acessibilidade. Artigos sem imagens continuam funcionando normalmente.

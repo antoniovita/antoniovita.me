@@ -44,9 +44,9 @@ export default async function AboutPage({ params }: Params) {
         </Reveal>
         <Reveal delay={0.1} className="card overflow-hidden p-2">
           <div className="relative h-full min-h-[460px] overflow-hidden rounded-2xl md:rounded-[22px]">
-            <Image src="/me.jpeg" alt={t("home.portraitAlt")} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover contrast-[1.08] grayscale" />
+            <Image src="/about.jpeg" alt={t("about.photoAlt")} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover object-[center_75%] contrast-[1.08]" />
             <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(11,11,14,.6)_0%,rgba(11,11,14,0)_45%)]" />
-            <Signature className="sig-shadow absolute text-white bottom-[6%] left-[6%] w-[84%] -rotate-6" />
+            <Signature className="sig-shadow absolute text-white bottom-[6%] right-[6%] w-[55%] -rotate-6" />
           </div>
         </Reveal>
       </div>

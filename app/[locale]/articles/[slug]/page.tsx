@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PiArrowLeftBold } from "react-icons/pi";
 import ArticleEngagement from "@/components/ArticleEngagement";
+import ArticleCover from "@/components/ArticleCover";
 import TopBar from "@/components/TopBar";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitWords } from "@/components/motion/SplitWords";
@@ -28,7 +29,8 @@ export async function generateMetadata({ params }: Params) {
   const article = getArticle(slug);
   if (!isLocale(locale) || !article) return {};
   const text = articleText(article, locale);
-  return pageMetadata({ locale, path: `/articles/${slug}`, title: text.title, description: text.summary });
+  return pageMetadata({ locale, path: `/articles/${slug}`, title: text.title, description: text.summary,
+    image: text.cover ? { url: text.cover.src, alt: text.cover.alt } : undefined });
 }
 
 export default async function ArticlePage({ params }: Params) {
@@ -47,6 +49,7 @@ export default async function ArticlePage({ params }: Params) {
     headline: text.title,
     description: text.summary,
     datePublished: article.date,
+    image: text.cover ? new URL(text.cover.src, site.url).href : undefined,
     articleSection: article.categories.map((category) => categoryLabel(category, locale)),
     inLanguage: locale,
     author: { "@type": "Person", name: site.name, url: site.url },
@@ -61,25 +64,30 @@ export default async function ArticlePage({ params }: Params) {
           <PiArrowLeftBold size={13} />
           {t("articles.back")}
         </Link>
-        <h1 className="mt-12 max-w-[20ch] font-display text-[clamp(40px,6vw,84px)] font-bold leading-[0.95] tracking-[-0.024em] md:mt-16">
-          <SplitWords lines={[{ text: text.title, mark: "last" }]} />
-        </h1>
-        <Reveal delay={0.3}>
-          <p className="mt-6 max-w-[54ch] text-[19px] text-dim">{text.summary}</p>
-          <p className="mt-4 text-[14px] text-faint">
-            {t("articles.published", { date })} · {t("articles.minRead", { minutes: article.readingMinutes })}
-          </p>
-          {article.categories.length > 0 && (
-            <ul aria-label={t("articles.categoriesLabel")} className="mt-4 flex flex-wrap gap-2">
-              {article.categories.map((category) => (
-                <li key={category} className="chip text-[12px]">{categoryLabel(category, locale)}</li>
-              ))}
-            </ul>
-          )}
-          <ArticleEngagement key={slug} slug={slug} />
-        </Reveal>
+        <div className={`mt-10 grid items-center gap-8 md:mt-12 lg:gap-12 ${text.cover ? "lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]" : ""}`}>
+          <div className="min-w-0">
+            <h1 className="max-w-[20ch] font-display text-[clamp(36px,4.5vw,68px)] font-bold leading-[0.95] tracking-[-0.024em]">
+              <SplitWords lines={[{ text: text.title, mark: "last" }]} />
+            </h1>
+            <Reveal delay={0.3}>
+              <p className="mt-6 max-w-[54ch] text-[19px] text-dim">{text.summary}</p>
+              <p className="mt-4 text-[14px] text-faint">
+                {t("articles.published", { date })} · {t("articles.minRead", { minutes: article.readingMinutes })}
+              </p>
+              {article.categories.length > 0 && (
+                <ul aria-label={t("articles.categoriesLabel")} className="mt-4 flex flex-wrap gap-2">
+                  {article.categories.map((category) => (
+                    <li key={category} className="chip text-[12px]">{categoryLabel(category, locale)}</li>
+                  ))}
+                </ul>
+              )}
+              <ArticleEngagement key={slug} slug={slug} />
+            </Reveal>
+          </div>
+        {text.cover && <ArticleCover cover={text.cover} priority className="w-full lg:aspect-[6/5]" />}
+        </div>
       </header>
-      <Reveal className="card pad">
+      <div className="card pad">
         <div className="mx-auto grid max-w-[680px] gap-5 text-[18px] leading-[1.75]">
           <Markdown remarkPlugins={[remarkGfm]} components={{
           h1: ({ children }) => <h2 className="mt-6 font-display text-[36px] font-bold leading-tight">{children}</h2>,
@@ -91,6 +99,9 @@ export default async function ArticlePage({ params }: Params) {
           pre: ({ children }) => <pre className="overflow-x-auto rounded-2xl bg-fg p-5 font-mono text-[13.5px] leading-[1.7] text-surface">{children}</pre>,
           code: ({ children, className }) => <code className={className ?? "rounded bg-raised/20 px-1 font-mono text-[0.85em]"}>{children}</code>,
           a: ({ children, href }) => <a href={href} className="underline underline-offset-4">{children}</a>,
+          // Markdown images keep their natural proportions without requiring dimensions in the source.
+          // eslint-disable-next-line @next/next/no-img-element
+          img: ({ src, alt, title }) => <img src={src} alt={alt ?? ""} title={title} loading="lazy" decoding="async" className="my-4 h-auto max-w-full rounded-2xl" />,
           table: ({ children }) => <div className="overflow-x-auto"><table className="w-full border-collapse text-left text-[15px]">{children}</table></div>,
           th: ({ children }) => <th className="border-b border-current/20 p-3 font-semibold">{children}</th>,
           td: ({ children }) => <td className="border-b border-current/20 p-3">{children}</td>,
@@ -98,7 +109,7 @@ export default async function ArticlePage({ params }: Params) {
             {text.body}
           </Markdown>
         </div>
-      </Reveal>
+      </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
     </article>
   );

@@ -34,7 +34,7 @@ export default async function ArticlesPage({ params }: Params) {
           <h2 className="max-w-[18ch] font-display text-[clamp(32px,4.4vw,60px)] font-bold leading-[0.98] tracking-[-0.034em]">{t("articles.emptyTitle")}</h2>
           <div className="flex flex-wrap items-center justify-between gap-4">
             <p className="max-w-[46ch] text-dim">{t("articles.emptyText")}</p>
-            <Link href={`/${locale}/now/`} className="btn btn-primary">
+          <Link href={`/${locale}/books/`} className="btn btn-primary">
               {t("articles.emptyLink")}
               <PiArrowRightBold size={14} />
             </Link>
@@ -46,6 +46,7 @@ export default async function ArticlesPage({ params }: Params) {
             slug: article.slug,
             title: articleText(article, locale).title,
             summary: articleText(article, locale).summary,
+            cover: articleText(article, locale).cover,
             date: format.format(new Date(`${article.date}T12:00:00-03:00`)),
             readingMinutes: article.readingMinutes,
             categories: article.categories,
