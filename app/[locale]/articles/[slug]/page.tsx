@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PiArrowLeftBold } from "react-icons/pi";
 import ArticleEngagement from "@/components/ArticleEngagement";
+import ArticleShare from "@/components/ArticleShare";
 import ArticleCover from "@/components/ArticleCover";
 import TopBar from "@/components/TopBar";
 import { Reveal } from "@/components/motion/Reveal";
@@ -43,6 +44,8 @@ export default async function ArticlePage({ params }: Params) {
     new Date(`${article.date}T12:00:00-03:00`),
   );
 
+  const shareUrl = `${site.url}/${locale}/articles/${slug}/`;
+
   const ld = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -53,19 +56,19 @@ export default async function ArticlePage({ params }: Params) {
     articleSection: article.categories.map((category) => categoryLabel(category, locale)),
     inLanguage: locale,
     author: { "@type": "Person", name: site.name, url: site.url },
-    mainEntityOfPage: `${site.url}/${locale}/articles/${slug}/`,
+    mainEntityOfPage: shareUrl,
   };
 
   return (
     <article className="grid gap-2 md:gap-3">
-      <header className="card pad">
+      <header className="card pad z-10">
         <TopBar className="mb-8" />
         <Link href={`/${locale}/articles/`} className="btn btn-soft px-4 py-2.5 text-[14px]">
           <PiArrowLeftBold size={13} />
           {t("articles.back")}
         </Link>
         <div className={`mt-10 grid items-center gap-8 md:mt-12 lg:gap-12 ${text.cover ? "lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]" : ""}`}>
-          <div className="min-w-0">
+          <div className="relative z-10 min-w-0">
             <h1 className="max-w-[20ch] font-display text-[clamp(36px,4.5vw,68px)] font-bold leading-[0.95] tracking-[-0.024em]">
               <SplitWords lines={[{ text: text.title, mark: "last" }]} />
             </h1>
@@ -82,6 +85,7 @@ export default async function ArticlePage({ params }: Params) {
                 </ul>
               )}
               <ArticleEngagement key={slug} slug={slug} />
+              <ArticleShare url={shareUrl} title={text.title} className="mt-4" />
             </Reveal>
           </div>
         {text.cover && <ArticleCover cover={text.cover} priority className="w-full lg:aspect-[6/5]" />}
@@ -108,6 +112,10 @@ export default async function ArticlePage({ params }: Params) {
           }}>
             {text.body}
           </Markdown>
+        </div>
+        <div className="mx-auto mt-12 flex max-w-[680px] flex-wrap items-center justify-between gap-4 border-t border-line pt-6">
+          <p className="text-[15px] text-dim">{t("articles.share.prompt")}</p>
+          <ArticleShare url={shareUrl} title={text.title} placement="up" />
         </div>
       </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />

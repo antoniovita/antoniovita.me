@@ -44,10 +44,11 @@
     "articles": "Artigos"
   },
   "cmdk": {
-    "placeholder": "Ir para…",
+    "placeholder": "Buscar páginas e artigos…",
     "empty": "Nada encontrado",
     "hint": "↑ ↓ para navegar · Enter para abrir",
     "pages": "Páginas",
+    "articles": "Artigos",
     "actions": "Ações",
     "copyEmail": "Copiar e-mail",
     "copied": "E-mail copiado",
@@ -267,6 +268,13 @@
     },
     "categoriesLabel": "Categorias",
     "allCategories": "Todos",
-    "filterCategories": "Filtrar por categoria"
+    "filterCategories": "Filtrar por categoria",
+    "share": {
+      "label": "Compartilhar",
+      "copy": "Copiar link",
+      "copied": "Link copiado",
+      "menu": "Compartilhar artigo",
+      "prompt": "Gostou? Compartilhe com quem possa se interessar."
+    }
   }
 }

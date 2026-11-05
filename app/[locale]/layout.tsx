@@ -8,7 +8,9 @@ import Footer from "@/components/Footer";
 import BootScreen from "@/components/BootScreen";
 import CommandPalette from "@/components/CommandPalette";
 import MotionRoot from "@/components/motion/MotionRoot";
+import { articleText, getArticles } from "@/data/articles";
 import { isLocale, locales, site, type Locale } from "@/data/site";
+import { categoryLabel } from "@/lib/article-categories";
 import { getT, messagesByLocale } from "@/lib/i18n";
 import { bootCss, bootInitScript } from "@/lib/boot";
 import { themeInitScript } from "@/lib/theme";
@@ -47,6 +49,13 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   if (!isLocale(raw)) notFound();
   const locale: Locale = raw;
   const t = getT(locale);
+
+  // Titles, summaries and categories only (no body), so every page stays light; the search uses them to find articles.
+  const searchArticles = getArticles().map((article) => {
+    const text = articleText(article, locale);
+    const categories = article.categories.map((category) => categoryLabel(category, locale));
+    return { slug: article.slug, title: text.title, hint: categories.join(" · "), keywords: `${text.summary} ${categories.join(" ")}` };
+  });
 
   const person = {
     "@context": "https://schema.org",
@@ -88,7 +97,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
           </a>
           <MotionRoot>
             <NavBar />
-            <CommandPalette />
+            <CommandPalette articles={searchArticles} />
             <main id="content" className="frame pt-2 md:pt-3">
               {children}
             </main>

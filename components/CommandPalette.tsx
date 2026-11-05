@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   PiArrowRightBold,
+  PiArticleBold,
   PiCopyBold,
   PiFileArrowDownBold,
   PiGlobeSimpleBold,
@@ -18,7 +19,8 @@ import { cn } from "@/lib/cn";
 import { useUi } from "./motion/MotionRoot";
 import { swapLocale } from "./NavBar";
 
-type Command = { id: string; group: string; title: string; hint?: string; icon: React.ReactNode; run: () => void };
+type Command = { id: string; group: string; title: string; hint?: string; keywords?: string; icon: React.ReactNode; run: () => void };
+export type SearchArticle = { slug: string; title: string; hint: string; keywords: string };
 
 const languageNames: Record<Locale, string> = { en: "English", pt: "Português", it: "Italiano" };
 
@@ -31,7 +33,7 @@ function isTyping(target: EventTarget | null) {
   return !!el && (el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName));
 }
 
-export default function CommandPalette() {
+export default function CommandPalette({ articles = [] }: { articles?: SearchArticle[] }) {
   const t = useTranslations("cmdk");
   const nav = useTranslations("nav");
   const locale = useLocale() as Locale;
@@ -53,6 +55,15 @@ export default function CommandPalette() {
       { id: "books", group: t("pages"), title: nav("books"), icon: page, run: go("/books") },
       { id: "about", group: t("pages"), title: nav("about"), icon: page, run: go("/about") },
       { id: "contact", group: t("pages"), title: nav("contact"), icon: page, run: go("/contact") },
+      ...articles.map((article) => ({
+        id: `article-${article.slug}`,
+        group: t("articles"),
+        title: article.title,
+        hint: article.hint,
+        keywords: article.keywords,
+        icon: <PiArticleBold size={15} />,
+        run: go(`/articles/${article.slug}`),
+      })),
       {
         id: "email",
         group: t("actions"),
@@ -90,12 +101,12 @@ export default function CommandPalette() {
           run: () => router.push(swapLocale(pathname, l)),
         })),
     ];
-  }, [locale, nav, pathname, router, t]);
+  }, [articles, locale, nav, pathname, router, t]);
 
   const filtered = useMemo(() => {
     const q = normalize(query.trim());
     if (!q) return commands;
-    return commands.filter((c) => normalize(`${c.title} ${c.hint ?? ""} ${c.group}`).includes(q));
+    return commands.filter((c) => normalize(`${c.title} ${c.hint ?? ""} ${c.keywords ?? ""} ${c.group}`).includes(q));
   }, [commands, query]);
 
   // Shortcuts: "/" anywhere, or Ctrl/Cmd + K. Not advertised in the UI.

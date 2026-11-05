@@ -44,10 +44,11 @@
     "articles": "Articles"
   },
   "cmdk": {
-    "placeholder": "Go to…",
+    "placeholder": "Search pages and articles…",
     "empty": "Nothing found",
     "hint": "↑ ↓ to move · Enter to open",
     "pages": "Pages",
+    "articles": "Articles",
     "actions": "Actions",
     "copyEmail": "Copy email",
     "copied": "Email copied",
@@ -267,6 +268,13 @@
     },
     "categoriesLabel": "Categories",
     "allCategories": "All",
-    "filterCategories": "Filter by category"
+    "filterCategories": "Filter by category",
+    "share": {
+      "label": "Share",
+      "copy": "Copy link",
+      "copied": "Link copied",
+      "menu": "Share article",
+      "prompt": "Enjoyed this? Share it with someone who might find it useful."
+    }
   }
 }
