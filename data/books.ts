@@ -73,6 +73,22 @@ export const books: Book[] = [
       it: "Un breve saggio su cos'è lo Stato e come cresce.",
     },
   },
+  {
+    title: "Dinero, crédito bancario y ciclos económicos",
+    titles: {
+      pt: "Moeda, Crédito Bancário e Ciclos Econômicos",
+      en: "Money, Bank Credit, and Economic Cycles",
+      it: "Denaro, credito bancario e cicli economici",
+    },
+    author: "Jesús Huerta de Soto",
+    cover: "/books/money-bank-credit.png",
+    categories: ["Economia", "Cripto"],
+    recommendation: {
+      pt: "Uma crítica às reservas fracionárias e ao crédito bancário como origem dos ciclos econômicos.",
+      en: "A critique of fractional-reserve banking and bank credit as the source of economic cycles.",
+      it: "Una critica alla riserva frazionaria e al credito bancario come origine dei cicli economici.",
+    },
+  },
 ];
 
 export function bookTitle(book: Book, locale: Locale): string {
