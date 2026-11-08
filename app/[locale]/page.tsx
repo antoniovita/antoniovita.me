@@ -3,6 +3,7 @@ import BookCard from "@/components/BookCard";
 import ArticleCover from "@/components/ArticleCover";
 import { notFound } from "next/navigation";
 import { PiArrowRightBold, PiArrowUpRightBold, PiGithubLogoBold, PiInstagramLogoBold, PiLinkedinLogoBold } from "react-icons/pi";
+import { BsSubstack } from 'react-icons/bs';
 import Portrait from "@/components/Portrait";
 import TopBar from "@/components/TopBar";
 import GlobeLazy from "@/components/GlobeLazy";
@@ -37,6 +38,7 @@ export default async function Home({ params }: Params) {
     { href: site.github, label: "GitHub", handle: site.github.replace("https://github.com/", "@"), Icon: PiGithubLogoBold },
     { href: site.linkedin, label: "LinkedIn", handle: site.name, Icon: PiLinkedinLogoBold },
     { href: site.instagram, label: "Instagram", handle: site.instagramHandle, Icon: PiInstagramLogoBold },
+    { href: site.substack, label: "Substack", handle: site.substackHandle, Icon: BsSubstack },
   ];
   const lat = Math.abs(site.location.lat).toFixed(2);
   const lng = Math.abs(site.location.lng).toFixed(2);

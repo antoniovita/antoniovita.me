@@ -89,6 +89,41 @@ export const books: Book[] = [
       it: "Una critica alla riserva frazionaria e al credito bancario come origine dei cicli economici.",
     },
   },
+  {
+    title: "AI Engineering",
+    titles: { pt: "Engenharia de IA", it: "Ingegneria dell'IA" },
+    author: "Chip Huyen",
+    cover: "/books/ai-eng.png",
+    categories: ["IA", "Engenharia"],
+    recommendation: {
+      pt: "Como construir aplicações com modelos de IA.",
+      en: "How to build applications with AI models.",
+      it: "Come costruire applicazioni con modelli di IA.",
+    },
+  },
+  {
+    title: "Competente o Suficiente",
+    titles: { en: "Competent Enough", it: "Abbastanza competente" },
+    author: "Fábio Akita",
+    cover: "/books/competente.png",
+    categories: ["IA", "Engenharia"],
+    recommendation: {
+      pt: "Uma visão da IA sem medo e sem propaganda.",
+      en: "A look at AI without fear or hype.",
+      it: "Uno sguardo sull'IA senza paura né propaganda.",
+    },
+  },
+  {
+    title: "Mastering Ethereum",
+    author: "Andreas M. Antonopoulos, Gavin Wood, Carlo Parisi, Alessandro Mazza e Niccolò Pozzolini",
+    cover: "/books/mastering-eth.png",
+    categories: ["Cripto", "Engenharia"],
+    recommendation: {
+      pt: "Ethereum e contratos inteligentes, da base à implementação.",
+      en: "Ethereum and smart contracts, from basics to implementation.",
+      it: "Ethereum e smart contract, dalle basi all'implementazione.",
+    },
+  },
 ];
 
 export function bookTitle(book: Book, locale: Locale): string {

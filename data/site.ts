@@ -9,6 +9,8 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/antonio-vita-6177922b7/",
   instagram: "https://www.instagram.com/antn.vita/",
   instagramHandle: "@antn.vita",
+  substack: "https://antoniovita.substack.com/",
+  substackHandle: "@antoniovita",
   cv: "/cv.pdf",
   location: {
     city: "Rio de Janeiro",
